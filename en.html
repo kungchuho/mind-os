@@ -207,6 +207,12 @@
   table.grid th:first-child,table.grid td:first-child{width:17%}
   .mark{background:linear-gradient(transparent 62%, rgba(177,112,31,.28) 62%);padding:0 1px}
   @media print{.mark{background:none;text-decoration:underline;text-decoration-color:#b1701f;text-underline-offset:3px}}
+  .langsw{position:fixed;top:14px;right:14px;z-index:50;display:flex;border-radius:999px;overflow:hidden;box-shadow:0 4px 14px -6px rgba(17,24,39,.45);font:700 13px/1 "Helvetica Neue",Arial,"Noto Sans TC",sans-serif}
+  .langsw a,.langsw span{padding:8px 13px;text-decoration:none}
+  .langsw span{background:#0B3C78;color:#fff}
+  .langsw a{background:#fff;color:#0B3C78}
+  .langsw a:hover{background:#D6ECFA}
+  @media print{.langsw{display:none}}
   .theend{font-family:var(--serif);font-style:italic;color:var(--sepia);letter-spacing:.3em;margin-top:30px}
   @media(max-width:640px){.hero{padding:34px 22px}.hero h1{font-size:34px}h2.sec{font-size:22px}body{font-size:17px}}
   :root{--serif:"Iowan Old Style","Palatino Linotype","Georgia","Noto Serif TC",serif}
@@ -214,6 +220,7 @@
 </style>
 </head>
 <body>
+<nav class="langsw" aria-label="Language 語言"><a href="index.html" lang="zh-Hant" hreflang="zh-Hant">中文</a><span>EN</span></nav>
 <div class="wrap">
 
   <header class="hero">

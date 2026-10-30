@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The OS in Our Heads: Why Ideas Outlive Institutions</title>
+<meta name="description" content="Taiwan and China have had opposite political systems for seventy-seven years, yet their academic worlds score scholars the same way. Why do reforms keep returning to the scoring sheet? An essay on why ideas outlive institutions.">
+<meta name="author" content="Kung-Chu Ho, MD, PhD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The OS in Our Heads: Why Ideas Outlive Institutions">
+<meta property="og:description" content="Institutions are the clothes; ideas are the body that wears them. From Song-dynasty sealed exam papers to today's scoring sheets.">
+<meta property="og:locale" content="en_US"><link rel="alternate" hreflang="zh-Hant" href="index.html"><link rel="alternate" hreflang="en" href="en.html">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f1e7; --paper-2:#fbf8f1; --ink:#24211c; --ink-soft:#4a463d;
+    --teal:#0f5f59; --teal-deep:#0a423e; --amber:#b1701f; --sepia:#9a7b3f;
+    --rule:#d9cfba;
+    --shadow:0 1px 0 rgba(0,0,0,.04), 0 18px 40px -28px rgba(20,16,8,.5);
+    --serif:"Noto Serif CJK TC","Songti TC","STSong","Iowan Old Style","Palatino Linotype","Georgia",serif;
+    --cjk:"Noto Sans CJK TC","PingFang TC","Noto Sans TC","Microsoft JhengHei","Heiti TC",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, #fff8ec 0%, transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, #eef3ec 0%, transparent 55%),
+      var(--paper);
+    color:var(--ink); font-family:var(--cjk); line-height:1.95; font-size:18px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:64px 26px 120px}
+
+  .hero{border:1px solid var(--rule);border-radius:18px;
+    background:linear-gradient(180deg,var(--paper-2),#f3ecdd);
+    padding:48px 40px 42px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .hero .eyebrow{font-size:13px;letter-spacing:.32em;color:var(--amber);text-transform:uppercase;font-weight:700;margin-bottom:14px}
+  .hero h1{font-family:var(--serif);font-weight:700;font-size:44px;line-height:1.3;margin:0 0 8px;color:var(--teal-deep);letter-spacing:.02em}
+  .hero h1 .e{font-style:italic;color:var(--amber)}
+  .hero .h1sub{font-family:var(--serif);font-size:20px;color:var(--ink-soft);margin:0 0 18px;font-style:italic}
+  .hero p.sub{margin:0;color:var(--ink-soft);font-size:16.5px;max-width:62ch}
+  .hero .orb{position:absolute;right:-70px;top:-70px;width:230px;height:230px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, #1c8079, #0a423e 70%);opacity:.10}
+  .hero .coverart{display:flex;justify-content:center;margin:22px 0 10px}
+  .hero .coverart svg{width:280px;height:280px;max-width:64%}
+  .hero .byline{margin-top:24px;padding-top:16px;border-top:1px solid var(--rule);font-family:var(--serif);color:var(--ink-soft);font-size:15.5px;line-height:1.75}
+  .hero .byline .en{display:block;font-style:italic;font-size:12.5px;color:#8a8369;margin-top:4px;letter-spacing:.01em}
+  .preface .who{font-family:var(--serif);font-style:italic;color:var(--sepia)}
+  .reading{border:1px solid var(--rule);border-radius:13px;background:var(--paper-2);padding:18px 24px}
+  .reading li{margin:10px 0}
+  .reading .bk{font-family:var(--serif);font-style:italic;color:var(--teal-deep)}
+  .coda{margin-top:64px;text-align:center}
+  .coda .theend{font-family:var(--serif);font-style:italic;color:var(--sepia);letter-spacing:.3em;margin-top:20px}
+
+  nav.toc{margin:34px 0 8px;border:1px solid var(--rule);border-radius:14px;background:var(--paper-2);padding:22px 26px}
+  nav.toc h2{font-family:var(--serif);font-size:17px;margin:0 0 12px;color:var(--teal-deep);letter-spacing:.04em}
+  nav.toc ul{margin:0;padding-left:0;list-style:none;columns:2;column-gap:34px}
+  nav.toc li{margin:5px 0;break-inside:avoid;display:flex;align-items:baseline}
+  nav.toc li.part{display:block}
+  nav.toc .pg{margin-left:auto;padding-left:8px;color:var(--sepia);font-family:var(--serif);font-style:italic;font-size:13px;flex:none}
+  nav.toc li .nm{color:var(--amber);font-family:var(--serif);font-style:italic;margin-right:6px}
+  nav.toc a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid transparent}
+  nav.toc a:hover{color:var(--teal);border-bottom-color:var(--teal)}
+  nav.toc .part{font-weight:700;color:var(--amber);margin-top:12px;font-size:14px;letter-spacing:.05em}
+  @media(max-width:640px){nav.toc ul{columns:1}}
+
+  section{margin-top:60px}
+  .part-divider{text-align:center;margin:74px 0 0;padding-bottom:4px}
+  .part-divider + section{margin-top:30px}
+  .part-divider .pp{font-family:var(--serif);font-style:italic;color:var(--amber);letter-spacing:.22em;font-size:18px}
+  .part-divider .pt{font-family:var(--serif);font-size:34px;color:var(--teal-deep);margin-top:10px;line-height:1.35}
+  .part-tag{display:inline-block;font-family:var(--serif);font-style:italic;color:var(--amber);font-size:15px;letter-spacing:.1em;margin-bottom:6px}
+  h2.sec{font-family:var(--serif);font-size:26px;color:var(--teal-deep);margin:0 0 8px;line-height:1.4;font-weight:700;display:flex;align-items:baseline;gap:14px}
+  h2.sec .no{font-style:italic;color:var(--amber);font-size:21px;flex:none}
+  h3{font-family:var(--serif);font-size:20px;color:var(--teal-deep);margin:34px 0 6px}
+  p{margin:14px 0}
+  .lead{color:var(--ink-soft)}
+  strong{color:var(--teal-deep)}
+  em.term{font-style:normal;font-weight:700;color:var(--amber)}
+  hr.div{border:none;border-top:1px solid var(--rule);margin:52px 0}
+
+  .box{border-radius:13px;padding:20px 24px;margin:24px 0;border:1px solid var(--rule);background:var(--paper-2)}
+  .box .label{font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .intuition{background:linear-gradient(180deg,#eef5f1,#e8f1ec);border-color:#bcd8cd}
+  .intuition .label{color:var(--teal)}
+  .experiment{background:linear-gradient(180deg,#fbf2e1,#f7ead2);border-color:#e7cfa3}
+  .experiment .label{color:var(--amber)}
+  .detective{background:#23211c;color:#f1ebdc;border-color:#23211c}
+  .detective .label{color:#e6b25e}
+  .detective strong{color:#f6d99a}
+  .pitfall{background:#fbeeec;border-color:#e7c2bb}
+  .pitfall .label{color:#a8442f}
+  .history{background:linear-gradient(180deg,#f7efe0,#f1e6d0);border-color:#dcc9a3;border-left:5px solid var(--sepia)}
+  .history .label{color:var(--sepia)}
+  .history .who{font-family:var(--serif);font-style:italic;color:#6a4f1f}
+
+  .keyeq{border:1px solid var(--teal);border-left:5px solid var(--teal);
+    background:linear-gradient(180deg,#ffffff,#f3f7f4);border-radius:12px;padding:6px 22px;margin:26px 0;
+    box-shadow:0 14px 30px -26px rgba(15,95,89,.7)}
+  .keyeq .cap{font-size:12.5px;letter-spacing:.16em;color:var(--amber);font-weight:800;text-transform:uppercase;margin:14px 0 -4px}
+
+  .tbl-wrap{overflow-x:auto;margin:22px 0}
+  table{border-collapse:collapse;width:100%;font-size:15.5px;background:var(--paper-2)}
+  caption{caption-side:top;text-align:left;font-size:13px;color:var(--ink-soft);margin-bottom:8px;font-style:italic}
+  th,td{border:1px solid var(--rule);padding:9px 12px;text-align:center}
+  td.field{text-align:left}
+  td.hot{color:var(--amber);font-weight:700}
+  thead th{background:var(--teal-deep);color:#f3ecdd;font-weight:600;letter-spacing:.02em}
+  tbody tr:nth-child(even){background:#f1ead9}
+
+  figure{margin:28px 0;text-align:center}
+  figure svg{max-width:100%;height:auto}
+  figcaption{font-size:13.5px;color:var(--ink-soft);margin-top:10px;font-style:italic}
+  .figcard{border:1px solid var(--rule);border-radius:13px;background:var(--paper-2);padding:18px}
+
+  ol.steps{counter-reset:s;list-style:none;padding:0;margin:22px 0}
+  ol.steps>li{position:relative;padding:4px 0 4px 52px;margin:18px 0}
+  ol.steps>li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:2px;width:34px;height:34px;border-radius:50%;
+    background:var(--teal);color:#fff;font-family:var(--serif);font-style:italic;display:flex;align-items:center;justify-content:center;font-size:17px}
+  ol.steps>li b{color:var(--teal-deep)}
+
+  .timeline{border-left:3px solid var(--rule);margin:24px 0 24px 8px;padding-left:22px}
+  .timeline .t{position:relative;margin:16px 0}
+  .timeline .t::before{content:"";position:absolute;left:-30px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 3px var(--paper)}
+  .timeline .yr{font-family:var(--serif);font-style:italic;color:var(--amber);font-weight:700;margin-right:8px}
+
+  footer{margin-top:80px;border-top:1px solid var(--rule);padding-top:24px;color:var(--ink-soft);font-size:14px;text-align:center}
+
+  @page{ size:A4; margin:14mm 14mm 16mm; }
+  @media print{
+    body{background:#fff;font-size:12.2pt;line-height:1.78}
+    .wrap{max-width:100%;padding:0}
+    .hero,.box,.keyeq,nav.toc,table,.figcard{box-shadow:none}
+    .hero{break-after:page}
+    #preface{break-after:page}
+    .orb{display:none}
+    .part-divider{break-before:page;break-after:page;break-inside:avoid;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:235mm;margin:0;padding:0}
+    .part-divider + section{margin-top:0}
+    .coda{break-inside:avoid;margin-top:36px}
+    #reading{break-before:page}
+    h2.sec,h3{break-after:avoid}
+    figure,.keyeq,.box,table,.tbl-wrap{break-inside:avoid}
+    nav.toc{break-after:page}
+    a{color:inherit}
+  }
+
+
+  .dl-bar{border:1px solid var(--rule);border-radius:12px;
+    background:var(--paper-2);margin:40px 0 0;padding:14px 20px}
+  .dl-bar-inner{display:flex;align-items:center;gap:16px}
+  .dl-icon{width:32px;height:32px;flex-shrink:0;color:var(--teal)}
+  .dl-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+  .dl-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:700}
+  .dl-title{font-size:14px;color:var(--ink);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dl-btn{display:inline-flex;align-items:center;gap:6px;flex-shrink:0;
+    padding:8px 18px;border-radius:8px;border:1.5px solid var(--teal);
+    background:transparent;color:var(--teal);
+    font-size:14px;font-weight:700;text-decoration:none;transition:background .15s,color .15s}
+  .dl-btn:hover{background:var(--teal);color:#fff}
+
+
+  :root{--serif:"Noto Serif CJK TC","Noto Serif TC","Songti TC","STSong","Iowan Old Style","Palatino Linotype","Georgia",serif;--cjk:"Noto Sans CJK TC","Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sans-serif;}
+  .hero .coverart svg{width:260px;height:260px}
+  .keyeq p{margin:14px 0}
+  .figcard{background:#fff!important;border-color:#e5e7eb!important;box-shadow:0 10px 30px -22px rgba(30,40,80,.45)}
+  figure.figcard figcaption{color:#374151;font-style:normal;text-align:left;font-size:13.5px;line-height:1.7;font-family:var(--cjk)}
+  figure.figcard figcaption b{color:#111827}
+  figure.vabs figcaption{text-align:center!important}
+  .abstract-page{margin-top:34px}
+  .abstract-page figure.vabs{margin:0 0 22px;padding:14px}
+
+  @media print{
+    .part-divider{break-before:page!important;break-after:auto!important;min-height:0!important;display:block!important;margin:0 0 6mm!important;padding:0!important;text-align:center}
+    .part-divider + section{margin-top:0!important}
+    #prologue{break-before:page}
+    .abstract-page{break-after:page}
+    .abstract-page figure.vabs{break-after:page;break-inside:avoid}
+    figure.vabs svg{max-width:150mm!important}
+    .abstract-page figure.vabs{padding:6mm 6mm 4mm!important;margin:0!important}
+    .abstract-page{margin-top:0!important}
+    .vabs-banner{max-width:120mm!important;break-inside:avoid;padding:10px 14px!important}
+    .tldr{break-inside:avoid;margin-top:0}
+    #reading,#sources{break-before:page}
+  }
+
+  figure.vabs{margin:24px 0 18px}
+  figure.vabs svg{width:100%;max-width:560px;height:auto;display:block;margin:0 auto}
+  .vabs-banner{max-width:560px;margin:14px auto 0;background:linear-gradient(180deg,#1F5FB0,#0B3C78);color:#fff;border-radius:12px;padding:16px 18px;text-align:center;box-shadow:0 6px 16px -8px rgba(23,54,160,.6)}
+  .vabs-banner strong{display:block;color:#F0E442;font-size:19px;line-height:1.5}
+  .vabs-banner span{display:block;font-size:14.5px;margin-top:6px;line-height:1.6}
+  figure.vabs figcaption{text-align:center;font-style:normal;letter-spacing:.2em;color:var(--amber);font-size:12px;margin-top:8px}
+  .tldr{margin-top:28px}
+  ol.tldr-list{margin:0;padding-left:22px}
+  ol.tldr-list li{margin:7px 0;line-height:1.8}
+  ol.tldr-list a{color:var(--teal);text-decoration:none;font-weight:700;white-space:nowrap;margin-left:4px}
+  table.grid td.knot{background:#fbeeec}
+  table.grid td.key{background:#eef5f1}
+  table.grid tbody tr:nth-child(even) td.knot{background:#f8e6e3}
+  table.grid tbody tr:nth-child(even) td.key{background:#e6f0ea}
+  table.grid th:first-child,table.grid td:first-child{width:17%}
+  .mark{background:linear-gradient(transparent 62%, rgba(177,112,31,.28) 62%);padding:0 1px}
+  @media print{.mark{background:none;text-decoration:underline;text-decoration-color:#b1701f;text-underline-offset:3px}}
+  .theend{font-family:var(--serif);font-style:italic;color:var(--sepia);letter-spacing:.3em;margin-top:30px}
+  @media(max-width:640px){.hero{padding:34px 22px}.hero h1{font-size:34px}h2.sec{font-size:22px}body{font-size:17px}}
+  :root{--serif:"Iowan Old Style","Palatino Linotype","Georgia","Noto Serif TC",serif}
+  body{font-family:var(--serif)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="orb"></div>
+    <div class="eyebrow">An archaeology of ideas across two thousand years</div>
+    <h1>The <span class="e">OS</span> in Our Heads</h1>
+    <p class="h1sub">Why Ideas Outlive Institutions</p>
+    <p class="sub"><strong>A Japanese scientist has won the Nobel Prize. Again.</strong></p>
+    <p class="sub" style="margin-top:12px">In October 2026, Kenso Soai, professor emeritus at the Tokyo University of Science, shared the Nobel Prize in Chemistry with Henri Kagan of France. Soai's work touches a question that sounds almost useless: why do the molecules of life use only one "handedness"? His key experiment was published in 1995. It took thirty years to reach Stockholm. I could not help wondering how many promotion reviews that question would have survived in Taiwan or in China.</p>
+    <p class="sub" style="margin-top:12px">In both places, many professors will tell you privately that a scholar's worth cannot be read off a publication count. Then they walk into the committee room, open the scoring sheet, and rank candidates by points.</p>
+    <p class="sub" style="margin-top:12px">A thousand years ago, examiners in Song-dynasty China began sealing the candidates' names on their exam papers, so that only the paper was judged, never the person. A thousand years later, we convert scholars into points, and again judge the score rather than the person. Why can't the smartest people, who know the rules are flawed, step outside them?</p>
+    <div class="byline">Kung-Chu Ho ｜ October 2026<span class="en">International edition of 「腦袋裡的 OS」 · <a href="index.html" style="color:inherit">中文完整版</a></span></div>
+  </header>
+
+  <div class="abstract-page">
+  <figure class="vabs figcard"><svg style="font-family:\'Helvetica Neue\',Helvetica,Arial,\'Noto Sans TC\',\'PingFang TC\',\'Microsoft JhengHei\',sans-serif" viewBox="0 0 640 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="圖解摘要 Visual abstract: a thousand years, one choice"><defs><filter id="sh1" x="-10%" y="-10%" width="125%" height="140%"><feDropShadow dx="0" dy="2.4" stdDeviation="2.6" flood-color="#111827" flood-opacity="0.24"/></filter><linearGradient id="g1_F5D7BF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7DFCD"/><stop offset="1" stop-color="#EFBF99"/></linearGradient><linearGradient id="g1_111827" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2F426C"/><stop offset="1" stop-color="#0F1523"/></linearGradient><linearGradient id="g1_F4C7D9" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6D3E1"/><stop offset="1" stop-color="#ECA1BF"/></linearGradient></defs>
+<text x="320" y="44" font-size="26" fill="#C04A00" font-weight="700" text-anchor="middle">A thousand years, one choice</text>
+<rect filter="url(#sh1)" x="40" y="70" width="250" height="262" rx="5" fill="url(#g1_F5D7BF)" stroke="#D55E00"/>
+<text x="165" y="102" font-size="18" fill="#111827" font-weight="700" text-anchor="middle">992 · Song dynasty</text>
+<rect x="88" y="120" width="154" height="150" rx="4" fill="#ffffff" stroke="#9CA3AF" stroke-width="1.5"/>
+<rect filter="url(#sh1)" x="88" y="120" width="154" height="34" rx="4" fill="url(#g1_111827)"/>
+<text x="165" y="143" font-size="14" fill="#ffffff" font-weight="700" text-anchor="middle">NAME SEALED</text>
+<g fill="#D1D5DB"><rect x="104" y="170" width="122" height="7" rx="3"/><rect x="104" y="186" width="110" height="7" rx="3"/><rect x="104" y="202" width="122" height="7" rx="3"/><rect x="104" y="218" width="96" height="7" rx="3"/><rect x="104" y="234" width="116" height="7" rx="3"/><rect x="104" y="250" width="80" height="7" rx="3"/></g>
+<text x="165" y="306" font-size="15.5" fill="#111827" text-anchor="middle">Hide the candidate's name</text>
+<text x="320" y="218" font-size="42" fill="#C04A00" font-weight="700" text-anchor="middle">≈</text>
+<rect filter="url(#sh1)" x="350" y="70" width="250" height="262" rx="5" fill="url(#g1_F4C7D9)" stroke="#CC79A7"/>
+<text x="475" y="102" font-size="18" fill="#111827" font-weight="700" text-anchor="middle">Today · Taiwan, China</text>
+<rect x="398" y="120" width="154" height="150" rx="4" fill="#ffffff" stroke="#9CA3AF" stroke-width="1.5"/>
+<g font-size="14" fill="#374151"><text x="414" y="152">Journal tier</text><text x="414" y="180">Author position</text><text x="414" y="208">Paper count</text></g>
+<g font-size="14" fill="#00785A" font-weight="700"><text x="540" y="152" text-anchor="end">✓</text><text x="540" y="180" text-anchor="end">✓</text><text x="540" y="208" text-anchor="end">✓</text></g>
+<line x1="408" y1="226" x2="542" y2="226" stroke="#9CA3AF"/>
+<text x="475" y="254" font-size="15" fill="#B2182B" font-weight="700" text-anchor="middle">→ Points</text>
+<text x="475" y="306" font-size="15.5" fill="#111827" text-anchor="middle">Turn scholars into points</text>
+<text x="320" y="378" font-size="24" fill="#B2182B" font-weight="700" text-anchor="middle">Judge the paper, not the person</text>
+<text x="320" y="410" font-size="14" fill="#374151" text-anchor="middle">Institutions changed for a thousand years; this choice did not</text>
+</svg><div class="vabs-banner"><strong>Institutions are the clothes; ideas are the body that wears them.</strong><span>America's rules can be copied; the trust beneath them cannot.</span></div><figcaption>Visual Abstract</figcaption></figure>
+  <aside class="box intuition tldr" id="tldr">
+    <div class="label">▸ The essay in brief</div>
+    <p style="margin:0 0 10px;font-size:18px"><strong>Institutions are the clothes; ideas are the body that wears them. Scoring sheets arose for many reasons. But why they cannot be abolished, why every reform ends up back where it started, is, I argue, mainly a matter of ideas.</strong></p>
+    <ol class="tldr-list">
+      <li><b>The puzzle:</b> Taiwan and China have had opposite political systems for seventy-seven years, yet their academic worlds look alike: the same scoring sheet, the same title chase, the same industrial strength, the same Nobel gap. <a href="#c1">§1 →</a></li>
+      <li><b>Not just institutions:</b> American scientists also count papers and chase grants, yet people, not points, make the final call. <a href="#c2">§2 →</a></li>
+      <li><b>The source code:</b> Confucian ethics is built on five relationships, and the stranger has no place among them. Impartial judgment of a stranger was a rare virtue, not an ordinary duty. <a href="#c3">§3 →</a></li>
+      <li><b>The mechanism:</b> Rules need people to exercise discretion. Where discretion is presumed to follow personal ties, the accepted form of fairness is to remove judgment and keep only numbers. <a href="#c4">§4 →</a></li>
+      <li><b>The details:</b> Returning scholars bring back one key, but the American lock needs a whole ring of keys that interlock. <a href="#c7">§7 →</a></li>
+      <li><b>The prognosis:</b> Like a chronic disease: the cause is known, the course can be slowed, the cure is slow. But a cage you can see is not the same as one you cannot. <a href="#c8">§8 →</a></li>
+    </ol>
+  </aside>
+  </div>
+
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ul>
+      <li><a href="#prologue"><span class="nm">0</span>Twins raised apart</a></li>
+      <li><a href="#c1"><span class="nm">1</span>The same habits</a></li>
+      <li><a href="#c2"><span class="nm">2</span>Not just institutions</a></li>
+      <li><a href="#c3"><span class="nm">3</span>Reading the source code</a></li>
+      <li><a href="#c4"><span class="nm">4</span>How ideas run institutions</a></li>
+      <li><a href="#c5"><span class="nm">5</span>A thousand-year-old experiment</a></li>
+      <li><a href="#c6"><span class="nm">6</span>Why America can, and why Europe is split</a></li>
+      <li><a href="#c7"><span class="nm">7</span>The devil in the details: four knots</a></li>
+      <li><a href="#c8"><span class="nm">8</span>Living with the diagnosis</a></li>
+      <li><a href="#epilogue"><span class="nm">◆</span>Seeing the cage</a></li>
+      <li><a href="#glossary"><span class="nm">＋</span>Glossary</a></li>
+      <li><a href="#sources"><span class="nm">＋</span>Sources</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Prologue ===================== -->
+  <section id="prologue" class="preface">
+    <span class="part-tag">Prologue</span>
+    <h2 class="sec">Twins raised apart</h2>
+    <p>In 1979, two thirty-nine-year-old men in Ohio met for the first time. They were identical twins, adopted by different families a few weeks after birth. Both adoptive families had named their boy Jim. Both men had married a Linda and then a Betty, had owned a dog named Toy, smoked the same brand of cigarettes and took holidays on the same beach in Florida. They became the most famous case in the Minnesota Study of Twins Reared Apart.</p>
+    <p>The coincidences of the "Jim twins" are mostly luck, and later researchers warned against reading too much into them. The study's real finding came from systematic comparison: identical twins raised apart turned out about as similar in personality and attitudes as identical twins raised together. The logic is simple. <strong>If two people grow up in different environments and still develop the same habits, those habits are probably not produced by the environment, but by something they share.</strong></p>
+    <p>I want to tell the story of another pair of twins separated at birth. They were separated in 1949. One stayed in China and lived through land reform, the Cultural Revolution and "reform and opening up", and is still ruled by a single party. The other went to Taiwan, lived through martial law, democratization and peaceful transfers of power, and became one of the freest democracies in Asia. For seventy-seven years, their political systems have been opposites: ballots on one side, party committees on the other.</p>
+    <p>Such different upbringings should have produced very different children. They did not.</p>
+    <figure class="figcard">
+      <svg style="font-family:\'Helvetica Neue\',Helvetica,Arial,\'Noto Sans TC\',\'PingFang TC\',\'Microsoft JhengHei\',sans-serif" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Twins separated in 1949 converge on the same habits"><defs><filter id="sh2" x="-10%" y="-10%" width="125%" height="140%"><feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#111827" flood-opacity="0.13"/></filter></defs>
+        <rect filter="url(#sh2)" x="20" y="122" width="132" height="56" rx="5" fill="#0B3C78"/>
+        <text x="86" y="146" text-anchor="middle" font-size="15" fill="#FFFFFF" font-weight="700">1949</text>
+        <text x="86" y="166" text-anchor="middle" font-size="12" fill="#FFFFFF">one shared culture</text>
+        <path d="M152,140 C210,140 220,58 280,58" fill="none" stroke="#D55E00" stroke-width="2.5"/>
+        <path d="M152,160 C210,160 220,242 280,242" fill="none" stroke="#D55E00" stroke-width="2.5"/>
+        <rect filter="url(#sh2)" x="280" y="30" width="160" height="56" rx="5" fill="#F5D7BF" stroke="#D55E00"/>
+        <text x="360" y="54" text-anchor="middle" font-size="14" fill="#111827" font-weight="700">Taiwan</text>
+        <text x="360" y="73" text-anchor="middle" font-size="11.5" fill="#374151">martial law → democracy</text>
+        <rect filter="url(#sh2)" x="280" y="214" width="160" height="56" rx="5" fill="#F5D7BF" stroke="#D55E00"/>
+        <text x="360" y="238" text-anchor="middle" font-size="14" fill="#111827" font-weight="700">China</text>
+        <text x="360" y="257" text-anchor="middle" font-size="11.5" fill="#374151">Mao → reform → party-state</text>
+        <text x="360" y="150" text-anchor="middle" font-size="12.5" fill="#0072B2" font-style="italic">opposite political systems</text>
+        <path d="M440,58 C490,58 495,140 520,145" fill="none" stroke="#00785A" stroke-width="2.5"/>
+        <path d="M440,242 C490,242 495,160 520,155" fill="none" stroke="#00785A" stroke-width="2.5"/>
+        <rect filter="url(#sh2)" x="514" y="78" width="116" height="144" rx="5" fill="#BFE7DC" stroke="#00785A"/>
+        <text x="572" y="104" text-anchor="middle" font-size="13" fill="#0B3C78" font-weight="700">yet the same</text>
+        <text x="572" y="130" text-anchor="middle" font-size="12" fill="#111827">scoring sheet</text>
+        <text x="572" y="152" text-anchor="middle" font-size="12" fill="#111827">title chase</text>
+        <text x="572" y="174" text-anchor="middle" font-size="12" fill="#111827">industrial strength</text>
+        <text x="572" y="196" text-anchor="middle" font-size="12" fill="#111827">Nobel gap</text>
+      </svg>
+      <figcaption><b>Figure 1｜</b>Taiwan and China parted ways politically more than seventy years ago, yet their academic habits converged.</figcaption>
+    </figure>
+    <div class="box intuition">
+      <div class="label">▸ What this essay argues</div>
+      <p style="margin:0;font-size:18.5px"><strong>Institutions are the clothes; ideas are the body that wears them.</strong></p>
+      <p style="margin:10px 0 0">The claim is narrower than it sounds. I do not say institutions are unimportant, nor that ideas determine everything. Scoring sheets arose for many reasons: catch-up development, limited budgets, global fashions in metrics. My claim is this: <strong>why they cannot be abolished, why every reform ends up back where it started, is mainly a matter of ideas.</strong> Written rules can be copied; how those rules are actually operated depends on how a society regards human judgment, and that changes very slowly. This is my interpretation, not a proven law. The rest of the essay gives the reasons for it.</p>
+    </div>
+  </section>
+
+  <!-- ===================== 1 ===================== -->
+  <div class="part-divider"><div class="pp">Part 1</div><div class="pt">The same habits</div></div>
+  <section id="c1">
+    <h2 class="sec"><span class="no">1</span>One scoring sheet, two political systems</h2>
+    <p>Anyone who has worked in a Taiwanese university knows the ritual. Each year you convert every paper into points: how highly the journal ranks in its field, whether you are first or corresponding author, whether it is an original article or a case report. Multiply, add, and you have your academic worth for the year. The best-known version is called RPI (Research Performance Index), and it is used for promotion, grants and performance review.</p>
+    <p>Its origin is the most ironic part of the story. In 1994, the Nobel chemist Yuan T. Lee returned from Berkeley to lead Academia Sinica. What he wanted to bring home was the American model: break seniority and academic inbreeding, and invite international peers to read your best work and judge what you had actually discovered. But in an academic world bound by mentor–student lineages and personal networks, peer judgment was easily suspected of factional favoritism. To produce results no one could dispute, institutions came to rely on arithmetic. Reading papers turned into counting papers. Around 2012, the head of Taiwan's National Science Council announced that mechanical indicators like RPI had served their purpose and would no longer be used. More than a decade later, RPI is still written into many universities' promotion rules.</p>
+    <p>Across the strait, the story is almost identical. In the late 1980s, Nanjing University pioneered the use of Science Citation Index (SCI) paper counts to evaluate science faculty. Its president later gave two reasons: academic norms were poor and objective standards were lacking, and there were too few domestic experts for international-style peer review. <strong>Unwilling to rely on people's judgment, they let numbers judge.</strong> Other universities followed. Over time the Chinese version grew three visible parts: the Chinese Academy of Sciences journal "partition" tables, which sort journals into tiers one to four; cash rewards (a 2017 survey of 100 universities found the average bonus for a single <em>Nature</em> or <em>Science</em> paper in 2016 was about US$43,783, and up to US$165,000); and titles. There is no national formula; each university sets its own. One example, Southeast University's 2009 faculty point scheme, gave 900 points for a first-author <em>Nature</em> or <em>Science</em> paper and 100 points times an impact-factor weight for an ordinary SCI paper, with half credit for corresponding authors. Different formulas, same arithmetic: journal tier, author position and paper count, converted into points.</p>
+    <p>China has since tried to reverse course. In 2018 and 2020, the government issued directives against evaluating scholars "only by papers, titles, degrees and awards", and told universities not to use SCI indicators directly for evaluation and rewards. The most telling episode came in 2026. On 27 March, the CAS library announced it would stop publishing its journal partition tables. The next day, a third-party company announced its own "partition table". On 30 March, a university library announced that papers published in 2026 would still be classified using the 2025 table. <strong>The table stopped; the demand for a table did not.</strong></p>
+    <h2 class="sec"><span class="no">1.1</span>Titles, strengths and a gap</h2>
+    <p>The twins share other habits. In China, academic honors are called "hats": Excellent Young Scientist, Distinguished Young Scholar, Changjiang Scholar, Academician, each tied to age limits, salary supplements and control over resources. Taiwan has no such slang but the same thing: distinguished professorships, research awards, merit-based salary supplements. Both share the familiar structure in which senior professors control space, money and positions, and junior scholars who do not attach themselves to a senior patron struggle to get resources.</p>
+    <p>Outside academia, both are superb at going "from 1 to 100": taking something that already exists and making it finer, cheaper and better. Taiwan has TSMC; China has the world's supply chain. Going "from 0 to 1", inventing what did not exist, has mostly happened elsewhere. This is more than impression: a 2019 study in <em>PNAS</em> of 31 Chinese provinces and about 3.85 million granted patents found that the "tighter" a province's culture (stronger norms, less tolerance of deviance), the fewer breakthrough innovations and the more incremental ones it produced.</p>
+    <p>And there is the gap. Japan has 28 Nobel laureates in the natural sciences, 23 of them since 2000. Only one Nobel science prize has gone to research done in mainland China (Tu Youyou, 2015, for work from a 1970s military program), and none to research done in Taiwan. Part of China's gap is a time lag, since today's prizes reward discoveries made twenty or thirty years ago. Taiwan has less of that excuse. Nobel prizes are a small sample and only a symptom, but next to Japan, the gap deserves a question.</p>
+  </section>
+
+  <!-- ===================== 2 ===================== -->
+  <div class="part-divider"><div class="pp">Part 2</div><div class="pt">Not just institutions</div></div>
+  <section id="c2">
+    <h2 class="sec"><span class="no">2</span>Same shell, different soul</h2>
+    <p>Some will say the problem is simply that Taiwan and China copied American competition: grants, metrics, publish or perish. But American professors also publish, also write grant after grant, also work under powerful senior colleagues. The difference is that <strong>in America, numbers inform the decision, but people make it.</strong> A tenure case goes to several external reviewers who are prominent in the field but at arm's length from the candidate: not advisors, co-authors or friends. They read the work and write a letter assessing its significance. The Howard Hughes Medical Institute funds "people, not projects" for seven-year terms. Tenure, as the American Association of University Professors put it in 1940, exists to protect academic freedom so scholars can pursue unpopular and slow questions.</p>
+    <p>Many Taiwanese and Chinese scholars trained in the United States know all this. <strong>The real problem is not that we do not know, but that we know and cannot do it.</strong> One clarification: what is "similar" is the visible shell, the part that can be written down and copied. Underneath, as Part 7 shows, the parts differ: how courts treat academic judgment, how money flows, how positions are capped. The claim is not that the institutions are the same, but that the copyable parts are the same, the uncopyable parts are not, and the reason they cannot be copied lies in ideas.</p>
+    <div class="box pitfall">
+      <div class="label">✕ Other explanations</div>
+      <p style="margin:0">At least three other explanations help explain why Taiwan and China look alike. <strong>Catch-up development</strong>: both are state-led economies racing to catch up, treating universities as tools of national development, governed by indicators. <strong>Scale and money</strong>: both have spent far less on basic research for far less time than the United States. <strong>Imitation and global trends</strong>: citation metrics are a worldwide fashion, and organizations imitate one another. All three are real. They explain why scoring began. They do not easily explain why, when everyone knows the sheet is wrong and reforms are ordered again and again, it always comes back.</p>
+    </div>
+    <div class="box pitfall">
+      <div class="label">✕ A counterexample to face: the two Koreas</div>
+      <p style="margin:0">Acemoglu and Robinson's <em>Why Nations Fail</em> uses North and South Korea to show the power of institutions: same people, same culture, opposite fates. The example is valid, which is why my claim must stay narrow. I do not say ideas decide whether a country becomes rich or free. I say they shape how a society evaluates people and organizes knowledge. South Korea, with nearly a thousand years of civil-service examinations, is democratic, rich and second in the world in R&amp;D intensity, yet like Taiwan it has no Nobel science prize for domestic research. Its big push into basic research came late, so this proves nothing; it simply does not refute the narrower claim.</p>
+    </div>
+    <p>What about the eight ethnic Chinese scientists who won Nobel prizes for work done in America or Britain, from Chen Ning Yang and Tsung-Dao Lee to Roger Tsien and Charles Kao? There is a selection bias: those who went abroad and stayed were already highly selected, and American resources are vastly larger. What they show is modest but real: in a different environment, the same people's potential could be seen. Yuan T. Lee did his Nobel work in Berkeley; the evaluation spirit he brought back to Taiwan was reshaped into a scoring sheet that he did not design.</p>
+    <p>Japan is the other case. Although usually counted in the "Confucian cultural sphere", Japan never built a Chinese-style examination bureaucracy, and in the Meiji era deliberately turned toward Europe, importing the German university and its chair system along with it. So Japan is not a counterexample; but because it changed ideas and institutions together, it cannot isolate the effect of ideas either. I return to it in Part 7.</p>
+  </section>
+
+  <!-- ===================== 3 ===================== -->
+  <div class="part-divider"><div class="pp">Part 3</div><div class="pt">Reading the source code</div></div>
+  <section id="c3">
+    <h2 class="sec"><span class="no">3</span>Two thousand years of orthodoxy, thirteen hundred years of exams</h2>
+    <p>Under Emperor Wu of Han, around 134 BCE, Confucian classics became the state's official learning. (The famous slogan "abolish the hundred schools, honor Confucianism alone" is a modern summary; the <em>Book of Han</em> says the emperor "set aside the hundred schools and promoted the Six Classics", and historians still debate how exclusive this was.) From then until the examinations were abolished in 1905, Confucianism was state orthodoxy for about two thousand years. For thirteen hundred of those years, from the Sui dynasty to 1905, China selected officials through the imperial examination (<em>keju</em> 科舉): standardized, ranked, in principle open regardless of birth. It was one of the longest-running national talent-selection systems in the premodern world, and a remarkable achievement in fairness.</p>
+    <p>It also wrote three lines of code deep into minds:</p>
+    <ul>
+      <li><strong>Fairness = a standardized score.</strong> Personal judgment cannot be trusted, because favors seep in; only the exam paper is accepted as fair.</li>
+      <li><strong>Learning is for use.</strong> Knowledge earns its value through office and family honor, and the first question about any research is "what is it for?"</li>
+      <li><strong>A differential mode of association.</strong> The sociologist Fei Xiaotong (1947) described Chinese social relations as ripples spreading from a stone dropped in water: closeness and obligation fade with each circle. How you treat someone depends on how close they are to you.</li>
+    </ul>
+    <h2 class="sec"><span class="no">3.1</span>The technical name: particularism</h2>
+    <p>In the broader literature, Fei's insight has a general name: <strong>particularism</strong>, the moral rule that how you treat a person depends on your relationship with them, as opposed to universalism, which applies the same standard to everyone. The economists Avner Greif and Guido Tabellini, comparing a thousand years of cooperation in China and Europe, describe the clan as China's unit of cooperation, sustained by a "limited morality" that is strong but applies only to one's own; and the city as Europe's, sustained by a "generalized morality" that is thinner but extends to all members regardless of kinship.</p>
+    <p>This vocabulary lets me say something precise without making it an accusation. I am not saying people in Confucian societies are untrustworthy. I am saying that <strong>under a particularist ethic, people expect an evaluator's judgment to follow personal ties.</strong> The evaluator may not actually be biased; but as long as everyone expects it, any judgment made by a person is suspected first.</p>
+    <p>To be fair, Confucianism is not only particularist. "All under heaven belongs to the public" and "select the worthy and able" are universalist ideals; the examination itself applied one standard to every candidate. Particularism is the background color of Confucian society, not the whole of Confucian thought.</p>
+    <h2 class="sec"><span class="no">3.2</span>The missing sixth relationship</h2>
+    <p>But there is a structural gap. Confucian ethics rests on five relationships (<em>wulun</em> 五倫): ruler and subject, father and son, husband and wife, elder and younger brother, friend and friend. The stranger has no place among them. Taiwan noticed this long ago: in March 1981, K. T. Li, the economic planner often credited with Taiwan's technology industry, proposed a "sixth relationship" (第六倫), an ethic "to govern the relationship between the individual and the anonymous public".</p>
+    <p>Confucian tradition does have ideals of impartial judgment. The <em>Analects</em> says the gentleman "is broadly fair and not partisan". The <em>Lüshi Chunqiu</em> records that Qi Huangyang recommended his enemy for one post and his own son for another, and Confucius praised him. Yet these were celebrated as <strong>the virtue of rare gentlemen</strong>; they were recorded precisely because they were rare. My interpretation: in the Confucian tradition, judging a stranger impartially was an achievement of moral cultivation, not the ordinary duty of anyone who holds a role.</p>
+    <p>Western tradition differs here. In Luke 10, asked "who is my neighbor?", Jesus answers with a foreigner who helps a stranger: the Good Samaritan. Fei Xiaotong himself explained the Western "organizational mode" of society through Christianity: from the idea of God as the symbol of the group came "the equality of every individual before God, and God's fairness to every individual". Max Weber, visiting America in 1904, noticed businessmen asking which sect a stranger belonged to, because sects admitted only people of proven conduct and membership worked like a credit certificate. Joseph Henrich and colleagues trace modern fairness toward strangers partly to the medieval Church's marriage policies, which broke up extended kin groups.</p>
+    <p>But the West turned this value into institutions late. As the historian Melinda Baldwin notes, <em>Nature</em> did not use systematic external refereeing until 1973. In 1932, about a third of American academics still taught at the university that trained them. When Britain reformed its civil service by examination in the 1850s to fight patronage, it is generally thought to have been influenced by the Chinese examinations, as the historian Teng Ssu-yü documented in 1943. When trust is short, the West too has chosen "judge the paper, not the person". Exams are a good tool against favoritism; the problem is extending their logic all the way to the evaluation of research.</p>
+    <div class="box detective">
+      <div class="label">◆ The real dividing line</div>
+      <p style="margin:0">"Confucian societies cannot do it, the West is born able to" is false: the West got there late, and not all of the West got there (see Part 6). What holds is narrower: <strong>Western tradition gave the stranger a moral place, and in modern times made impartial judgment of strangers an ordinary professional duty; the five Confucian relationships have no place for the stranger, and impartial judgment was the virtue of rare gentlemen.</strong> In the West, trusting the judgment of an unacquainted peer means institutionalizing a value already there. In the Confucian sphere, one must first add a value, then build the institution: one more layer of difficulty.</p>
+    </div>
+    <p>Nor is the mechanism uniquely Confucian. In Italy, economists Durante, Labartino and Perotti measured academic "familism" by the concentration of surnames within departments, and found that after hiring was decentralized to universities in 1998, familism rose markedly in regions with low civic capital, but not in regions with high civic capital. After a 2010 reform, Italy's national habilitation for professors came to be gated by bibliometric thresholds. Put together, these point the same way: <strong>wherever judgment is expected to follow personal ties, societies tend to replace judgment with numbers.</strong> Particularism is soil shared by many societies; what is distinctive about the Confucian sphere is that thirteen centuries of examinations wrote "judge the paper, not the person" into everyone's idea of fairness, which makes it especially hard to change.</p>
+  </section>
+
+  <!-- ===================== 4 ===================== -->
+  <div class="part-divider"><div class="pp">Part 4</div><div class="pt">How ideas run institutions</div></div>
+  <section id="c4">
+    <h2 class="sec"><span class="no">4</span>Fast variables and slow variables</h2>
+    <p>A missing link remains: ideas live in heads, institutions on paper. How do they connect? Without an answer, "ideas matter" is a slogan.</p>
+    <p>Institutional economics has a fairly mature answer. Gérard Roland distinguishes "fast-moving" institutions such as laws and political systems, which can change overnight, from "slow-moving" ones such as social norms and values, which change slowly, incrementally and largely autonomously. His first hypothesis is that transplanting institutions is likely to fail, precisely because the two interact. Guido Tabellini argues that individual values are the link between distant history and how institutions function today; well-functioning institutions are found where values consistent with generalized morality are widespread. Katharina Pistor, Daniel Berkowitz and Jean-François Richard found that transplanted law works well only where it was adapted locally or where people were already familiar with its principles; in "transplant effect" countries, legality is roughly a third lower.</p>
+    <p>Put together, the path from ideas to the operation of institutions has three steps:</p>
+    <ul>
+      <li><strong>Step one: rules need people to exercise discretion.</strong> Even the most detailed rulebook needs someone to judge whether a letter is persuasive, a paper a breakthrough, a person qualified.</li>
+      <li><strong>Step two: how discretion is regarded depends on shared values.</strong> If people believe evaluators will be impartial, discretion is accepted; if they expect evaluators to look after their own, it is suspected.</li>
+      <li><strong>Step three: when discretion is suspected again and again, institutions take it back.</strong> They add scores, thresholds, quotas and scoring sheets. Sealing names in the Song dynasty and RPI and journal tiers today are the same response.</li>
+    </ul>
+    <p>The causation also runs the other way. Thirteen centuries of examinations wrote "fairness means not looking at the person" into minds; the Church's marriage policy, an institution, changed European psychology. So I do not mean one-way determinism. I mean that, on a scale of decades, ideas are the slower and harder side to move. Institutions can be rewritten overnight, but slow variables pull them back toward their old shape.</p>
+    <div class="box intuition">
+      <div class="label">▸ The thesis, stated precisely</div>
+      <p style="margin:0;font-size:18.5px"><strong>Rules can be copied; the way they are operated cannot. What decides the operation is how a society expects human judgment to be used.</strong></p>
+    </div>
+  </section>
+
+  <!-- ===================== 5 ===================== -->
+  <div class="part-divider"><div class="pp">Part 5</div><div class="pt">A thousand-year-old experiment</div></div>
+  <section id="c5">
+    <h2 class="sec"><span class="no">5</span>From judging people to judging papers</h2>
+    <p>The examinations did not begin as "paper only". In the Tang dynasty (618–907), examiners looked at people. Candidates sent their poems and essays to eminent officials before the exam, a practice called <em>xingjuan</em> (行卷, "circulating scrolls"); examiners took recommendations into account; papers were not anonymous. One story records that a scholar, having read Du Mu's "Rhapsody on the Epang Palace", went to the chief examiner and demanded that Du Mu be placed first. Told the top place was taken, he settled for fifth. The ranking was fixed before the exam began. In a sense, this is the same logic as today's American recommendation and external review letters: a knowledgeable person reads your work and vouches for you.</p>
+    <p>But "judging people" quickly became "judging connections". Recommendations turned into channels for favors and gifts; poor candidates had no one to send their scrolls to. So the Song dynasty banned public recommendation and pre-exam scrolls; from 992 the palace examination sealed candidates' names (<em>huming</em> 糊名), and later a copying office had every paper rewritten by clerks so that examiners could not even recognize handwriting (<em>tenglu</em> 謄錄).</p>
+    <figure class="figcard">
+      <svg style="font-family:\'Helvetica Neue\',Helvetica,Arial,\'Noto Sans TC\',\'PingFang TC\',\'Microsoft JhengHei\',sans-serif" viewBox="0 0 640 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tang judged people, Song judged papers"><defs><filter id="sh3" x="-10%" y="-10%" width="125%" height="140%"><feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#111827" flood-opacity="0.13"/></filter></defs>
+        <rect filter="url(#sh3)" x="20" y="20" width="270" height="140" rx="5" fill="#F5D7BF" stroke="#D55E00"/>
+        <text x="155" y="48" text-anchor="middle" font-size="15" fill="#C04A00" font-weight="700">Tang: judge the person</text>
+        <text x="40" y="78" font-size="13" fill="#111827">• pre-exam scrolls to patrons</text>
+        <text x="40" y="102" font-size="13" fill="#111827">• public recommendations</text>
+        <text x="40" y="126" font-size="13" fill="#111827">• names visible on papers</text>
+        <text x="40" y="150" font-size="12.5" fill="#B2182B" font-style="italic">Result: favors, closed doors</text>
+        <defs><marker id="ahE" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#00785A"/></marker></defs>
+        <path d="M296,90 L340,90" stroke="#00785A" stroke-width="3" marker-end="url(#ahE)"/>
+        <rect filter="url(#sh3)" x="350" y="20" width="270" height="140" rx="5" fill="#BFE7DC" stroke="#00785A"/>
+        <text x="485" y="48" text-anchor="middle" font-size="15" fill="#0B3C78" font-weight="700">Song: judge the paper</text>
+        <text x="370" y="78" font-size="13" fill="#111827">• recommendations banned</text>
+        <text x="370" y="102" font-size="13" fill="#111827">• names sealed (huming)</text>
+        <text x="370" y="126" font-size="13" fill="#111827">• papers recopied (tenglu)</text>
+        <text x="370" y="150" font-size="12.5" fill="#00785A" font-style="italic">Result: fair, but only the paper is left</text>
+        <rect filter="url(#sh3)" x="20" y="176" width="600" height="44" rx="5" fill="#0B3C78"/>
+        <text x="320" y="204" text-anchor="middle" font-size="14" fill="#F0E442" font-weight="700">A thousand years later: scoring sheets are the modern sealed paper</text>
+      </svg>
+      <figcaption><b>Figure 2｜</b>The choice between judging people and judging papers was made once already, a thousand years ago.</figcaption>
+    </figure>
+    <p>The shift was a great success. It made the examinations a relatively fair ladder for nine centuries. Its price was that <strong>the evaluator was no longer allowed to know the evaluated.</strong></p>
+    <p>Note that from Tang to Song the institution changed, not the ideas: both dynasties were Confucian. Ideas appear in this turning point twice. First, in how the problem arose: under a particularist ethic, letting people judge people made judgment follow ties. Second, in which answer was chosen. Facing favoritism, there are two paths: make the judge sign the judgment and stake his reputation on it, roughly the path of today's American review letter; or remove judgment altogether. The Song chose the second, step three of Part 4. (Historians also point to the decline of the aristocracy and the rise of imperial power in this period; ideas were not the only force, but they shaped which way the answer went.) Then nine centuries of anonymous exams wrote "fairness means not looking at the person" back into minds. The exams were abolished in 1905; the intuition remained.</p>
+    <h2 class="sec"><span class="no">5.1</span>Numbers as a mask</h2>
+    <p>The historian of science Theodore Porter, in <em>Trust in Numbers</em> (1995), argued that quantification is not a tool of the strong but of the weak. Experts who enjoy social trust can simply say "in our professional judgment"; it is those who are distrusted and exposed to challenge who need to hide judgment behind objective numbers. Seen this way, the scoring sheet's most important function is often not to evaluate the candidate but to <strong>protect the evaluator</strong>. "I read your work and do not think it is original yet" is a personal judgment: it offends, invites appeals, and can be called factional. "It is not me; your points are not enough" is an objective fact no one can blame. The number is a mask that saves face on both sides.</p>
+    <p>That also explains a strange collective behavior. Ask senior professors in Taiwan or China whether promotion should depend on points and most say no. Ask reviewers whether impact factors measure a paper's worth and most say no. Then everyone walks into the room and follows the sheet. An individual reviewer who decides to judge people instead of points bears all the risk alone: the high scorer he rejects will appeal; if his young protégé fails, he misjudged; if she succeeds, no one remembers who backed her. Everyone knows collective judgment would be better; no one gains by judging alone. It is an equilibrium, and the smartest people stay in it precisely because they are smart enough to calculate that stepping out does not pay.</p>
+    <p>The equilibrium also reproduces itself. Entrance exams are harsh everywhere, in Japan and America too. The fork comes later: America and Japan switch rulers at the doctoral and faculty stage, rewarding originality and long exploration; we extend the logic of the school exam all the way to promotion at forty and titles at sixty. Those who reach the top are lifelong champions of optimizing scores under given rules, and they design the next scoring sheet.</p>
+  </section>
+
+  <!-- ===================== 6 ===================== -->
+  <div class="part-divider"><div class="pp">Part 6</div><div class="pt">Why America can, and why Europe is split</div></div>
+  <section id="c6">
+    <h2 class="sec"><span class="no">6</span>What fills the three preconditions</h2>
+    <p>Judging people works only if evaluators dare to tell the truth, if the evaluated believe evaluators are not acting from private interest, and if evaluators are accountable for their judgments. American academia has several things that support these preconditions:</p>
+    <ul>
+      <li><strong>A wide radius of trust.</strong> Delhey, Newton and Welzel (2011) showed that when people answer whether "most people" can be trusted, the "most people" they have in mind differs across countries; in Confucian countries the radius is noticeably narrower, closer to acquaintances. The American external letter rests on trust in an unacquainted peer.</li>
+      <li><strong>Mobility.</strong> Academic inbreeding was once common in America too, but it largely disappeared by the 1970s and 1980s, through the unwritten norm of not hiring one's own PhDs.</li>
+      <li><strong>Shorter power distance.</strong> On Hofstede's index the US scores 40, Japan 54, South Korea 60, China 80. The shorter the distance, the more freely juniors question seniors.</li>
+      <li><strong>Courts that defer to academic judgment.</strong> In <em>Regents of the University of Michigan v. Ewing</em> (1985), the Supreme Court held that courts should show great respect for genuine academic judgment.</li>
+    </ul>
+    <p>Does America have no academic cliques? It does. Clauset and colleagues (2015) found that a quarter of North American departments trained 71 to 86 percent of faculty. Danielle Li found that NIH applicants were more likely to be funded when more permanent committee members worked in related areas. The differences lie elsewhere. In America, "one's own" is usually someone who understands your work: Li also found that related reviewers were substantially better at judging quality. Favoritism there is a violation to be concealed; under a particularist ethic, failing to help one's own is the moral failing. A reviewer who impartially rejects his mentor's student is "doing his job" in America and may be called ungrateful at home. And American judgment is dispersed across thousands of departments, so a candidate one clique misjudges may be snapped up by another. Bias is not eliminated; it is diluted.</p>
+    <div class="box history">
+      <div class="label">◷ Across Europe: same religion, two patterns</div>
+      <p style="margin:0">If Christianity were the whole story, all of Europe would judge people. It does not. The north looks more like America: German professorial appointments typically include comparative assessments by external professors, and law and custom restrict hiring one's own members; Britain's independent review <em>The Metric Tide</em> (2015) concluded that metrics should "support, not supplant, expert judgement". The south looks more like us: France, Spain and Italy are classed as closed systems relying on internal labor markets, and Italy gates its professorship with bibliometric thresholds. The share saying "most people can be trusted" is 75 percent in Denmark and 67 percent in the Netherlands, but 19 percent in Portugal (OECD, 2016). <strong>What decides how scholars are evaluated is not the religious label, but the level of generalized trust.</strong> Christianity is one historical root of Western universalism, not the only one.</p>
+    </div>
+    <p>Put this back next to Yuan T. Lee's reforms, and it becomes clear why the evaluation spirit he brought home changed shape: <strong>he brought back the rules of external review and competition, but not the radius of trust that makes them work.</strong></p>
+  </section>
+
+  <!-- ===================== 7 ===================== -->
+  <div class="part-divider"><div class="pp">Part 7</div><div class="pt">The devil in the details</div></div>
+  <section id="c7">
+    <h2 class="sec"><span class="no">7</span>They did bring it all back</h2>
+    <p>Here is the most puzzling question. Thousands of Taiwanese and Chinese scholars trained, and many taught, in America. Why couldn't they bring the system back? Look closely and the answer is surprising: they did. External review, peer review, up-or-out promotion, competitive grants, international evaluation: none is missing. But each imported part was reshaped by local parts it had to connect with. The devil is not in any single rule but in the joints between them. Four knots stand out.</p>
+    <div class="tbl-wrap">
+    <table class="grid">
+      <caption>Table 1｜Four knots (red: where it sticks; green: the American key)</caption>
+      <thead><tr><th>Knot</th><th>Taiwan</th><th>China</th><th>United States</th></tr></thead>
+      <tbody>
+        <tr><td class="field">1. Judgment must be comparable</td><td class="knot">External letters replaced by 100-point forms; at college and university levels, committee members from other fields fall back on scores</td><td class="knot">Professorships capped by quotas, so candidates must be ranked; journal tiers become the ranking tool</td><td class="key">Reviewers compare the candidate with peers nationally at the same career stage: "is this person good enough?", not "why him and not me?"; the profession opposes tenure quotas</td></tr>
+        <tr><td class="field">2. Judgment must survive challenge</td><td class="knot">Challenge comes from appeals and courts: since a 1998 constitutional interpretation, promotion decisions are administrative acts open to appeal and litigation</td><td class="knot">Challenge comes from above: document checks, random inspections, special investigations</td><td class="key">Courts defer to genuine academic judgment unless it departs substantially from accepted norms</td></tr>
+        <tr><td class="field">3. Where the money goes</td><td class="knot">Salaries fixed by rank nationwide; a bad hire costs the department little</td><td class="knot">Money followed scores: cash bonuses for top journals until banned in 2020; since then still tied to tiers and performance points</td><td class="key">Money follows people: summer salary from grants; indirect costs (often 40–60%) flow back to universities and departments</td></tr>
+        <tr><td class="field">4. Who maintains the rules</td><td class="knot">Promotion rules are set school by school; reform depends on individuals and reverts when they leave</td><td class="knot">A leading reformer, Shi Yigong, left Tsinghua to found a new university rather than change an old one</td><td class="key">Arm's-length review and no inbreeding are shared norms across universities</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>One example shows how a knot works. In Taiwan, if external reviewers' scores pass but the committee, having read the work, wants to reject the candidate, it must write an academic justification that can survive appeal and litigation. Where external scores fall short, the candidate simply fails, and no one needs to write a reason. The legal environment treats public universities as administrative bodies: in a 2012 case, nearly five hundred professors were investigated for corruption over reimbursement receipts, until the Supreme Court ruled in 2014 that public university professors are not public officials under criminal law. Reimbursement and promotion are legally separate, but they send the same signal: any discretion may be pursued as wrongdoing. China's knots are tied with different rope, from above rather than from courts, but with the same effect on the person in the reviewer's chair: <strong>following the score carries no risk; exercising judgment carries high risk.</strong> America has courts too; its courts chose to respect judgment rather than re-examine it.</p>
+    <p>Read the table across and the decisive point appears: the keys interlock. In America, comparing with national peers means no internal ranking is needed; courts' deference makes judgment safe; money following good hires gives departments a reason to judge well; and all of this is a shared norm that survives a change of dean. In Taiwan and China, the knots interlock too. Imagine an idealistic dean who asks the committee to read papers and judge. The rejected candidate appeals; even if the dean judged right, the college gains nothing; three years later a successor quietly restores the scores. <strong>Each returning scholar brings back one key. One key cannot open four locks.</strong> And each rule is a fossil of a precaution against favoritism; remove one, and as long as the soil is the same, a new one grows.</p>
+    <h2 class="sec"><span class="no">7.1</span>Japan's other ring of keys</h2>
+    <p>Japan, with its twenty-eight Nobel science laureates, did not use the American keys. In its golden age, Japanese national universities ran the German chair system: the state gave professors stable funding without asking for short-term returns, <strong>entrusting the professor and the laboratory for the long term</strong>, so there was no need to judge each year whether someone was good enough. Yoshinori Ohsumi's work on how yeast cells eat themselves and Kenso Soai's thirty-year reaction rested on that long-term trust. After national universities were incorporated in 2004, Japan cut stable funding and introduced competitive grants and KPIs, in effect installing American keys while its own still worked; doctoral enrollment fell, and Japan's rank in highly cited papers slid from fourth to twelfth. The causes are many, but the lesson is the same: a system that works in America may not work in a different soil of ideas.</p>
+    <div class="box intuition">
+      <div class="label">▸ In one sentence</div>
+      <p style="margin:0;font-size:18.5px"><strong>There is more than one way out of the exam model: America trusts peers' judgment; golden-age Japan trusted people for the long term. The trouble in Taiwan and China is that judgment is entrusted only to numbers.</strong></p>
+    </div>
+  </section>
+
+  <!-- ===================== 8 ===================== -->
+  <div class="part-divider"><div class="pp">Part 8</div><div class="pt">Living with the diagnosis</div></div>
+  <section id="c8">
+    <h2 class="sec"><span class="no">8</span>Known genes, known course</h2>
+    <p>I keep thinking of amyotrophic lateral sclerosis (ALS). We know many of the genes involved, we understand much of the mechanism, and the course is broadly predictable, yet no drug can stop it. The academic culture of Taiwan and China feels the same: everyone can describe the problem precisely, and reform after reform ends up back at a renamed scoring sheet.</p>
+    <p>Seen from the relation between individual and environment, it also resembles endemic goiter. In iodine-poor mountains, a whole region's necks swell, as if inherited; move to the coast and the swelling subsides; outsiders who settle there begin to swell. The cause is not in the people but in the soil. Chinese scientists who moved to America entered an environment that takes over the burden of judgment; an American scholar who moves to Taiwan or China fills in the same scoring sheet. The bad news: iodine can be added to salt. Trust cannot.</p>
+    <h2 class="sec"><span class="no">8.1</span>Slowing drugs and targeted therapies</h2>
+    <p>Reforms such as China's campaign against the "five onlys" and Taiwan's diversified promotion tracks are like the first ALS drug, riluzole: useful, they slow the course, but they do not stop it. There are also "targeted therapies", enclaves built from scratch. Two already show results: the Okinawa Institute of Science and Technology, founded in 2011 with English as its working language, international faculty and stable state funding, ranked ninth in the world in the first size-normalized <em>Nature Index</em> in 2019; the Hong Kong University of Science and Technology, founded in 1991 with faculty recruited largely from America and international review and tenure from day one. A third, Westlake University in Hangzhou (2018), is an experiment still in progress within China's existing system. Enclaves work not only because they change rules, but because they change who judges, entrusting evaluation to peers outside the local web of ties. Like targeted therapy, they work only for a small population; scaled to thousands of universities, there are not enough international reviewers, and judgment returns to local networks.</p>
+    <h2 class="sec"><span class="no">8.2</span>The gift of the same framework</h2>
+    <p>I do not want to conclude that "Confucianism ruined us". The same operating system made East Asia the furnace that turned the West's sparks into the material civilization we use every day; without "1 to 100", "0 to 1" stays a paper in a lab. Different lines of the same code do different jobs. Particularism makes evaluation shy of judging people and fond of counting; learning-for-use and a tight culture let this mind, once given a clear target, push it to the limit. Target yield, and you get the world's best fabs; target points, and you get soaring paper counts. The difference is that yield is a real ruler of the physical world, so pushing it to the extreme pushes quality to the extreme; paper points are a man-made proxy, and pushing them to the extreme mostly pushes rule-compliant arbitrage to the extreme. In the economist Charles Goodhart's spirit: when a measure becomes a target, it ceases to be a good measure. This is my conjecture, but it explains why the same framework is both our strength and our ceiling.</p>
+  </section>
+
+  <!-- ===================== Epilogue ===================== -->
+  <div class="part-divider"><div class="pp">Epilogue</div><div class="pt">Seeing the cage</div></div>
+  <section id="epilogue">
+    <h2 class="sec">Incurable, but still able to write</h2>
+    <p>Back to the twins. Taiwan and China, separated for more than seventy years, one democratic, one a party-state, each spending enormous effort to reform universities and catch up, grew the same scoring sheet, the same titles, the same strength and the same gap, like the two Jims who each owned a dog named Toy. Twin studies say that when environments differ and habits match, the answer lies in the body. Taiwan and China suggest that when institutions differ and patterns match, at least part of the answer lies in the head: in values that cannot be copied and change very slowly.</p>
+    <p>Scoring sheets have many causes. But why they cannot be abolished, why every reform returns to where it started, is, I believe, mainly a matter of ideas: in an ethic with no moral place for the stranger, human judgment is suspected by default, and numbers become the only referee everyone accepts.</p>
+    <p>So what can we do? Honestly, the framework cannot be uninstalled. Next year we will probably still fill in the forms. But I think of another ALS patient. In 1963, a twenty-one-year-old Cambridge graduate student was told he had perhaps two years. His disease was never cured. He lived for more than fifty years, wrote <em>A Brief History of Time</em> and changed how we understand black holes. Stephen Hawking did not cure his disease; he understood it better than anyone and, within its limits, did something from zero to one.</p>
+    <p>Seeing the cage and not seeing it are two different lives. Those who see it know the scoring sheet is not the only measure of truth, and when a young scholar asks "which topic will get me promoted?", they can add: "first ask which topic you would pursue even if it never got you promoted." Soai waited thirty years for the call from Stockholm. If you happen to sit on a review committee, perhaps once, for one person who deserves it, you can take off the mask.</p>
+    <p>I used to think the humanities were a waste of a life. Now I think they are the best tool for reading the source code in our own heads. The natural sciences let us see the world; the humanities let us see who is doing the seeing for us.</p>
+    <p class="theend" style="text-align:center">— end —</p>
+  </section>
+
+  <section id="glossary">
+    <span class="part-tag">Glossary</span>
+    <h2 class="sec">Terms used in this essay</h2>
+    <ul>
+      <li><strong>Keju (科舉), imperial examination:</strong> China's national civil-service examination, c. 605–1905.</li>
+      <li><strong>Xingjuan (行卷):</strong> Tang-dynasty practice of sending one's writings to eminent patrons before the examination.</li>
+      <li><strong>Huming (糊名) and tenglu (謄錄):</strong> Song-dynasty reforms that sealed candidates' names and had papers recopied by clerks.</li>
+      <li><strong>Wulun (五倫), the five relationships:</strong> ruler–subject, father–son, husband–wife, elder–younger brother, friend–friend.</li>
+      <li><strong>Sixth relationship (第六倫):</strong> K. T. Li's 1981 proposal for an ethic between the individual and the anonymous public.</li>
+      <li><strong>Chaxu geju (差序格局), differential mode of association:</strong> Fei Xiaotong's term for social ties that weaken with each circle outward from the self.</li>
+      <li><strong>RPI:</strong> Research Performance Index, Taiwan's best-known point formula for publications.</li>
+      <li><strong>Journal partition tables (分區表):</strong> the CAS ranking of journals into four tiers, widely used in Chinese evaluation; discontinued in 2026.</li>
+      <li><strong>"Hats" (帽子):</strong> Chinese slang for state talent titles tied to salary and resources.</li>
+      <li><strong>Five onlys (五唯):</strong> evaluating "only by scores, progression, diplomas, papers and titles", the target of China's 2018–2020 reforms.</li>
+    </ul>
+  </section>
+
+  <section id="sources">
+    <span class="part-tag">Sources</span>
+    <h2 class="sec">Main sources</h2>
+    <p class="lead">A fuller list, including Chinese-language sources on Taiwan's promotion rules, is in the <a href="index.html" style="color:var(--teal)">Chinese edition</a>.</p>
+    <ul class="reading">
+      <li><a href="https://mctfr.psych.umn.edu/other-twin-research/other-twin-research-umn" target="_blank" rel="noopener" style="color:var(--teal)">University of Minnesota: Minnesota Study of Twins Reared Apart</a></li>
+      <li><a href="https://physicsworld.com/a/study-reveals-cash-for-papers-rewards-in-china/" target="_blank" rel="noopener" style="color:var(--teal)">Physics World: cash-for-papers rewards in China (Quan, Chen &amp; Shu, 2017)</a></li>
+      <li><a href="https://me.seu.edu.cn/_upload/article/bd/5b/3dd92b044b2a9227fdf1006cd672/fd018921-3634-47d1-a430-5ba696f46f5f.pdf" target="_blank" rel="noopener" style="color:var(--teal)">Southeast University faculty point scheme, 2009 (Chinese)</a></li>
+      <li><a href="https://www.yzwb.net/news/jy/202603/t20260331_337383.html" target="_blank" rel="noopener" style="color:var(--teal)">Yangtse Evening Post: CAS stops publishing journal partition tables, March 2026 (Chinese)</a></li>
+      <li><a href="https://casrai.org/guides/china-five-onlys-cas-journal-classification-table" target="_blank" rel="noopener" style="color:var(--teal)">CASRAI: China's "five onlys" and the CAS journal classification table</a></li>
+      <li><a href="https://www.timeshighereducation.com/node/721809" target="_blank" rel="noopener" style="color:var(--teal)">Times Higher Education: China's promised research reform "little more than PR exercise" (2022)</a></li>
+      <li><a href="https://papers.ssrn.com/abstract=3392893" target="_blank" rel="noopener" style="color:var(--teal)">Chua, Huang &amp; Jin, cultural tightness and innovation across 31 Chinese provinces, PNAS 2019</a></li>
+      <li><a href="https://www.nippon.com/en/japan-data/h02923/" target="_blank" rel="noopener" style="color:var(--teal)">Nippon.com: Japan's Nobel laureates</a></li>
+      <li><a href="https://hhmi.org/investigators" target="_blank" rel="noopener" style="color:var(--teal)">HHMI Investigator Program</a></li>
+      <li><a href="https://repec.cepr.org/repec/cpr/ceprdp/DP9072.pdf" target="_blank" rel="noopener" style="color:var(--teal)">Greif &amp; Tabellini, The Clan and the City: Sustaining Cooperation in China and Europe</a></li>
+      <li><a href="https://www.aisixiang.com/data/29032.html" target="_blank" rel="noopener" style="color:var(--teal)">Fei Xiaotong, "Morality that maintains private ties", <em>From the Soil</em> (Chinese)</a></li>
+      <li><a href="https://ericdata.com/tw/detail.aspx?no=48784" target="_blank" rel="noopener" style="color:var(--teal)">Kuo Wei-fan, on public morality, 1985 (records K. T. Li's 1981 "sixth relationship"; Chinese)</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/The_Protestant_Sects_and_the_Spirit_of_Capitalism" target="_blank" rel="noopener" style="color:var(--teal)">Weber, The Protestant Sects and the Spirit of Capitalism</a></li>
+      <li><a href="https://news.harvard.edu/gazette/story/2019/11/roman-catholic-church-ban-in-the-middle-ages-loosened-family-ties" target="_blank" rel="noopener" style="color:var(--teal)">Harvard Gazette: Schulz et al., The Church, intensive kinship, and global psychological variation, Science 2019</a></li>
+      <li><a href="https://scholarlykitchen.sspnet.org/2018/09/26/the-rise-of-peer-review-melinda-baldwin-on-the-history-of-refereeing-at-scientific-journals-and-funding-bodies/" target="_blank" rel="noopener" style="color:var(--teal)">The Scholarly Kitchen: Melinda Baldwin on the rise of peer review</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Teng_Ssu-y%C3%BC" target="_blank" rel="noopener" style="color:var(--teal)">Teng Ssu-yü, Chinese Influence on the Western Examination System, HJAS 7 (1942–43)</a></li>
+      <li><a href="https://www.nber.org/papers/w17572" target="_blank" rel="noopener" style="color:var(--teal)">Durante, Labartino &amp; Perotti, Academic Dynasties: Decentralization and Familism in the Italian Academia</a></li>
+      <li><a href="https://arxiv.org/pdf/1904.04708" target="_blank" rel="noopener" style="color:var(--teal)">Baccini, De Nicolao &amp; Petrovich, Citation gaming induced by bibliometric evaluation</a></li>
+      <li><a href="https://ifo.de/DocDL/dicereport204-forum3.pdf" target="_blank" rel="noopener" style="color:var(--teal)">Roland, Fast-moving and Slow-moving Institutions, CESifo DICE Report 2004</a></li>
+      <li><a href="https://ideas.repec.org/a/tpr/jeurec/v6y2008i2-3p255-294.html" target="_blank" rel="noopener" style="color:var(--teal)">Tabellini, Institutions and Culture, JEEA 2008</a></li>
+      <li><a href="https://scholarship.law.columbia.edu/faculty_scholarship/2449" target="_blank" rel="noopener" style="color:var(--teal)">Pistor, Berkowitz &amp; Richard, Economic Development, Legality, and the Transplant Effect</a></li>
+      <li><a href="https://journals.sagepub.com/doi/10.1177/0003122411420817" target="_blank" rel="noopener" style="color:var(--teal)">Delhey, Newton &amp; Welzel, How General Is Trust in "Most People"?, ASR 2011</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4644075" target="_blank" rel="noopener" style="color:var(--teal)">Clauset, Arbesman &amp; Larremore, Systematic inequality and hierarchy in faculty hiring networks, Science Advances 2015</a></li>
+      <li><a href="https://insight.kellogg.northwestern.edu/article/when_the_experts_are_biased" target="_blank" rel="noopener" style="color:var(--teal)">Kellogg Insight: Danielle Li, Expertise versus Bias in Evaluation</a></li>
+      <li><a href="https://www.law.cornell.edu/supremecourt/text/474/214" target="_blank" rel="noopener" style="color:var(--teal)">Regents of the University of Michigan v. Ewing, 474 U.S. 214 (1985)</a></li>
+      <li><a href="https://booksandideas.net/Academic-inbreeding-new-estimates" target="_blank" rel="noopener" style="color:var(--teal)">Books &amp; Ideas: Academic inbreeding, new estimates</a></li>
+      <li><a href="https://uia.brage.unit.no/uia-xmlui/bitstream/handle/11250/2732205/Seeber.pdf?sequence=7" target="_blank" rel="noopener" style="color:var(--teal)">Seeber &amp; Mampaey, How do university systems' features affect academic inbreeding?, Higher Education Quarterly 2021</a></li>
+      <li><a href="https://blogs.lse.ac.uk/impactofsocialsciences/2015/07/09/metric-tide-is-rising-hefcemetrics-report/" target="_blank" rel="noopener" style="color:var(--teal)">Wilsdon, The Metric Tide (2015), LSE Impact Blog summary</a></li>
+      <li><a href="https://www.weforum.org/agenda/2016/12/if-you-live-in-a-nordic-country-then-you-probably-trust-others-a-mediterranean-country-forget-it" target="_blank" rel="noopener" style="color:var(--teal)">World Economic Forum: OECD Society at a Glance 2016 trust data</a></li>
+      <li><a href="https://www.science.org/doi/pdf/10.1126/science.1196916" target="_blank" rel="noopener" style="color:var(--teal)">Shi &amp; Rao, China's Research Culture, Science 2010</a></li>
+      <li>Theodore M. Porter, <em>Trust in Numbers</em> (Princeton, 1995); Francis Fukuyama, <em>Trust</em> (1995); Acemoglu &amp; Robinson, <em>Why Nations Fail</em> (2012); Joseph Henrich, <em>The WEIRDest People in the World</em> (2020).</li>
+    </ul>
+  </section>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>腦袋裡的 OS：為什麼最聰明的人，也跳不出兩千年前寫好的程式框架？</title>
+<meta name="description" content="日本科學家又得到諾貝爾獎了。台灣與中國的政治制度分道揚鑣七十多年，學術圈卻長成同一個樣子。每個聰明人都知道只看數字不對，為什麼就是不敢看人？一篇談思想如何比制度活得更久的長文。">
+<meta name="author" content="何恭之 Kung-Chu Ho, MD, PhD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="腦袋裡的 OS：為什麼最聰明的人，也跳不出兩千年前寫好的程式框架？">
+<meta property="og:description" content="制度是會換的衣服，思想是穿衣服的身體。從唐代行卷到今天的計分表，一篇談思想如何比制度活得更久的長文。">
+<meta property="og:locale" content="zh_TW"><link rel="alternate" hreflang="en" href="en.html">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f1e7; --paper-2:#fbf8f1; --ink:#24211c; --ink-soft:#4a463d;
+    --teal:#0f5f59; --teal-deep:#0a423e; --amber:#b1701f; --sepia:#9a7b3f;
+    --rule:#d9cfba;
+    --shadow:0 1px 0 rgba(0,0,0,.04), 0 18px 40px -28px rgba(20,16,8,.5);
+    --serif:"Noto Serif CJK TC","Songti TC","STSong","Iowan Old Style","Palatino Linotype","Georgia",serif;
+    --cjk:"Noto Sans CJK TC","PingFang TC","Noto Sans TC","Microsoft JhengHei","Heiti TC",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, #fff8ec 0%, transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, #eef3ec 0%, transparent 55%),
+      var(--paper);
+    color:var(--ink); font-family:var(--cjk); line-height:1.95; font-size:18px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:64px 26px 120px}
+
+  .hero{border:1px solid var(--rule);border-radius:18px;
+    background:linear-gradient(180deg,var(--paper-2),#f3ecdd);
+    padding:48px 40px 42px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .hero .eyebrow{font-size:13px;letter-spacing:.32em;color:var(--amber);text-transform:uppercase;font-weight:700;margin-bottom:14px}
+  .hero h1{font-family:var(--serif);font-weight:700;font-size:44px;line-height:1.3;margin:0 0 8px;color:var(--teal-deep);letter-spacing:.02em}
+  .hero h1 .e{font-style:italic;color:var(--amber)}
+  .hero .h1sub{font-family:var(--serif);font-size:20px;color:var(--ink-soft);margin:0 0 18px;font-style:italic}
+  .hero p.sub{margin:0;color:var(--ink-soft);font-size:16.5px;max-width:62ch}
+  .hero .orb{position:absolute;right:-70px;top:-70px;width:230px;height:230px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, #1c8079, #0a423e 70%);opacity:.10}
+  .hero .coverart{display:flex;justify-content:center;margin:22px 0 10px}
+  .hero .coverart svg{width:280px;height:280px;max-width:64%}
+  .hero .byline{margin-top:24px;padding-top:16px;border-top:1px solid var(--rule);font-family:var(--serif);color:var(--ink-soft);font-size:15.5px;line-height:1.75}
+  .hero .byline .en{display:block;font-style:italic;font-size:12.5px;color:#8a8369;margin-top:4px;letter-spacing:.01em}
+  .preface .who{font-family:var(--serif);font-style:italic;color:var(--sepia)}
+  .reading{border:1px solid var(--rule);border-radius:13px;background:var(--paper-2);padding:18px 24px}
+  .reading li{margin:10px 0}
+  .reading .bk{font-family:var(--serif);font-style:italic;color:var(--teal-deep)}
+  .coda{margin-top:64px;text-align:center}
+  .coda .theend{font-family:var(--serif);font-style:italic;color:var(--sepia);letter-spacing:.3em;margin-top:20px}
+
+  nav.toc{margin:34px 0 8px;border:1px solid var(--rule);border-radius:14px;background:var(--paper-2);padding:22px 26px}
+  nav.toc h2{font-family:var(--serif);font-size:17px;margin:0 0 12px;color:var(--teal-deep);letter-spacing:.04em}
+  nav.toc ul{margin:0;padding-left:0;list-style:none;columns:2;column-gap:34px}
+  nav.toc li{margin:5px 0;break-inside:avoid;display:flex;align-items:baseline}
+  nav.toc li.part{display:block}
+  nav.toc .pg{margin-left:auto;padding-left:8px;color:var(--sepia);font-family:var(--serif);font-style:italic;font-size:13px;flex:none}
+  nav.toc li .nm{color:var(--amber);font-family:var(--serif);font-style:italic;margin-right:6px}
+  nav.toc a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid transparent}
+  nav.toc a:hover{color:var(--teal);border-bottom-color:var(--teal)}
+  nav.toc .part{font-weight:700;color:var(--amber);margin-top:12px;font-size:14px;letter-spacing:.05em}
+  @media(max-width:640px){nav.toc ul{columns:1}}
+
+  section{margin-top:60px}
+  .part-divider{text-align:center;margin:74px 0 0;padding-bottom:4px}
+  .part-divider + section{margin-top:30px}
+  .part-divider .pp{font-family:var(--serif);font-style:italic;color:var(--amber);letter-spacing:.22em;font-size:18px}
+  .part-divider .pt{font-family:var(--serif);font-size:34px;color:var(--teal-deep);margin-top:10px;line-height:1.35}
+  .part-tag{display:inline-block;font-family:var(--serif);font-style:italic;color:var(--amber);font-size:15px;letter-spacing:.1em;margin-bottom:6px}
+  h2.sec{font-family:var(--serif);font-size:26px;color:var(--teal-deep);margin:0 0 8px;line-height:1.4;font-weight:700;display:flex;align-items:baseline;gap:14px}
+  h2.sec .no{font-style:italic;color:var(--amber);font-size:21px;flex:none}
+  h3{font-family:var(--serif);font-size:20px;color:var(--teal-deep);margin:34px 0 6px}
+  p{margin:14px 0}
+  .lead{color:var(--ink-soft)}
+  strong{color:var(--teal-deep)}
+  em.term{font-style:normal;font-weight:700;color:var(--amber)}
+  hr.div{border:none;border-top:1px solid var(--rule);margin:52px 0}
+
+  .box{border-radius:13px;padding:20px 24px;margin:24px 0;border:1px solid var(--rule);background:var(--paper-2)}
+  .box .label{font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .intuition{background:linear-gradient(180deg,#eef5f1,#e8f1ec);border-color:#bcd8cd}
+  .intuition .label{color:var(--teal)}
+  .experiment{background:linear-gradient(180deg,#fbf2e1,#f7ead2);border-color:#e7cfa3}
+  .experiment .label{color:var(--amber)}
+  .detective{background:#23211c;color:#f1ebdc;border-color:#23211c}
+  .detective .label{color:#e6b25e}
+  .detective strong{color:#f6d99a}
+  .pitfall{background:#fbeeec;border-color:#e7c2bb}
+  .pitfall .label{color:#a8442f}
+  .history{background:linear-gradient(180deg,#f7efe0,#f1e6d0);border-color:#dcc9a3;border-left:5px solid var(--sepia)}
+  .history .label{color:var(--sepia)}
+  .history .who{font-family:var(--serif);font-style:italic;color:#6a4f1f}
+
+  .keyeq{border:1px solid var(--teal);border-left:5px solid var(--teal);
+    background:linear-gradient(180deg,#ffffff,#f3f7f4);border-radius:12px;padding:6px 22px;margin:26px 0;
+    box-shadow:0 14px 30px -26px rgba(15,95,89,.7)}
+  .keyeq .cap{font-size:12.5px;letter-spacing:.16em;color:var(--amber);font-weight:800;text-transform:uppercase;margin:14px 0 -4px}
+
+  .tbl-wrap{overflow-x:auto;margin:22px 0}
+  table{border-collapse:collapse;width:100%;font-size:15.5px;background:var(--paper-2)}
+  caption{caption-side:top;text-align:left;font-size:13px;color:var(--ink-soft);margin-bottom:8px;font-style:italic}
+  th,td{border:1px solid var(--rule);padding:9px 12px;text-align:center}
+  td.field{text-align:left}
+  td.hot{color:var(--amber);font-weight:700}
+  thead th{background:var(--teal-deep);color:#f3ecdd;font-weight:600;letter-spacing:.02em}
+  tbody tr:nth-child(even){background:#f1ead9}
+
+  figure{margin:28px 0;text-align:center}
+  figure svg{max-width:100%;height:auto}
+  figcaption{font-size:13.5px;color:var(--ink-soft);margin-top:10px;font-style:italic}
+  .figcard{border:1px solid var(--rule);border-radius:13px;background:var(--paper-2);padding:18px}
+
+  ol.steps{counter-reset:s;list-style:none;padding:0;margin:22px 0}
+  ol.steps>li{position:relative;padding:4px 0 4px 52px;margin:18px 0}
+  ol.steps>li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:2px;width:34px;height:34px;border-radius:50%;
+    background:var(--teal);color:#fff;font-family:var(--serif);font-style:italic;display:flex;align-items:center;justify-content:center;font-size:17px}
+  ol.steps>li b{color:var(--teal-deep)}
+
+  .timeline{border-left:3px solid var(--rule);margin:24px 0 24px 8px;padding-left:22px}
+  .timeline .t{position:relative;margin:16px 0}
+  .timeline .t::before{content:"";position:absolute;left:-30px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 3px var(--paper)}
+  .timeline .yr{font-family:var(--serif);font-style:italic;color:var(--amber);font-weight:700;margin-right:8px}
+
+  footer{margin-top:80px;border-top:1px solid var(--rule);padding-top:24px;color:var(--ink-soft);font-size:14px;text-align:center}
+
+  @page{ size:A4; margin:14mm 14mm 16mm; }
+  @media print{
+    body{background:#fff;font-size:12.2pt;line-height:1.78}
+    .wrap{max-width:100%;padding:0}
+    .hero,.box,.keyeq,nav.toc,table,.figcard{box-shadow:none}
+    .hero{break-after:page}
+    #preface{break-after:page}
+    .orb{display:none}
+    .part-divider{break-before:page;break-after:page;break-inside:avoid;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:235mm;margin:0;padding:0}
+    .part-divider + section{margin-top:0}
+    .coda{break-inside:avoid;margin-top:36px}
+    #reading{break-before:page}
+    h2.sec,h3{break-after:avoid}
+    figure,.keyeq,.box,table,.tbl-wrap{break-inside:avoid}
+    nav.toc{break-after:page}
+    a{color:inherit}
+  }
+
+
+  .dl-bar{border:1px solid var(--rule);border-radius:12px;
+    background:var(--paper-2);margin:40px 0 0;padding:14px 20px}
+  .dl-bar-inner{display:flex;align-items:center;gap:16px}
+  .dl-icon{width:32px;height:32px;flex-shrink:0;color:var(--teal)}
+  .dl-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+  .dl-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:700}
+  .dl-title{font-size:14px;color:var(--ink);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dl-btn{display:inline-flex;align-items:center;gap:6px;flex-shrink:0;
+    padding:8px 18px;border-radius:8px;border:1.5px solid var(--teal);
+    background:transparent;color:var(--teal);
+    font-size:14px;font-weight:700;text-decoration:none;transition:background .15s,color .15s}
+  .dl-btn:hover{background:var(--teal);color:#fff}
+
+
+  :root{--serif:"Noto Serif CJK TC","Noto Serif TC","Songti TC","STSong","Iowan Old Style","Palatino Linotype","Georgia",serif;--cjk:"Noto Sans CJK TC","Noto Sans TC","PingFang TC","Microsoft JhengHei","Heiti TC",sans-serif;}
+  .hero .coverart svg{width:260px;height:260px}
+  .keyeq p{margin:14px 0}
+  .figcard{background:#fff!important;border-color:#e5e7eb!important;box-shadow:0 10px 30px -22px rgba(30,40,80,.45)}
+  figure.figcard figcaption{color:#374151;font-style:normal;text-align:left;font-size:13.5px;line-height:1.7;font-family:var(--cjk)}
+  figure.figcard figcaption b{color:#111827}
+  figure.vabs figcaption{text-align:center!important}
+  .abstract-page{margin-top:34px}
+  .abstract-page figure.vabs{margin:0 0 22px;padding:14px}
+
+  @media print{
+    .part-divider{break-before:page!important;break-after:auto!important;min-height:0!important;display:block!important;margin:0 0 6mm!important;padding:0!important;text-align:center}
+    .part-divider + section{margin-top:0!important}
+    #prologue{break-before:page}
+    .abstract-page{break-after:page}
+    .abstract-page figure.vabs{break-after:page;break-inside:avoid}
+    figure.vabs svg{max-width:150mm!important}
+    .abstract-page figure.vabs{padding:6mm 6mm 4mm!important;margin:0!important}
+    .abstract-page{margin-top:0!important}
+    .vabs-banner{max-width:120mm!important;break-inside:avoid;padding:10px 14px!important}
+    .tldr{break-inside:avoid;margin-top:0}
+    #reading,#sources{break-before:page}
+  }
+
+  figure.vabs{margin:24px 0 18px}
+  figure.vabs svg{width:100%;max-width:560px;height:auto;display:block;margin:0 auto}
+  .vabs-banner{max-width:560px;margin:14px auto 0;background:linear-gradient(180deg,#1F5FB0,#0B3C78);color:#fff;border-radius:12px;padding:16px 18px;text-align:center;box-shadow:0 6px 16px -8px rgba(23,54,160,.6)}
+  .vabs-banner strong{display:block;color:#F0E442;font-size:19px;line-height:1.5}
+  .vabs-banner span{display:block;font-size:14.5px;margin-top:6px;line-height:1.6}
+  figure.vabs figcaption{text-align:center;font-style:normal;letter-spacing:.2em;color:var(--amber);font-size:12px;margin-top:8px}
+  .tldr{margin-top:28px}
+  ol.tldr-list{margin:0;padding-left:22px}
+  ol.tldr-list li{margin:7px 0;line-height:1.8}
+  ol.tldr-list a{color:var(--teal);text-decoration:none;font-weight:700;white-space:nowrap;margin-left:4px}
+  table.grid td.knot{background:#fbeeec}
+  table.grid td.key{background:#eef5f1}
+  table.grid tbody tr:nth-child(even) td.knot{background:#f8e6e3}
+  table.grid tbody tr:nth-child(even) td.key{background:#e6f0ea}
+  table.grid th:first-child,table.grid td:first-child{width:17%}
+  .mark{background:linear-gradient(transparent 62%, rgba(177,112,31,.28) 62%);padding:0 1px}
+  @media print{.mark{background:none;text-decoration:underline;text-decoration-color:#b1701f;text-underline-offset:3px}}
+  .theend{font-family:var(--serif);font-style:italic;color:var(--sepia);letter-spacing:.3em;margin-top:30px}
+  @media(max-width:640px){.hero{padding:34px 22px}.hero h1{font-size:34px}h2.sec{font-size:22px}body{font-size:17px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="orb"></div>
+    <div class="eyebrow">一則橫跨兩千年的思想考古</div>
+    <h1>腦袋裡的 <span class="e">OS</span></h1>
+    <p class="h1sub">為什麼最聰明的人，也跳不出兩千年前寫好的程式框架？</p>
+    
+    <p class="sub"><strong>日本科學家「又」得到諾貝爾獎了。</strong></p>
+    <p class="sub" style="margin-top:12px">2026 年 10 月，東京理科大學名譽教授硤合憲三拿下諾貝爾化學獎。他研究的反應，牽涉到一個聽起來毫無用處的大問題：生命的分子，為什麼幾乎只用其中一種「手性」？他的關鍵實驗發表於 1995 年，一路磨了三十年。我忍不住想：如果他在台灣或中國，這個題目能撐過幾次升等審查？</p>
+    <p class="sub" style="margin-top:12px">許多教授私下都會說：只看論文點數，看不出一個人的價值。然後大家走進會議室，打開計分表，照分數排名次。台灣如此，中國也如此。</p>
+    <p class="sub" style="margin-top:12px">一千年前，宋朝的考官把考生的名字封起來，從此只看卷，不看人；一千年後，我們把學者換算成點數，一樣只看分數，不看人。最聰明的一群人明知道規則有問題，為什麼就是跳不出來？<strong>真正決定一個社會長相的，究竟是制度，還是制度底下的思想？</strong></p>
+    <div class="byline">何恭之 ｜ 2026 年 10 月<span class="en"><a href="en.html" style="color:inherit">English edition: The OS in Our Heads — Why Ideas Outlive Institutions</a></span></div>
+  </header>
+
+  <div class="abstract-page">
+  <figure class="vabs figcard"><svg style="font-family:\'Helvetica Neue\',Helvetica,Arial,\'Noto Sans TC\',\'PingFang TC\',\'Microsoft JhengHei\',sans-serif" viewBox="0 0 640 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="圖解摘要：一千年，同一個選擇，不看人，看卷"><defs><filter id="sh1" x="-10%" y="-10%" width="125%" height="140%"><feDropShadow dx="0" dy="2.4" stdDeviation="2.6" flood-color="#111827" flood-opacity="0.24"/></filter><linearGradient id="g1_F5D7BF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7DFCD"/><stop offset="1" stop-color="#EFBF99"/></linearGradient><linearGradient id="g1_111827" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2F426C"/><stop offset="1" stop-color="#0F1523"/></linearGradient><linearGradient id="g1_F4C7D9" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6D3E1"/><stop offset="1" stop-color="#ECA1BF"/></linearGradient></defs>
+<text x="320" y="44" font-size="27" fill="#C04A00" font-weight="700" text-anchor="middle">一千年，同一個選擇</text>
+<rect filter="url(#sh1)" x="40" y="70" width="250" height="262" rx="5" fill="url(#g1_F5D7BF)" stroke="#D55E00"/>
+<text x="165" y="102" font-size="19" fill="#111827" font-weight="700" text-anchor="middle">992 年｜宋</text>
+<rect x="88" y="120" width="154" height="150" rx="4" fill="#ffffff" stroke="#9CA3AF" stroke-width="1.5"/>
+<rect filter="url(#sh1)" x="88" y="120" width="154" height="34" rx="4" fill="url(#g1_111827)"/>
+<text x="165" y="143" font-size="15" fill="#ffffff" font-weight="700" text-anchor="middle">糊　名</text>
+<g fill="#D1D5DB"><rect x="104" y="170" width="122" height="7" rx="3"/><rect x="104" y="186" width="110" height="7" rx="3"/><rect x="104" y="202" width="122" height="7" rx="3"/><rect x="104" y="218" width="96" height="7" rx="3"/><rect x="104" y="234" width="116" height="7" rx="3"/><rect x="104" y="250" width="80" height="7" rx="3"/></g>
+<text x="165" y="306" font-size="16.5" fill="#111827" text-anchor="middle">把考生的名字封起來</text>
+<text x="320" y="218" font-size="42" fill="#C04A00" font-weight="700" text-anchor="middle">≈</text>
+<rect filter="url(#sh1)" x="350" y="70" width="250" height="262" rx="5" fill="url(#g1_F4C7D9)" stroke="#CC79A7"/>
+<text x="475" y="102" font-size="19" fill="#111827" font-weight="700" text-anchor="middle">今天｜台灣・中國</text>
+<rect x="398" y="120" width="154" height="150" rx="4" fill="#ffffff" stroke="#9CA3AF" stroke-width="1.5"/>
+<g font-size="14" fill="#374151"><text x="414" y="152">期刊等級</text><text x="414" y="180">作者序</text><text x="414" y="208">篇數</text></g>
+<g font-size="14" fill="#00785A" font-weight="700"><text x="536" y="152" text-anchor="end">✓</text><text x="536" y="180" text-anchor="end">✓</text><text x="536" y="208" text-anchor="end">✓</text></g>
+<line x1="408" y1="226" x2="542" y2="226" stroke="#9CA3AF"/>
+<text x="475" y="254" font-size="15" fill="#B2182B" font-weight="700" text-anchor="middle">→ 點數</text>
+<text x="475" y="306" font-size="16.5" fill="#111827" text-anchor="middle">把學者換算成點數</text>
+<text x="320" y="378" font-size="25" fill="#B2182B" font-weight="700" text-anchor="middle">不看人，看卷</text>
+<text x="320" y="410" font-size="14.5" fill="#374151" text-anchor="middle">制度換了一千年，這個選擇沒有變</text>
+</svg><div class="vabs-banner"><strong>制度是會換的衣服，思想是穿衣服的身體。</strong><span>美國的規則可以抄，規則底下的信任抄不了。</span></div><figcaption>圖解摘要｜Visual Abstract</figcaption></figure>
+  <aside class="box intuition tldr" id="tldr">
+    <div class="label">▸ 全文摘要</div>
+    <p style="margin:0 0 10px;font-size:18.5px"><strong>一句話：制度是會換的衣服，思想是穿衣服的身體。計分表的出現有很多原因；但它為什麼改不掉、每次改革都回到原點，主因在思想。</strong></p>
+    <ol class="tldr-list">
+      <li><b>現象：</b>台灣與中國的最高制度南轅北轍七十年，學術圈卻長成同一個樣子：同一張計分表、同一頂帽子、同一種強項、同一個諾貝爾缺口。<a href="#s11">第一部 →</a></li>
+      <li><b>不只是制度：</b>美國也算論文、也找經費，卻獎勵原創；八位華人在歐美的實驗室拿了諾貝爾獎；日本則從沒裝過科舉這一版程式。<a href="#s21">第二部 →</a></li>
+      <li><b>根源是思想：</b>兩千年的儒家正統、一千三百年的科舉，寫下了「公平＝分數」「學以致用」「差序格局」三行原始碼。<a href="#s31">第三部 →</a></li>
+      <li><b>機制：</b>規則要靠人執行。在特殊主義的倫理下，評審的判斷預設會被懷疑沿著關係走，最被接受的公平，就是把判斷拿掉、只留數字。宋朝早就做過同一個選擇：糊名。<a href="#s36">§3.6、第四部 →</a></li>
+      <li><b>細節（本文論證的關鍵）：</b>四個結的三地對照：台灣卡在哪、中國卡在哪、美國為什麼不卡。留洋學者帶得回一把鑰匙，帶不回整串鑰匙。<a href="#d1">第五部 →</a></li>
+      <li><b>處境：</b>像漸凍症，知道病因、只能延緩；又像缺碘，病在土壤，不在人。<a href="#s51">第六部 →</a></li>
+      <li><b>出路：</b>框架卸載不了，但可以被看見。人文科學，就是讀懂自己腦袋原始碼的工具。<a href="#s61">第七部 →</a></li>
+    </ol>
+  </aside>
+  </div>
+
+  <nav class="toc">
+    <h2>目錄</h2>
+    <ul>
+      <li><a href="#prologue"><span class="nm">序</span>分開長大的雙胞胎</a></li>
+      <li class="part">第一部　相同的習慣</li>
+      <li><a href="#s11"><span class="nm">§1.1</span>同一張計分表</a></li>
+      <li><a href="#s12"><span class="nm">§1.2</span>同一頂帽子</a></li>
+      <li><a href="#s13"><span class="nm">§1.3</span>同一種強項</a></li>
+      <li><a href="#s14"><span class="nm">§1.4</span>同一個缺口</a></li>
+      <li class="part">第二部　不只是制度</li>
+      <li><a href="#s21"><span class="nm">§2.1</span>同樣的外殼，不同的靈魂</a></li>
+      <li><a href="#s22"><span class="nm">§2.2</span>那八位華人得主去了哪裡</a></li>
+      <li><a href="#s23"><span class="nm">§2.3</span>日本：脫亞入歐的那一個</a></li>
+      <li class="part">第三部　讀原始碼</li>
+      <li><a href="#s31"><span class="nm">§3.1</span>兩千年的官學，一千三百年的考試</a></li>
+      <li><a href="#s32"><span class="nm">§3.2</span>學以致用</a></li>
+      <li><a href="#s33"><span class="nm">§3.3</span>差序格局與師門</a></li>
+      <li><a href="#s34"><span class="nm">§3.4</span>水田裡長出來的心智</a></li>
+      <li><a href="#s35"><span class="nm">§3.5</span>原始碼的學名：特殊主義</a></li>
+      <li><a href="#s36"><span class="nm">§3.6</span>思想怎麼變成制度的運作</a></li>
+      <li class="part">第四部　判斷的缺席</li>
+      <li><a href="#s41"><span class="nm">§4.1</span>每個人都知道</a></li>
+      <li><a href="#s42"><span class="nm">§4.2</span>一千年前的同一場實驗</a></li>
+      <li><a href="#s43"><span class="nm">§4.3</span>看人的三個前提</a></li>
+      <li><a href="#s44"><span class="nm">§4.4</span>數字是一副面具</a></li>
+      <li><a href="#s45"><span class="nm">§4.5</span>美國為什麼可以</a></li>
+      <li><a href="#s4x"><span class="nm">§4.6</span>美國沒有學閥嗎？</a></li>
+      <li><a href="#s46"><span class="nm">§4.7</span>聰明人的囚徒困境</a></li>
+      <li><a href="#s47"><span class="nm">§4.8</span>看走眼的帳，記在誰身上</a></li>
+      <li class="part">第五部　魔鬼在細節裡</li>
+      <li><a href="#d1"><span class="nm">§5.1</span>他們都帶回來了</a></li>
+      <li><a href="#d2"><span class="nm">§5.2</span>四個結：三地對照</a></li>
+      <li><a href="#d3"><span class="nm">§5.3</span>結會互相鎖住，鑰匙也會</a></li>
+      <li><a href="#d4"><span class="nm">§5.4</span>那日本呢？另一串鑰匙</a></li>
+      <li class="part">第六部　思想漸凍症</li>
+      <li><a href="#s51"><span class="nm">§6.1</span>知道基因，知道病程</a></li>
+      <li><a href="#s52"><span class="nm">§6.2</span>為什麼到了美國就好了？</a></li>
+      <li><a href="#s53"><span class="nm">§6.3</span>有人有解嗎？</a></li>
+      <li><a href="#s54"><span class="nm">§6.4</span>這個框架的禮物</a></li>
+      <li class="part">第七部　App 與作業系統</li>
+      <li><a href="#s61"><span class="nm">§7.1</span>算力的巨人</a></li>
+      <li><a href="#s62"><span class="nm">§7.2</span>半個哲學家</a></li>
+      <li><a href="#finale"><span class="nm">終</span>看見牢籠</a></li>
+      <li><a href="#sources"><span class="nm">附</span>資料來源</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== 序章 ===================== -->
+  <section id="prologue" class="preface">
+    <span class="part-tag">序章</span>
+    <h2 class="sec">分開長大的雙胞胎</h2>
+    <p>1979 年，美國俄亥俄州兩個三十九歲的男人第一次見面。他們是同卵雙胞胎，出生幾週就被不同家庭收養，彼此不知道對方存在。收養家庭不約而同替他們取了同一個名字：Jim。</p>
+    <p>重逢後，人們發現的事情讓人頭皮發麻：兩人都娶過叫 Linda 的女人，離婚後再娶的都叫 Betty；小時候都養過一隻叫 Toy 的狗；都抽同一個牌子的菸、都喜歡做木工、都到佛羅里達同一片海灘度假，也都在俄亥俄州當過兼職副警長。報紙報導了這段重逢，心理學家 Thomas Bouchard 主動聯絡他們，這對「Jim 雙胞胎」後來成了明尼蘇達大學「分開撫養雙胞胎研究」（Minnesota Study of Twins Reared Apart）最有名的案例。</p>
+    <p>公平地說，兩個 Jim 是極端的個案，太太同名、狗同名這類巧合，很大一部分是運氣，後來的研究者也提醒不要過度解讀。但這項研究真正的結論，來自大量個案的系統比較：分開撫養的同卵雙胞胎，在人格、興趣與態度上的相似程度，和一起長大的同卵雙胞胎差不多。</p>
+    <p>這類研究背後的邏輯很簡單：<strong>如果兩個人在完全不同的環境長大，卻長出一樣的習慣，那麼決定這些習慣的，大概不是環境，而是他們身上共有的東西。</strong></p>
+    <p>我想講另一對分開長大的雙胞胎。</p>
+    <p>他們在 1949 年被拆開。一個留在中國，經歷土改、文革、改革開放，至今由一個政黨統治；另一個到了台灣，經歷戒嚴、解嚴、政黨輪替，成為亞洲最自由的民主社會之一。七十多年來，兩邊的最高制度南轅北轍：一邊是選票，一邊是黨委；一邊有言論自由，一邊有防火牆。</p>
+    <p>照理說，這麼不同的「養育環境」，應該養出很不一樣的孩子。結果呢？</p>
+    <figure class="figcard">
+      <svg style="font-family:\'Helvetica Neue\',Helvetica,Arial,\'Noto Sans TC\',\'PingFang TC\',\'Microsoft JhengHei\',sans-serif" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="雙胞胎分岔又匯合"><defs><filter id="sh2" x="-10%" y="-10%" width="125%" height="140%"><feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#111827" flood-opacity="0.13"/></filter></defs>
+        <rect filter="url(#sh2)" x="20" y="122" width="132" height="56" rx="5" fill="#0B3C78"/>
+        <text x="86" y="146" text-anchor="middle" font-size="15" fill="#FFFFFF" font-weight="700">1949</text>
+        <text x="86" y="166" text-anchor="middle" font-size="12.5" fill="#FFFFFF">同一套思想框架</text>
+        <path d="M152,140 C210,140 220,58 280,58" fill="none" stroke="#D55E00" stroke-width="2.5"/>
+        <path d="M152,160 C210,160 220,242 280,242" fill="none" stroke="#D55E00" stroke-width="2.5"/>
+        <rect filter="url(#sh2)" x="280" y="30" width="160" height="56" rx="5" fill="#F5D7BF" stroke="#D55E00"/>
+        <text x="360" y="54" text-anchor="middle" font-size="14" fill="#111827" font-weight="700">台灣</text>
+        <text x="360" y="73" text-anchor="middle" font-size="12" fill="#374151">戒嚴 → 民主 → 政黨輪替</text>
+        <rect filter="url(#sh2)" x="280" y="214" width="160" height="56" rx="5" fill="#F5D7BF" stroke="#D55E00"/>
+        <text x="360" y="238" text-anchor="middle" font-size="14" fill="#111827" font-weight="700">中國</text>
+        <text x="360" y="257" text-anchor="middle" font-size="12" fill="#374151">文革 → 改革開放 → 黨國</text>
+        <text x="360" y="150" text-anchor="middle" font-size="12.5" fill="#0072B2" font-style="italic">最高制度：南轅北轍</text>
+        <path d="M440,58 C490,58 495,140 520,145" fill="none" stroke="#00785A" stroke-width="2.5"/>
+        <path d="M440,242 C490,242 495,160 520,155" fill="none" stroke="#00785A" stroke-width="2.5"/>
+        <rect filter="url(#sh2)" x="520" y="78" width="104" height="144" rx="5" fill="#BFE7DC" stroke="#00785A"/>
+        <text x="572" y="104" text-anchor="middle" font-size="13" fill="#0B3C78" font-weight="700">卻長出</text>
+        <text x="572" y="130" text-anchor="middle" font-size="12" fill="#111827">同一張計分表</text>
+        <text x="572" y="152" text-anchor="middle" font-size="12" fill="#111827">同一頂帽子</text>
+        <text x="572" y="174" text-anchor="middle" font-size="12" fill="#111827">同一種強項</text>
+        <text x="572" y="196" text-anchor="middle" font-size="12" fill="#111827">同一個缺口</text>
+      </svg>
+      <figcaption><b>圖 1｜</b>台灣與中國最高層級的制度分道揚鑣七十多年，日常運作的模式卻驚人地收斂。</figcaption>
+    </figure>
+    <div class="box intuition">
+      <div class="label">▸ 這篇文章要論證的一件事</div>
+      <p style="margin:0;font-size:19px"><strong>制度是會換的衣服，思想是穿衣服的身體。計分表的出現有很多原因；但它為什麼改不掉、每次改革都回到原點，主因在思想。</strong></p>
+      <p style="margin:10px 0 0">先把範圍說清楚：本文不是說制度不重要，也不是說思想決定一切。計分表的出現有很多原因：後進追趕、經費規模、全球潮流都有份（§2.2）。我的主張比較窄：<strong>它為什麼改不掉、為什麼每次改革最後都回到原點，我認為主因在思想。</strong>寫在紙上的規則抄得過來，規則實際怎麼被執行，卻取決於一個社會怎麼看待「人的判斷」，而這種看法改變得非常慢。制度經濟學把前者稱為「快變數」，後者稱為「慢變數」（§3.6）。這是本文的判斷，不是已被證明的定論；接下來的每一部，都是為這個判斷提出理由。</p>
+    </div>
+    <p>這是一個強命題，我知道。所以接下來我會像處理雙胞胎研究一樣：先列出兩個「孩子」有哪些相同的習慣（第一部），再說明為什麼光看制度，解釋不了這些相同（第二部），然後打開原始碼，看看這套思想是怎麼寫成的（第三部）。</p>
+    <p>接著是整篇文章真正想談的痛點：<strong>每個聰明人都知道「只看數字」是錯的，為什麼專業判斷始終無法取代數字？誰來承擔看走眼的風險？</strong>（第四部）。接著，我會把制度一層一層拆開，找出那些讓留洋學者帶不回美國制度的「死結」（第五部）。最後，我想描述一種很多學者心裡都有、卻很少說出口的感覺：就像面對一位漸凍人，你知道他的基因、知道他的病程，卻沒有藥可以治（第六部）。</p>
+  </section>
+
+  <!-- ===================== Part 1 ===================== -->
+  <div class="part-divider"><div class="pp">第 一 部</div><div class="pt">相同的習慣</div></div>
+
+  <section id="s11">
+    <h2 class="sec"><span class="no">§1.1</span>同一張計分表</h2>
+    <p class="lead">如果你在台灣的大學或研究機構待過，下面這個場景你一定不陌生。</p>
+    <p>每年某個時候，你會打開一張表格。你的每一篇論文都要換算成點數：期刊在該領域排名前百分之幾、你是第一作者還是通訊作者、是原著還是個案報告。幾個數字乘起來，就是你這一年的「學術身價」。台灣學界最有名的版本叫 <em class="term">RPI</em>（Research Performance Index），升等、申請計畫、評估研究人員，都看這個數字。</p>
+    <p>這張表的身世，是整個故事裡最諷刺的一段。</p>
+    <p>1994 年，諾貝爾化學獎得主李遠哲回台接掌中研院。他想帶回來的，是美國頂尖學府的那一套：打破論資排輩、打破近親繁殖，請國際同行來看你的代表作，判斷你到底開創了什麼。他同時主持教育改革，要對抗的正是升學考試的分數主義。</p>
+    <p>但「追求卓越、與國際接軌」的口號一路吹進國科會和各大學，奇妙的事發生了。在一個師門與人情網絡緊密的學界，單靠同行主觀判斷的審查，很容易被質疑成派系分贓、大老包庇；為了讓結果無話可說，學界越來越依賴一套把論文換算成點數的算術。<strong>這就是 RPI。讀論文，變成了數論文。</strong>後來教育部「邁向頂尖大學計畫」（俗稱五年五百億）這類競爭型經費，又把算點數的思維擴散到全國各校，連人文社會科學都被套進 SCI、SSCI 的篇數裡，逼得學界在 2004 年開了一場「反思學術評鑑」的研討會。</p>
+    <p>李遠哲想帶大家去踢一場美式的自由比賽，台灣的聰明人卻不約而同搬出了算盤。<strong>連諾貝爾獎得主親自坐鎮，都擋不住那套老程式的自動修正。</strong></p>
+    <p>後來連國科會自己都看不下去，主委朱敬一在 2012 年前後公開表示，像 RPI 這樣機械化的加權指標已完成階段性任務，將不再採用。可是十多年過去了，許多學校和研究機構的升等辦法裡，它依然活得好好的。</p>
+    <p>海峽另一邊，故事幾乎一模一樣。1980 年代末，南京大學率先把美國的 SCI（Science Citation Index）論文數拿來評價理工科教師。校長曲欽岳後來解釋過理由，兩個都很耐人尋味：當時學界風氣不正，缺乏客觀標準；國內專家太少，國際式的同行評議做不起來。換句話說，<strong>不放心讓人判斷，所以讓數字判斷。</strong>南大的 SCI 論文數在 1990 年代連續多年全國第一，其他學校競相仿效。</p>
+    <p>後來這張表在中國長成什麼樣子？有三個看得見的零件。第一是<strong>期刊分區</strong>：中國科學院文獻情報中心把每個領域的期刊依影響因子分成一區到四區，升等、評獎、研究生畢業，常常直接規定要幾篇一區或二區論文。第二是<strong>現金獎勵</strong>：武漢大學、南京理工大學與麥基爾大學的學者在 2017 年調查了 100 所中國大學、168 份獎勵辦法，發現 2016 年一篇《Nature》或《Science》論文的平均獎金約 43,783 美元，最高可達 16.5 萬美元，是許多教師年薪的好幾倍。第三是<strong>帽子</strong>（§1.2）。至於分數怎麼算，中國沒有全國統一的公式，由各校自訂；以東南大學 2009 年的教師考核積分辦法為例：《Nature》《Science》第一作者一篇 900 分，一般 SCI 論文每篇 100 分、再乘上影響因子權重，而且要求第一作者，通訊作者減半。公式和台灣的 RPI 不同，算法卻是同一種：期刊等級、作者序、篇數，換算成點數。期刊分區決定論文值幾分，分數決定獎金與帽子，帽子決定資源。一位學者的價值，被拆成一串可以加總的數字。</p>
+    <p>台灣與中國開放交流後，如果中國的高教管理者在參訪時看到這套「用一張表就把全校教授管得服服貼貼」的辦法，帶回去再放大，也一點都不奇怪。但我想說的重點是：<strong>抄或不抄，其實不重要。</strong>一個人去參考別人的作法，只會帶走自己看得懂、心裡本來就認同的那一份。美國的同行評審擺在那裡幾十年，台灣與中國都去看過，最後帶回家的，卻都是「算分數」這一半。</p>
+    <div class="box detective">
+      <div class="label">◆ 雙胞胎的第一個相同習慣</div>
+      <p style="margin:0">兩個政治體制完全不同的社會，面對同一個問題（怎麼評價學者），給出了同一個答案（把人換成分數）。而他們放棄的那個選項（讓懂行的人判斷），恰好是美國制度的靈魂。</p>
+    </div>
+    <p>中國後來也後悔了。2010 年，施一公與饒毅在《Science》發表社論，直說在中國拿大型經費，做好研究不如經營與官員和他們偏愛的專家之間的關係，而這已是公開的秘密。2018 年 10 月，中國科技部、教育部等部門聯合發文，清理「唯論文、唯職稱、唯學歷、唯獎項」，俗稱「破四唯」；2020 年 2 月，教育部與科技部再發文，規範大學不得把 SCI 論文指標直接當作評價與獎勵的依據；同年 10 月，中共中央、國務院印發《深化新時代教育評價改革總體方案》，要求克服「唯分數、唯升學、唯文憑、唯論文、唯帽子」的頑疾，這就是常說的「破五唯」。</p>
+    <p>注意這件事：一個號稱可以「集中力量辦大事」的政府，在兩年之內連發三份文件要破除計分；需要一再下令，本身就說明計分有多難破除。台灣的國科會說不用 RPI，RPI 也還在許多學校的辦法裡。最新的例子在 2026 年：3 月 27 日，中國科學院文獻情報中心宣布，自 2026 年起不再更新與發布期刊分區表；隔天，就有第三方機構宣布推出自己的「分區表」；3 月 30 日，電子科技大學圖書館公告，2026 年發表的論文統一沿用 2025 年版的分區表認定。表停了，用表的需要沒有停。<strong>如果制度真的是決定性的，一紙命令就該解決問題。</strong>它沒有，這是第一個線索。</p>
+  </section>
+
+  <hr class="div">
+
+  <section id="s12">
+    <h2 class="sec"><span class="no">§1.2</span>同一頂帽子</h2>
+    <p>在中國的大學圈，有一個專有名詞叫「帽子」：優青、傑青、長江學者、院士。每一頂帽子都綁著年齡門檻、薪資加給與資源分配權。一個頂尖學者從三十歲開始寫計畫、湊論文、跑關係，一路戴帽子戴到六十歲，可能從沒有一天真正擁有「十年不交作業也不會餓死」的自由。</p>
+    <p>台灣沒有「帽子」這個說法，卻有一模一樣的東西：特聘教授、傑出研究獎、玉山學者、各種彈性薪資。頭銜直接換算成每月加給，讓已經升上正教授的人，仍有動機繼續累積篇數。</p>
+    <p>台灣與中國也都有那個熟悉的結構：資深教授、系主任、院長掌握空間、經費與名額，常聽到的抱怨是：年輕學者若不依附在某個大老的研究方向底下，就很難拿到資源。研究室像一個家族，有長輩、有輩分、有「我們這一門」。</p>
+    <div class="tbl-wrap">
+    <table>
+      <caption>表 1｜分開長大的雙胞胎：同一個美國原型，台灣與中國長出的版本</caption>
+      <thead><tr><th>美國原型</th><th>台灣長出的樣子</th><th>中國長出的樣子</th><th>共同的底色</th></tr></thead>
+      <tbody>
+        <tr><td class="field">同行評審（peer review）</td><td class="field">RPI、期刊排名百分位計分</td><td class="field">SCI 分區、影響因子加總</td><td class="field hot">判斷交給數字，不交給人</td></tr>
+        <tr><td class="field">研究經費競爭（grant）</td><td class="field">國科會計畫年年焦慮</td><td class="field">反覆修改申請書，爭取國家自然科學基金</td><td class="field hot">科學變成按年交作業</td></tr>
+        <tr><td class="field">學術榮譽</td><td class="field">特聘、傑出、玉山</td><td class="field">優青、傑青、長江、院士</td><td class="field hot">榮譽變成官階</td></tr>
+        <tr><td class="field">獨立的年輕 PI</td><td class="field">依附資深大老</td><td class="field">「大課題組」、學閥</td><td class="field hot">師門與輩分</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <section id="s13">
+    <h2 class="sec"><span class="no">§1.3</span>同一種強項</h2>
+    <p>學術圈之外，這對雙胞胎還有一個共同的天賦：<strong>都極度擅長「從 1 到 100」</strong>，也就是把一個已經存在的東西，做得更精、更多、更便宜。</p>
+    <p>台灣的代表是台積電。電晶體不是台灣發明的，光刻機的原理也不是，但把別人發明的東西推進到奈米、埃米級，良率逼到全世界沒人追得上，台灣做到了。中國的代表是供應鏈：手機、電動車、太陽能板、無人機，別人設計的東西，它用全世界最快的速度、最大的規模、最低的成本做出來。</p>
+    <p>反過來，「從 0 到 1」，也就是發明那個原本不存在的東西，多半發生在別處。電晶體、積體電路、網際網路、智慧型手機的概念、mRNA 疫苗、CRISPR，都不是在這兩個地方誕生的。</p>
+    <p>這不只是印象。2019 年，Roy Chua、Kenneth Huang 與 Mengzi Jin 沿用心理學家 Michele Gelfand 的「緊密／鬆散文化」框架，在《PNAS》分析了中國 31 個省份，以及 1990 到 2013 年間約 385 萬件獲准的專利。結果很清楚：<strong>文化越「緊」（規範越強、越不容許偏差）的省份，突破性的創新越少，漸進式的改良越多。</strong>連同一個國家內部，都看得到這條線。</p>
+    <p>這不是貶低。能把 1 做到 100，是人類文明極其稀有的能力，全世界的晶片都靠它（第六部會回來談這份禮物）。我想指出的只是：兩個制度完全不同的社會，在產業上也收斂到了同一個位置。</p>
+  </section>
+
+  <hr class="div">
+
+  <section id="s14">
+    <h2 class="sec"><span class="no">§1.4</span>同一個缺口</h2>
+    <p>最後一個相同的習慣，是一個空格。</p>
+    <p>日本到 2026 年為止，有 28 位諾貝爾自然科學獎得主（物理 12、化學 10、生理醫學 6，含 3 位後來入美籍者），其中 23 位在 2000 年以後獲獎。2025 年，坂口志文以調節性 T 細胞獲醫學獎、北川進以金屬有機框架獲化學獎；2026 年，就是開頭那位硤合憲三，與法國的 Henri Kagan 共享化學獎。日本連續兩年拿下化學獎。</p>
+    <p>中國的高教量體是日本的好幾倍，在中國本土完成研究的諾貝爾科學獎得主，只有 2015 年的屠呦呦一位。而她的青蒿素研究，是在 1970 年代軍方的「523 項目」中、以舉國之力完成的，並不是現代大學體系培養出來的成果。</p>
+    <p>台灣呢？在台灣本土完成研究的諾貝爾科學獎得主：零。</p>
+    <p>2005 年，科學家錢學森問了一個後來非常有名的問題：「為什麼我們的學校總是培養不出傑出人才？」這就是「錢學森之問」。這個問題不只屬於中國，它同樣屬於台灣。</p>
+    <figure class="figcard">
+      <svg style="font-family:\'Helvetica Neue\',Helvetica,Arial,\'Noto Sans TC\',\'PingFang TC\',\'Microsoft JhengHei\',sans-serif" viewBox="0 0 640 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="諾貝爾科學獎人數比較"><defs><filter id="sh3" x="-10%" y="-10%" width="125%" height="140%"><feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#111827" flood-opacity="0.13"/></filter></defs>
+        <text x="20" y="28" font-size="13" fill="#374151" font-style="italic">諾貝爾自然科學獎得主人數（截至 2026）</text>
+        <g font-size="13.5" fill="#111827">
+          <text x="200" y="72" text-anchor="end">日本</text>
+          <text x="200" y="122" text-anchor="end">華人（研究在歐美完成）</text>
+          <text x="200" y="172" text-anchor="end">中國（本土完成）</text>
+          <text x="200" y="222" text-anchor="end">台灣（本土完成）</text>
+          <text x="200" y="272" text-anchor="end">南韓（本土完成）</text>
+        </g>
+        <rect filter="url(#sh3)" x="212" y="54" width="364" height="26" rx="4" fill="#00785A"/>
+        <text x="584" y="72" font-size="14" fill="#0B3C78" font-weight="700">28</text>
+        <rect filter="url(#sh3)" x="212" y="104" width="104" height="26" rx="4" fill="#D55E00"/>
+        <text x="324" y="122" font-size="14" fill="#C04A00" font-weight="700">8</text>
+        <rect filter="url(#sh3)" x="212" y="154" width="13" height="26" rx="3" fill="#0072B2"/>
+        <text x="233" y="172" font-size="14" fill="#0072B2" font-weight="700">1</text>
+        <line x1="212" y1="204" x2="212" y2="230" stroke="#0072B2" stroke-width="3"/>
+        <text x="222" y="222" font-size="14" fill="#0072B2" font-weight="700">0</text>
+        <line x1="212" y1="254" x2="212" y2="280" stroke="#0072B2" stroke-width="3"/>
+        <text x="222" y="272" font-size="14" fill="#0072B2" font-weight="700">0</text>
+      </svg>
+      <figcaption><b>圖 2｜</b>同樣的華人，在歐美的實驗室裡拿了 8 座科學獎（楊振寧、李政道、丁肇中、李遠哲、朱棣文、崔琦、錢永健、高錕）；在台灣與中國本土，合計 1 座。這個對比，第二部會回來解讀。</figcaption>
+    </figure>
+    <div class="box history">
+      <div class="label">◷ 時間差：諾貝爾獎是一張遲到的帳單</div>
+      <p style="margin:0"><span class="who">Fortunato 等，Nature，2014</span>　1940 年以前，物理、化學、醫學獎頒給「二十年以上舊成果」的比例只有一到兩成；1985 年以後升到五、六成。今天的諾貝爾獎，平均是在結算二、三十年前的發現。坂口志文的 Treg 是 1995 年、北川進的 MOF 是 1997 年、硤合憲三的關鍵實驗是 1995 年。日本今天領的，是泡沫經濟時代國立大學經費充裕時種下的果；而中國最接近諾獎的一批本土成果（薛其坤的量子反常霍爾效應、鐵基超導、大亞灣中微子），都集中在 2008 到 2013 年之間，帳單要到 2030 年代後半才會寄來。</p>
+    </div>
+    <p>所以公平地說，中國的缺口有一部分是時間差。台灣的時間差藉口比較小：台灣在 1980、90 年代已不算窮，教育普及、留學生回流、經濟起飛。<strong>有了一定的經費與人才，台灣的本土科學獎依然是零。</strong>這個缺口，可能是雙胞胎共有的體質。當然，諾貝爾獎的樣本很小，它只是一個症狀。</p>
+  </section>
+
+  <!-- ===================== Part 2 ===================== -->
+  <div class="part-divider"><div class="pp">第 二 部</div><div class="pt">不只是制度</div></div>
+
+  <section id="s21">
+    <h2 class="sec"><span class="no">§2.1</span>同樣的外殼，不同的靈魂</h2>
+    <p class="lead">從這裡開始，比較的對象會從日本換成美國。原因很簡單：台灣與中國學的、抄的、留學生帶回來的，幾乎都是美國制度；日本走的是另一條路，§2.3 與 §5.4 會回來談。</p>
+    <p>有人會說：台灣與中國的問題，就是學了美國那套競爭、KPI、找經費的制度。</p>
+    <p>可是美國的教授同樣要發論文、同樣年年寫計畫找錢、同樣有掌握資源的大教授。如果制度是決定性的，美國應該跟台灣、中國長得一樣。但美國是世界第一。</p>
+    <p>差別在於：美國也看數字，但<strong>最後拍板的是人</strong>。</p>
+    <ul>
+      <li><strong>年輕人在研究上自己當家。</strong>助理教授上任時，學校通常會提供一筆啟動經費（start-up package），讓他建立自己的實驗室、招自己的學生、定自己的題目，不必掛在某位資深教授的計畫底下。</li>
+      <li><strong>升等時，有人真的去讀你的論文。</strong>決定終身教職（tenure）時，系上會挑選數位到十幾位外部評審，條件是在你的領域有份量、但與你保持距離（arm’s length）：不能是你的指導教授、合著者或朋友。名單主要由系上決定，候選人可以建議人選，也可以提出應該避開的人。評審會拿到你的主要論文，細讀之後寫一封信，評估你的貢獻在領域中的份量。他們當然也會看你發表在哪些期刊，但最後交出的是一封文字的判斷，而不是一個分數。</li>
+      <li><strong>有人只養人、不養案。</strong>霍華德・休斯醫學研究所（HHMI）的原則叫 "people, not projects"：依過去的成就與潛力挑人，不綁定特定的研究計畫；一期七年，審查通過可以無限續任。CRISPR 的 Jennifer Doudna、2021 年因溫度與觸覺受器獲獎的 Ardem Patapoutian，都是 HHMI 研究員。</li>
+      <li><strong>終身職是為了保護判斷。</strong>美國大學教授協會（AAUP）1940 年的聲明把終身職的目的寫得很清楚：保障學術自由與經濟安全，讓學者能研究不受歡迎、短期看不到結果的題目。在台灣與中國，升上正教授卻常常只是換到下一條跑道，繼續追下一頂帽子。</li>
+    </ul>
+    <div class="tbl-wrap">
+    <table>
+      <caption>表 2｜外殼相似，靈魂不同</caption>
+      <thead><tr><th>　</th><th>美國</th><th>日本（1970–90 年代）</th><th>台灣・中國</th></tr></thead>
+      <tbody>
+        <tr><td class="field">比喻</td><td class="field">創投（VC）</td><td class="field">百年老店</td><td class="field">計件代工廠</td></tr>
+        <tr><td class="field">誰來評價</td><td class="field">懂行的小同行</td><td class="field">講座教授自己</td><td class="field">人事室的計分表</td></tr>
+        <tr><td class="field">獎勵什麼</td><td class="field">與眾不同（originality）</td><td class="field">長期鑽研</td><td class="field">符合標準的高產（productivity）</td></tr>
+        <tr><td class="field">失敗的代價</td><td class="field">可承受</td><td class="field">幾乎沒有</td><td class="field hot">可能出局</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>這些，其實大家都懂。台灣與中國都有大量學者在美國受過訓練，很清楚美國是怎麼評人的。<strong>所以真正的問題不是「我們不知道」，而是「我們知道，卻做不到」。</strong>為什麼美國可以看人，我們只能看數字？這是整篇文章最核心的問題，我把它留到第四部，先處理兩個反證。</p>
+    <p>這裡先說清楚「外殼相似」的意思。相似的是看得見、寫得出來的那一層：外審、計畫、升等、評鑑。第五部會把這層外殼拆開，你會發現底下有不少不一樣的零件：法院怎麼看待學術判斷、錢怎麼分、名額怎麼定。所以本文的主張不是「兩邊的制度一樣」，而是：<strong>抄得過來的部分一樣，抄不過來的部分不一樣；而抄不過來的原因，要到思想裡去找</strong>（§3.6）。</p>
+  </section>
+
+  <hr class="div">
+
+  <section id="s22">
+    <h2 class="sec"><span class="no">§2.2</span>那八位華人得主去了哪裡</h2>
+    <p>回頭看圖 2。楊振寧、李政道在 1957 年獲物理獎，丁肇中 1976 年、李遠哲 1986 年、朱棣文 1997 年、崔琦 1998 年、錢永健 2008 年、高錕 2009 年。八位華人，八座科學獎，全部在美國或英國的實驗室完成。</p>
+    <p>常見的解讀是：你看，同樣是華人，換了制度就能拿諾貝爾獎，所以問題在制度，不在文化。</p>
+    <p>我的看法相反。這些人到了美國，換掉的不只是經費規則和升等辦法，而是<strong>整個思想圈</strong>：每天一起討論的同事、更習慣當面質疑的學術氣氛、比較不先問「這有什麼用」的提問方式。他們不是在中華思想圈裡換了一套制度，而是整個人搬進了另一個思想圈。</p>
+    <p>這裡也要承認一個選擇偏誤：能出國、留下來並做出頂尖研究的人，本來就是經過層層篩選的一群；美國的經費與規模，也遠大於台灣與中國。這八個人說明的是：換了環境，同一批人的潛力有機會被看見。</p>
+    <p>李遠哲本人就是最好的例子。他在柏克萊做出了得獎的分子束實驗；回到台灣後，他接掌中研院、主持教改，想把那套精神帶回來。他留下的改革當然不少，也影響了一整代的學術與教育。但在「大學怎麼評價一位學者」這件事上，最後普遍留下來的，卻是一張計分表（§1.1），而且這張表不是他設計的，是體制自己長出來的。<strong>同一個人，在美國的思想圈裡做出了諾貝爾獎；把美國的評價精神帶回中華思想圈，它卻被改了形狀。</strong>如果制度才是關鍵，帶回來的制度應該發揮同樣的作用才對。</p>
+    <div class="box pitfall">
+      <div class="label">✕ 必須正面回應的反例：南北韓</div>
+      <p style="margin:0">2024 年諾貝爾經濟學獎得主 Daron Acemoglu 與 James Robinson 在《國家為什麼會失敗》中，用南北韓說明制度的威力：同一個民族、同一套文化傳統、同一種語言，只因為一邊是包容性制度、一邊是掠奪性制度，幾十年後一邊富裕、一邊赤貧。</p>
+      <p style="margin:10px 0 0">這個反例是成立的，它證明制度可以在幾十年內徹底改變一個社會的命運。所以本文的命題必須說得更精確：<strong>我主張的不是「思想決定一切」，而是思想決定一個社會「怎麼評價人、怎麼組織知識」。</strong>至於富不富、自不自由，制度的力量顯然更大。</p>
+      <p style="margin:10px 0 0">放在這個比較窄的命題下，南韓反而值得一看：它和台灣、中國一樣，有過漫長的科舉傳統，從 958 年實施到 1894 年才廢除，將近一千年。今天的南韓民主、富裕，研發經費占 GDP 比例全球第二（2023 年 4.96%），本土完成的諾貝爾科學獎卻和台灣一樣是零。當然，南韓大規模投入基礎研究的時間較晚，這個零有一部分可能只是時間差（§1.4），所以它不能當成證明，只能說：它沒有推翻這個比較窄的命題。</p>
+    </div>
+    <div class="box pitfall">
+      <div class="label">✕ 還有哪些解釋？</div>
+      <p style="margin:0">除了思想，至少還有三種解釋，也能說明台灣與中國為什麼長得像。第一，<strong>後進追趕</strong>：兩邊都是由國家主導、急著追上先進國家的經濟體，大學也常被當成國家發展的工具，習慣用指標管理；這能解釋不少「1 到 100」的強項。第二，<strong>規模與經費</strong>：基礎研究的經費與累積時間，兩邊都比美國少得多。第三，<strong>互相模仿與全球潮流</strong>：SCI 與影響因子是全世界的潮流，組織也會互相模仿而越長越像（§6.1）。</p>
+      <p style="margin:10px 0 0">這三種解釋都有道理，本文不否認。本文只主張一件比較窄的事：在「怎麼評價人」這件事上，它們都不太能解釋一個現象：為什麼大家都知道計分表不對、改革一再下令，最後卻總是回到計分表（§1.1、§4.1）。改了又改、卻改不掉，需要一個改變得比制度更慢的東西來解釋。</p>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <section id="s23">
+    <h2 class="sec"><span class="no">§2.3</span>日本：脫亞入歐的那一個</h2>
+    <p>那日本呢？學術界習慣把日本和台灣、中國、韓國一起劃進「東亞儒家文化圈」，英文的教育研究也常用「儒家傳統文化」（Confucian Heritage Culture, CHC）統稱這些社會。這個歸類很普遍，但放在日本身上，至少要打一個問號，理由有兩個。</p>
+    <p>第一，<strong>日本讀儒家經典，卻從來沒有建立中國式的科舉文官體制。</strong>古代日本曾短暫模仿唐朝設考試，很快就被世襲貴族與武士社會取代。江戶幕府雖然把朱子學奉為官學，但那是武士階級的修身倫理，不是全民拼考試、出人頭地的階梯。日本社會的底層代碼，是「各安其位、一輩子把一件事做到極致」的職人精神。</p>
+    <p>第二，<strong>明治維新之後，日本做了一件台灣與中國都沒有真正做到的事：主動換掉思想圈。</strong>1885 年，福澤諭吉發表〈脫亞論〉，主張日本應脫離亞洲、與西方文明國家為伍，「脫亞入歐」從此成為日本現代化的代名詞。日本大量聘請西方學者、派人留學歐洲，連大學制度都整套從德國搬來。（明治政府在 1890 年的《教育敕語》裡仍保留了忠孝等儒家德目，但那是國民道德教育，不是選拔人才、評價學者的方式。）</p>
+    <p>所以，日本不是「儒家文化圈裡的例外」。更準確的說法是：<strong>日本從來沒有裝上科舉這一版程式，又在明治時期主動換了思想圈。</strong>所以日本不構成本文的反例；不過日本同時換了制度（大學整套從德國搬來），它說明的是思想與制度一起換的效果。</p>
+    <p>政治學家福山（Francis Fukuyama）在 1995 年的《誠信》（<em>Trust</em>）中，有一個很有名的分類：他把中國、南韓（以及義大利、法國）歸為「低信任社會」，人際信任集中在家族之內，家族與國家之間缺少可靠的中間組織；而把日本、德國、美國歸為「高信任社會」，陌生人之間也能形成穩定的合作團體。日本的企業、研究室、職人行會，都是這種「非血緣、卻能互信」的團體。這個區分，第四部會變得非常關鍵。</p>
+    <p>不過，福山的分類也有爭議。2014 年一項亞太六國調查（Ward 等，<em>PLoS ONE</em>）發現，日本受訪者表示信任陌生人的比例約 33%，高於台灣與南韓（各約 17%），但談不上「高信任」；作者的結論是，福山的理論「既有印證、也有反駁」。所以本文只取它比較穩的部分：日本的研究室與企業，是一種不靠血緣、能維持很久的團體。</p>
+    <p>明治維新時，日本建立現代大學，抄的是德國洪堡大學的「講座制」：國家給教授一筆穩定的經費，不問短期回報，教授帶著弟子像經營百年老店一樣，在實驗室裡代代相傳地打磨一個冷門問題。這套德國制度剛好與日本的職人思想完美相容。大隅良典研究酵母菌怎麼「吃掉自己」，<span class="mark">初期幾乎沒人理會</span>；開頭提到的硤合憲三，從 1995 年發表關鍵實驗到 2026 年獲獎，同樣磨了三十年；<span class="mark">他的題目從一開始就看不出「有什麼用」</span>。</p>
+    <p>有趣的是，2004 年日本推動國立大學法人化，開始學美國引進競爭性經費與 KPI，國家給大學的基本經費年年削減，博士班入學人數從 2003 年的一萬八千多人掉到 2022 年的一萬四千多人，高被引論文的國際排名從第 4 滑到第 12。大隅良典在 2016 年獲獎時就直言：「有用」這個詞正在讓社會變得很糟，真正的有用，可能要十年、二十年，甚至一百年後才看得出來。</p>
+    <div class="box intuition">
+      <div class="label">▸ 日本的啟示：看作業系統，不看地圖</div>
+      <p style="margin:0">決定結果的，不是地圖上屬於哪個「文化圈」，而是腦袋裡跑的是哪一版作業系統。台灣與中國跑的是科舉版；日本從沒裝過科舉版，又在明治時期連同制度一起，大量引進了歐洲版。</p>
+    </div>
+  </section>
+
+  <!-- ===================== Part 3 ===================== -->
+  <div class="part-divider"><div class="pp">第 三 部</div><div class="pt">讀原始碼</div></div>
+
+  <section id="s31">
+    <h2 class="sec"><span class="no">§3.1</span>兩千年的官學，一千三百年的考試</h2>
+    <p class="lead">如果思想真的比制度更深，那這套思想是什麼時候寫進去的？</p>
+    <p>孔子生活在公元前六到五世紀，距今約兩千五百年。但在他身後的三百多年裡，儒家只是諸子百家之一，和墨家、道家、法家平起平坐。真正的轉折發生在漢武帝時期：武帝設立五經博士，據《漢書》記載又採納董仲舒的對策（約公元前 134 年），讓儒家經典成為朝廷選官、教育與治國的正統。後人把這件事概括成「罷黜百家，獨尊儒術」。嚴格說，《漢書》的原文是「罷黜百家，表章六經」，八個字的口號要到 1916 年易白沙的〈孔子平議〉才出現；武帝是否真的「罷黜」了百家，史學界也還在爭論。但儒家經典從此成為官學，這一點沒有爭議。</p>
+    <p>從那時起，到 1905 年廢科舉、1911 年帝制終結，儒家作為國家正統思想的時間，大約是兩千年。這兩千年裡，朝代換了二十幾個，北方民族入主過好幾次，制度改了又改，但讀書人讀的經典、考的內容、被期待成為的那種人，幾乎沒有變過。<strong>這就是本文標題說的「兩千年前寫好的程式」：不是孔子一個人寫的，而是兩千年的國家正統，一代一代把它寫進每個讀書人的腦袋裡。</strong></p>
+    <p>而在這兩千年裡，把程式寫得最深的工具，是科舉。先看一張比例尺。</p>
+    <figure class="figcard">
+      <svg style="font-family:\'Helvetica Neue\',Helvetica,Arial,\'Noto Sans TC\',\'PingFang TC\',\'Microsoft JhengHei\',sans-serif" viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="儒家官學、儒家正統、科舉與 1949 年以來的時間比例"><defs><filter id="sh4" x="-10%" y="-10%" width="125%" height="140%"><feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#111827" flood-opacity="0.13"/></filter></defs>
+<line x1="40.0" y1="150" x2="600.0" y2="150" stroke="#9CA3AF" stroke-width="1.5"/>
+<line x1="52.3" y1="146" x2="52.3" y2="154" stroke="#9CA3AF"/><text x="52.3" y="172" font-size="11.5" fill="#4B5563" text-anchor="middle">前200</text>
+<line x1="150.5" y1="146" x2="150.5" y2="154" stroke="#9CA3AF"/><text x="150.5" y="172" font-size="11.5" fill="#4B5563" text-anchor="middle">200</text>
+<line x1="248.8" y1="146" x2="248.8" y2="154" stroke="#9CA3AF"/><text x="248.8" y="172" font-size="11.5" fill="#4B5563" text-anchor="middle">600</text>
+<line x1="347.0" y1="146" x2="347.0" y2="154" stroke="#9CA3AF"/><text x="347.0" y="172" font-size="11.5" fill="#4B5563" text-anchor="middle">1000</text>
+<line x1="445.3" y1="146" x2="445.3" y2="154" stroke="#9CA3AF"/><text x="445.3" y="172" font-size="11.5" fill="#4B5563" text-anchor="middle">1400</text>
+<line x1="543.5" y1="146" x2="543.5" y2="154" stroke="#9CA3AF"/><text x="543.5" y="172" font-size="11.5" fill="#4B5563" text-anchor="middle">1800</text>
+<rect filter="url(#sh4)" x="68.5" y="42" width="500.8" height="26" rx="5" fill="#8CD3C0"/>
+<text x="318.9" y="60" font-size="13" fill="#0B3C78" text-anchor="middle" font-weight="700">儒家為國家正統　約前 134 – 1905　約兩千年</text>
+<rect filter="url(#sh4)" x="250.0" y="82" width="319.3" height="30" rx="5" fill="#00785A"/>
+<text x="409.6" y="102" font-size="13.5" fill="#FFFFFF" text-anchor="middle" font-weight="700">科舉　605 – 1905　約 1,300 年</text>
+<rect filter="url(#sh4)" x="580.1" y="82" width="18.9" height="30" rx="3" fill="#D55E00"/>
+<text x="590.2" y="30" font-size="12" fill="#C04A00" text-anchor="end" font-weight="700">1949 年至今：台灣、中國各自發展</text>
+<line x1="589.4" y1="34" x2="589.4" y2="80" stroke="#D55E00" stroke-width="1"/>
+<text x="68.5" y="30" font-size="11.5" fill="#0B3C78">漢武帝獨尊儒術</text>
+</svg>
+      <figcaption><b>圖 3｜</b>把時間軸畫成正確比例：儒家作為國家正統約兩千年，其中科舉存在了約一千三百年；1949 年以來台灣與中國各走各的路，至今不到八十年，在前兩者面前只是一小截。</figcaption>
+    </figure>
+    <p>從隋朝開科取士（一般以 605 年為起點）到 1905 年清廷廢除科舉，中國實行了大約一千三百年的全國標準化考試。這是前現代世界持續最久的全國性人才篩選制度之一。它的邏輯非常現代：大體上不看出身，只看考卷；考卷有標準格式（八股）、有標準教材（四書五經的官方注解）、有排名（狀元、榜眼、探花）。</p>
+    <p>在一個人情無孔不入的社會，科舉是最主要、也相對公平的上升管道。所以它在華人心中寫下了三行很深的代碼：</p>
+    <ol class="steps">
+      <li><b>公平＝標準化的分數。</b>主觀判斷不可信，因為人情會滲透；只有考卷上的分數，才是大家都能接受的公平。</li>
+      <li><b>讀書的目的是「中舉」。</b>知識的價值，在於它能換來功名、官職與家族的榮耀，不在於知識本身。</li>
+      <li><b>官大學問大。</b>考上的人去做官，學問與權力綁在一起，學者的終極形態是官員。</li>
+    </ol>
+    <p>現在把這三行代碼，對照第一部那張計分表：不信任同行評審、只信任數字；論文是為了升等與帽子；學術成就最後換成院長、校長、院士的位置。<strong>這不是巧合，而是同一套思維，換到現代的大學裡繼續運作。</strong>在這套評價制度下，追逐影響因子和古代書生寫八股文，邏輯是同構的：被獎勵的是「中舉」，而不是解開自然界的謎。</p>
+    <p>台灣與中國 1949 年分開的時候，科舉才廢除四十四年。坐在決策位置上的人，不少人的祖父輩就是讀書應考的一代；他們從小被教的「好學生」標準，依然是背誦、熟練、拿高分。台灣後來的聯考、中國恢復的高考，又把這套篩選機制完整地延續了下去。<strong>制度可以在一夕之間改朝換代，一千三百年寫進去的東西卻不會。</strong></p>
+  </section>
+
+  <hr class="div">
+
+  <section id="s32">
+    <h2 class="sec"><span class="no">§3.2</span>學以致用</h2>
+    <p>第二段原始碼，是「經世致用」。</p>
+    <p>英國科學史家李約瑟（Joseph Needham）花了半輩子寫《中國科學技術史》，追問一個後來以他命名的問題：中國古代在技術上長期領先，為什麼現代科學沒有在中國誕生？中國有精準的曆法（為了農業與皇權）、龐大的水利工程（為了治水）、針灸與本草（為了治病），四大發明全是實用技術。但中國沒有發展出歐幾里得《幾何原本》那種從幾條公理出發、純粹靠邏輯推演、在現實中「毫無用處」的知識體系。</p>
+    <p>儒家是一套徹底入世的哲學。「修身、齊家、治國、平天下」，每一步都指向現實世界的秩序。在這套價值觀裡，一個問題值不值得研究，第一個要問的是「有什麼用」。研究水母為什麼會發光（下村脩，2008 年化學獎）、追問生命分子為什麼只用一種手性（硤合憲三，2026 年化學獎）、酵母菌怎麼吃掉自己（大隅良典，2016 年醫學獎），在「經世致用」的眼光裡，很容易被看成不務正業。</p>
+    <div class="box history">
+      <div class="label">◷ 思想史現場：韋伯與余英時</div>
+      <p style="margin:0"><span class="who">Max Weber，《儒教與道教》，1915</span>　德國社會學家韋伯認為，西方資本主義的動力來自新教徒對救贖的焦慮，化為改造世界的理性；儒家則強調「適應世界」，缺少那股翻轉世界的張力。<span class="who">余英時，《中國近世宗教倫理與商人精神》，1987</span>　史學家余英時反駁韋伯：宋明以來的儒家其實發展出一種「入世苦行」的倫理，勤奮、節儉、敬業，明清商人的精神完全可以與新教倫理相比。兩人看似針鋒相對，其實描述的是同一個東西的兩面：一套極度入世、極度勤奮、極度看重現實回報的心智。它不太會去問「世界為什麼是這樣」，但一旦目標確定，它是極強的執行引擎。</p>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <section id="s33">
+    <h2 class="sec"><span class="no">§3.3</span>差序格局與師門</h2>
+    <p>第三段原始碼，關於人與人之間的距離。</p>
+    <p>社會學家費孝通在 1947 年的《鄉土中國》裡提出「差序格局」：中國人的社會關係像石頭丟進水裡激起的漣漪，以自己為圓心，一圈一圈向外推，越近越親、越遠越疏。人情、輩分、親疏，決定了你怎麼對待一個人。心理學家黃光國後來在《人情與面子》中把它講得更透：華人社會裡，對「熟人」講人情，對「生人」講利害，而且你永遠要顧及對方的面子。</p>
+    <p>放到學術圈，這就是「師門」。「一日為師，終身為父」，學生往往不敢挑戰指導教授；年輕學者也常不敢在研討會上當面反駁大老，因為那位大老可能就是自己下一個計畫的審查委員。研討會常常變成互相客氣的場合，少了真刀真槍的智力交鋒。</p>
+    <p>而科學史上幾乎所有的範式轉移，本質上都是一場「弒父」：推翻前人、推翻老師、推翻整個學界的共識。愛因斯坦推翻了牛頓的絕對時空，量子力學推翻了古典的決定論。在一個「尊師重道、長幼有序」的思想圈裡，弒父不只在學術上困難，在情感上幾乎不可想像。</p>
+    <p>請記住這一段。§3.5 會替它找到學術上通用的名字，第四部會說明，差序格局為什麼讓「看人」這件事變得如此困難。</p>
+  </section>
+
+  <hr class="div">
+
+  <section id="s34">
+    <h2 class="sec"><span class="no">§3.4</span>水田裡長出來的心智</h2>
+    <p>再往下挖，還有一層更古老的代碼。</p>
+    <p>2014 年，心理學家 Thomas Talhelm 在《Science》發表了著名的「稻米理論」。他發現，即使在中國內部，傳統種稻地區的人，思考方式比種麥地區的人更重視相互依存、更偏向整體思維。原因在於水稻需要複雜的灌溉系統、全村同步插秧收割、高度密集的勞力協作；一個不按規矩來的人，可能讓整個村子的水渠崩潰。種麥只靠雨水，一個家庭就能獨立完成。</p>
+    <p>2011 年，Michele Gelfand 等人在《Science》發表一項 33 國研究，把社會分成「緊密文化」（tight culture，規範強、對偏差容忍度低）與「鬆散文化」（loose culture，規範弱、容許怪人）。東亞社會普遍落在緊密的一端。沿用她的框架所做的中國 31 省研究（§1.3），則把這條線一路連到了專利：越緊，越少突破。</p>
+    <p>哈佛的人類演化生物學家 Joseph Henrich 在《The WEIRDest People in the World》（2020）中，則從另一個方向論證：西方人那種強烈的個人主義、喜歡質疑、相信抽象規則的心理，是中世紀教會拆散大家族之後，經過一千年慢慢演化出來的。它不是人類的預設值，而是一種少見的例外。</p>
+    <div class="box experiment">
+      <div class="label">◉ 想一想：稻田與無塵室</div>
+      <p style="margin:0">把千年水田的生存法則列出來：全體同步、嚴守工序、不容偏差、把產量從九成推到九成九。再把晶圓廠的生存法則列出來。你會發現，它們幾乎是同一張清單。這是我的推想：台積電的良率文化，也許不只是現代管理學的勝利，也是一套古老心智在新時代找到了很適合它的工作。</p>
+    </div>
+  </section>
+
+  <section id="s35">
+    <h2 class="sec"><span class="no">§3.5</span>原始碼的學名：特殊主義</h2>
+    <p>「差序格局」是費孝通的說法。放進更大的學術脈絡，它有一個通用的名字：<strong>特殊主義</strong>（particularism）。社會學家 Talcott Parsons 用這個詞描述一種道德：怎麼對待一個人，要看他和你是什麼關係；與它相對的普遍主義（universalism），是用同一把尺對待所有人（§4.6 會再細談）。</p>
+    <p>經濟學家 Avner Greif 與 Guido Tabellini 比較中國與歐洲一千年來的合作方式，用的是另一組詞。中國的合作單位是宗族，靠「有限道德」（limited morality）維持：這種道德很強，但只對自己人有效。歐洲的合作單位是城市，靠「普遍道德」（generalized morality）維持：它適用於所有成員，不分血緣，但比較薄。</p>
+    <p>有了這組概念，本文可以說得更精確，也避免把它說成一種指控。本文不是說「儒家社會的人不可信」，而是說：<strong>在特殊主義的倫理下，人們預期評價者的判斷會沿著關係走。</strong>評審未必真的偏私，但大家會這樣預期；只要大家這樣預期，任何由人做出的判斷，都會先被懷疑。</p>
+    <p>也要說句公道話。儒家並不只有特殊主義：「天下為公」「選賢與能」都是普遍主義的理想；而科舉本身，就是用同一套標準對待所有考生的制度，在當時的世界上極為先進。<strong>特殊主義是儒家社會的底色，不是儒家思想的全部。</strong></p>
+    <p>但這裡有一個結構上的空缺，值得說清楚。儒家倫理的骨架是五倫：父子、君臣、夫婦、長幼、朋友。五倫裡沒有「陌生人」這個位置。台灣自己很早就看到了這一點：1981 年 3 月，李國鼎在中國社會學社演講，提出「第六倫」，主張在五倫之外，需要另一種倫理，「以規範個人與陌生社會大眾的關係」。</p>
+    <p>儒家並不是沒有秉公判斷的理想。《論語》說「君子周而不比」，君子普遍待人而不結黨；《呂氏春秋》記載祁黃羊推薦人才，「外舉不避讎，內舉不避子」，被孔子稱讚。但值得注意的是，這些都被當成<strong>少數君子的德行</strong>來稱頌；正因為難得，才值得記下來。本文的詮釋是：在儒家傳統裡，秉公判斷一個與你無關的人，是一種要靠修養才達得到的美德，而不是一般人擔任某個職位就該盡的本分。</p>
+    <p>西方傳統在這一點上不一樣。《路加福音》第十章，有人問耶穌「誰是我的鄰舍？」，耶穌的回答是一個救助陌生人的外族人，也就是「好撒馬利亞人」。費孝通在〈維繫著私人的道德〉裡解釋西方的「團體格局」時也說，在象徵團體的神的觀念下，派生出兩個重要觀念：「一是每個個人在神前的平等，一是神對每個個人的公道」。和五倫相比，這個傳統在道德上替陌生人留了一個位置。韋伯 1904 年訪美時觀察到，美國商人會打聽彼此屬於哪個教派，因為教派只收行為合格的人，會員資格就像一份信用證明，讓陌生人之間也能做生意；Henrich 的研究（§3.4）則把這種對陌生人的公平，追溯到中世紀教會拆散大家族的婚姻政策。</p>
+    <p>但西方也是很晚才把這個價值變成制度。科學史家 Melinda Baldwin 指出，《Nature》直到 1973 年才系統性地採用外部審稿；1932 年，美國仍有約三分之一的學者任職於自己的母校。英國在 1850 年代用考試改革文官、對抗恩庇與請託時，一般認為還受到中國科舉的影響（史學家鄧嗣禹 1943 年的考證）。西方在信任不足的時候，也選擇過「看卷」。這也再次說明：考試本身是對抗請託的好工具，問題不在考試，而在把考試的邏輯一路延伸到評價研究與學者（§4.7）。</p>
+    <div class="box detective">
+      <div class="label">◆ 真正的分界點</div>
+      <p style="margin:0">所以「儒家做不到、西方天生就會」這個說法不成立：西方也是很晚才做到，而且並不是每個西方社會都做到了（見 §4.5 歐洲南北的對照）。成立的是一個比較窄、也比較精確的說法：<strong>西方傳統在道德上替陌生人留了一個位置，並且在近代把「秉公判斷陌生人」變成專業人員的本分；儒家倫理的五倫裡沒有陌生人，秉公判斷被當成少數君子的美德。</strong>所以在西方，信任沒有交情的同行，是把既有的價值制度化；在儒家文化圈，則要先補上一個價值，再建一套制度，難度高了一層。</p>
+    </div>
+    <p>更重要的是，這個機制不是儒家文化圈獨有的。義大利就是一個例子。經濟學家 Durante、Labartino 與 Perotti 用姓氏在系所中的集中程度，衡量義大利學界的「家族主義」，發現 1998 年把教師聘任權下放給各校之後，在公民資本（civic capital）較低的地區，家族主義明顯增加，在公民資本較高的地區則沒有。2010 年改革之後，義大利的國家教授資格（ASN）改由文獻計量門檻把關，研究者形容義大利是少數職涯關鍵步驟由計量規則管理的國家。這兩件事放在一起，和本文描述的機制方向一致：<strong>凡是判斷容易被預期沿著關係走的地方，社會都傾向用數字取代判斷。</strong>換句話說，特殊主義是許多社會共有的土壤；儒家文化圈的特別之處，在於科舉用一千三百年，把「不看人、只看卷」寫成了大家都認同的公平，所以特別難改。</p>
+  </section>
+
+  <section id="s36">
+    <h2 class="sec"><span class="no">§3.6</span>思想怎麼變成制度的運作</h2>
+    <p>到這裡還缺一個環節：思想在腦袋裡，制度寫在紙上，兩者怎麼接上？如果說不清楚，「思想決定」就只是一句口號。</p>
+    <p>制度經濟學對此已有相當成熟的說法。經濟學家 Gérard Roland 把制度分成兩種：一種是「快變數」，例如法律與政治制度，一條法律可以在一夜之間改變；另一種是「慢變數」，例如社會規範與價值，它們改變得很慢、很漸進，而且相當自主。他的第一個推論就是：移植制度很可能不會成功，因為兩種變數會互相作用。Tabellini 進一步指出，連接遙遠的歷史與今天制度運作的關鍵，是個人的價值觀；普遍道德越普及的地方，制度往往運作得越好。比較法學者 Pistor、Berkowitz 與 Richard 則發現，移植來的法律運作得好不好，取決於它是否經過在地調整、當地人是否熟悉它背後的原理；直接移植的國家，法治程度約低三分之一。他們稱之為「移植效應」（transplant effect）。</p>
+    <p>把這些放在一起，思想變成制度運作的路徑，可以拆成三步：</p>
+    <ul>
+      <li><strong>第一步，規則需要有人行使裁量。</strong>再細的辦法，都需要有人判斷：外審信寫得好不好、這篇論文算不算突破、這個人夠不夠格。</li>
+      <li><strong>第二步，裁量怎麼被看待，取決於社會共享的價值。</strong>大家相信評審會秉公，裁量就被接受；大家預期評審會照顧自己人，裁量就被懷疑。</li>
+      <li><strong>第三步，裁量一再被懷疑，制度的反應是收回裁量。</strong>加上分數、門檻、名額與計分表。宋朝的糊名，今天的 RPI 與期刊分區，都是同一種反應。</li>
+    </ul>
+    <p>反過來，制度也會改寫思想。科舉用了一千三百年，把「公平就是不看人」寫進了思想（§3.1）；Henrich 研究的中世紀教會婚姻政策（§3.4），本身也是一套制度，卻改變了歐洲人的心理。所以本文說的「思想決定」，不是單向的因果，而是說：在幾十年的尺度上，思想是比較慢、比較難移動的那一邊。制度可以一夕改寫，卻會被慢變數一點一點拉回原來的形狀。第四部的唐宋實驗，就是這三步的第一個例子。</p>
+    <div class="box intuition">
+      <div class="label">▸ 本文主張的精確版本</div>
+      <p style="margin:0;font-size:19px"><strong>規則抄得過來，規則的運作方式抄不過來；決定運作方式的，是一個社會怎麼預期「人的判斷」會被使用。</strong></p>
+    </div>
+  </section>
+
+  <!-- ===================== Part 4 ===================== -->
+  <div class="part-divider"><div class="pp">第 四 部</div><div class="pt">判斷的缺席</div></div>
+
+  <section id="s41">
+    <h2 class="sec"><span class="no">§4.1</span>每個人都知道</h2>
+    <p class="lead">這是整篇文章最想談、也最讓人無力的地方。</p>
+    <p>去問台灣或中國的資深教授：升等只看點數對嗎？多數人會說當然不對。去問審查委員：影響因子能代表一篇論文的價值嗎？多數人會說當然不能。台灣國科會說不用 RPI，中國中央發文要破五唯，一群期刊編輯與學會在 2012 年發起《舊金山研究評估宣言》（DORA），反對用影響因子評人。<strong>從決策者到基層，很少有人真心相信那張計分表。</strong></p>
+    <p>然後，大家一起走進會議室，打開那張計分表，照著分數排名次。</p>
+    <p>這是一種很奇怪的集體行為：每個人私下都反對，公開場合卻全體遵守。如果說這是制度問題，那制度明明一改再改；如果說這是知識問題，那每個人明明都懂。我認為最合理的解釋是：<strong>有某種比制度和知識更深的東西，讓「看人」這件事在我們的社會裡做不到。</strong></p>
+    <p>要理解它，我們得回到一千年前。因為這場實驗，老祖宗已經做過一次了。</p>
+  </section>
+
+  <hr class="div">
+
+  <section id="s42">
+    <h2 class="sec"><span class="no">§4.2</span>一千年前的同一場實驗</h2>
+    <p>很多人以為科舉從一開始就是「只看考卷」。其實不是。</p>
+    <p>唐朝的科舉，是會「看人」的。考生在考試前，會把自己的詩文整理成卷，投贈給有聲望的官員與名士，叫做「行卷」；過幾天再投一次，提醒對方別忘了，叫「溫卷」。主考官放榜時，也會參考名流的推薦。考卷不糊名，考官看得到你是誰。</p>
+    <p>唐代詩人朱慶餘考前寫給名士張籍的那首詩，就是一份行卷：「洞房昨夜停紅燭，待曉堂前拜舅姑。妝罷低聲問夫婿，畫眉深淺入時無？」表面寫新娘，其實在問：我的文章，合不合考官的口味？</p>
+    <p>更有名的是杜牧。據《唐摭言》記載，太學博士吳武陵讀了杜牧的〈阿房宮賦〉，直接去找主考官崔郾，要求讓杜牧當狀元。崔郾說狀元已經有人了。吳武陵說：那就第五名。崔郾答應了。考試還沒開始，名次就已經定了。</p>
+    <p>這就是「看人」：懂行的人讀了你的作品，判斷你是個人才，替你背書。某種意義上，它和今天美國的推薦信、外審制度是同一個邏輯。</p>
+    <p>但在一個人情社會，看人很快就變成了看關係。行卷與推薦成了請託、送禮、攀附權貴的管道，寒門子弟沒有門路投卷，權貴子弟卻能靠人脈中舉。於是到了宋朝，朝廷做了一連串改革：禁止公開推薦（公薦）、禁止行卷；宋太宗淳化三年（992）殿試開始「糊名」，把考生的姓名封起來；後來又設立謄錄院，把每份考卷派人重抄一遍，讓考官連筆跡都認不出來。</p>
+    <figure class="figcard">
+      <svg style="font-family:\'Helvetica Neue\',Helvetica,Arial,\'Noto Sans TC\',\'PingFang TC\',\'Microsoft JhengHei\',sans-serif" viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="從唐代看人到宋代看卷，與今日的對照"><defs><filter id="sh5" x="-10%" y="-10%" width="125%" height="140%"><feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#111827" flood-opacity="0.13"/></filter></defs>
+        <rect filter="url(#sh5)" x="20" y="20" width="270" height="150" rx="5" fill="#F5D7BF" stroke="#D55E00"/>
+        <text x="155" y="48" text-anchor="middle" font-size="15" fill="#C04A00" font-weight="700">唐：看人</text>
+        <text x="40" y="78" font-size="13" fill="#111827">・行卷、溫卷：考前投贈作品</text>
+        <text x="40" y="102" font-size="13" fill="#111827">・公薦：名流推薦</text>
+        <text x="40" y="126" font-size="13" fill="#111827">・考卷不糊名</text>
+        <text x="40" y="154" font-size="12.5" fill="#B2182B" font-style="italic">結果：請託成風、寒門無路</text>
+        <path d="M296,95 L340,95" stroke="#00785A" stroke-width="3" marker-end="url(#ahT)"/>
+        <defs><marker id="ahT" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#00785A"/></marker></defs>
+        <rect filter="url(#sh5)" x="350" y="20" width="270" height="150" rx="5" fill="#BFE7DC" stroke="#00785A"/>
+        <text x="485" y="48" text-anchor="middle" font-size="15" fill="#0B3C78" font-weight="700">宋：看卷</text>
+        <text x="370" y="78" font-size="13" fill="#111827">・禁公薦、禁行卷</text>
+        <text x="370" y="102" font-size="13" fill="#111827">・糊名：封住姓名</text>
+        <text x="370" y="126" font-size="13" fill="#111827">・謄錄：重抄考卷，連筆跡都藏</text>
+        <text x="370" y="154" font-size="12.5" fill="#00785A" font-style="italic">結果：公平了，但只剩考卷</text>
+        <rect filter="url(#sh5)" x="20" y="186" width="600" height="56" rx="5" fill="#0B3C78"/>
+        <text x="320" y="210" text-anchor="middle" font-size="14" fill="#F0E442" font-weight="700">一千年後：美國的外審信 ≈ 唐代的行卷；台灣與中國的計分表 ≈ 宋代的糊名謄錄</text>
+        <text x="320" y="230" text-anchor="middle" font-size="12.5" fill="#FFFFFF">我們不是不會看人。我們是看過，然後怕了。</text>
+      </svg>
+      <figcaption><b>圖 4｜</b>「看人」與「看卷」的選擇，早在一千年前就做過一次。宋代的答案是：把人藏起來，只留下考卷。</figcaption>
+    </figure>
+    <p>從此，中國的考試從「看人」徹底轉向「看卷」。這個轉向極其成功，它讓科舉成為相對公平的上升管道，讓寒門子弟真正有機會出頭，延續了九百年。但它的代價是：<strong>評價者不再被允許認識被評價者。</strong>判斷被拿走了，只剩下格式化的文章和名次。</p>
+    <p><strong>唐到宋，換的是制度，思想在哪裡？</strong>兩朝都以儒家為正統，變的是制度，不是思想；思想在這個轉折裡出現了兩次。第一次是問題怎麼來的：在特殊主義的倫理下（§3.5），讓人去評人，評價很容易沿著關係走，唐朝的「看人」於是變成「看關係」。第二次是答案怎麼選的：面對請託，可以讓判斷的人署名、用自己的名聲負責，今天美國的外審信大致是這條路；也可以乾脆不讓人判斷。宋朝選了後者，也就是 §3.6 說的第三步：收回裁量。唐宋之際門閥貴族衰落、君權集中，也推動了考試取士（史學界所說的「唐宋變革」）；思想不是改革的唯一動力，但它決定了答案往哪個方向走。</p>
+    <p>接著，這個制度用了九百年，又把「公平就是不看人、只看分數」寫回了思想；1905 年科舉廢除，這個直覺留了下來。<strong>一以貫之的不是糊名這個制度，而是制度底下那套預期人的判斷會沿著關係走的思想</strong>：在唐朝，它讓看人變成看關係；在宋朝，它讓朝廷選擇不看人；在今天，它讓計分表比專家意見更安全。</p>
+    <div class="box detective">
+      <div class="label">◆ 一千年的答案</div>
+      <p style="margin:0">今天台灣與中國的計分表，在精神上是宋朝糊名謄錄的現代版：<strong>把人藏起來，只看可以比較的東西。</strong>我們不是不會看人，我們在唐朝就看過了；看過之後，發現在這個社會裡「看人」很容易變成「看關係」，於是選擇了不看。今天的評審未必知道這段歷史，但這個選擇沉澱成了一種不必言說的直覺：人的判斷容易被懷疑，規則與分數比較不會。</p>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <section id="s43">
+    <h2 class="sec"><span class="no">§4.3</span>看人的三個前提</h2>
+    <p>為什麼「看人」在唐朝會變成「看關係」，在今天的台灣與中國也一樣？我認為，「看人」要能運作，必須同時滿足三個前提。少一個，它就會崩壞。</p>
+    <ol class="steps">
+      <li><b>評審敢說真話。</b>說「這個人不夠好」，不會讓評審付出太大的代價。</li>
+      <li><b>被評的人相信評審沒有私心。</b>輸的人願意接受結果，而不是認定自己被派系打壓。</li>
+      <li><b>評審要為判斷負責。</b>看走眼的人，名聲會受損；看得準的人，名聲會累積。判斷才有份量。</li>
+    </ol>
+    <p>現在把這三個前提，放進差序格局裡檢驗。</p>
+    <p><strong>第一個前提，敢不敢說真話？</strong>台灣的學術圈很小；中國雖大，但每個領域的評審與資源，往往集中在少數大老與幾個圈子裡。今天你審他的升等，明年他審你的計畫；你寫信說他學生不夠好，下次研討會你們還要同桌吃飯。在一個「留一線，日後好相見」的社會，說真話的成本極高，而且全部由說話的人承擔。結果往往是：推薦信寫得天花亂墜，評語寫得四平八穩。當所有人都說好話，好話就失去了資訊量。</p>
+    <p><strong>第二個前提，相不相信評審沒有私心？</strong>在差序格局裡，每個人預設別人會照顧「自己人」，因為自己也會。所以只要結果是由人判斷出來的，輸的一方很容易懷疑：是不是因為我不是那個師門的？是不是評審跟對手有交情？他可能申訴、找人，或在背後議論。對評審而言，這是一場永遠打不贏的仗。</p>
+    <p><strong>第三個前提，評審要不要負責？</strong>這裡最弔詭：在我們的社會，評審「判斷錯誤」很少被追究，但「判斷不公」很容易被追究。一個沒有用數字支撐的否決，很容易被說成不公；一個完全照數字的否決，就算錯了，也很少有人會怪你。理性的評審，自然會選擇躲在數字後面。</p>
+    <figure class="figcard">
+      <svg style="font-family:\'Helvetica Neue\',Helvetica,Arial,\'Noto Sans TC\',\'PingFang TC\',\'Microsoft JhengHei\',sans-serif" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="信任半徑：差序格局與美國的對照"><defs><filter id="sh6" x="-10%" y="-10%" width="125%" height="140%"><feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#111827" flood-opacity="0.13"/></filter></defs>
+        <text x="160" y="26" text-anchor="middle" font-size="14" fill="#0B3C78" font-weight="700">差序格局：信任半徑窄</text>
+        <circle cx="160" cy="160" r="118" fill="none" stroke="#D1D5DB" stroke-dasharray="4 4"/>
+        <circle filter="url(#sh6)" cx="160" cy="160" r="82" fill="#F5D7BF" stroke="#D55E00"/>
+        <circle filter="url(#sh6)" cx="160" cy="160" r="46" fill="#F5D999" stroke="#D55E00"/>
+        <circle filter="url(#sh6)" cx="160" cy="160" r="14" fill="#D55E00"/>
+        <text x="160" y="164" text-anchor="middle" font-size="10.5" fill="#fff">我</text>
+        <text x="160" y="132" text-anchor="middle" font-size="11.5" fill="#111827">家人・師門</text>
+        <text x="160" y="96" text-anchor="middle" font-size="11.5" fill="#111827">熟人：講人情</text>
+        <text x="160" y="56" text-anchor="middle" font-size="11.5" fill="#0072B2">生人：不可信</text>
+        <text x="160" y="294" text-anchor="middle" font-size="12" fill="#B2182B" font-style="italic">熟人不能得罪，生人不能相信</text>
+        <text x="480" y="26" text-anchor="middle" font-size="14" fill="#0B3C78" font-weight="700">美國學界：信任半徑寬</text>
+        <circle filter="url(#sh6)" cx="480" cy="160" r="118" fill="#BFE7DC" stroke="#00785A"/>
+        <circle filter="url(#sh6)" cx="480" cy="160" r="14" fill="#00785A"/>
+        <text x="480" y="164" text-anchor="middle" font-size="10.5" fill="#fff">我</text>
+        <g fill="#00785A" opacity=".55">
+          <circle cx="420" cy="100" r="6"/><circle cx="545" cy="120" r="6"/><circle cx="430" cy="225" r="6"/><circle cx="540" cy="215" r="6"/><circle cx="480" cy="75" r="6"/><circle cx="395" cy="160" r="6"/><circle cx="565" cy="165" r="6"/>
+        </g>
+        <text x="480" y="252" text-anchor="middle" font-size="11.5" fill="#111827">全國／全球的小同行</text>
+        <text x="480" y="268" text-anchor="middle" font-size="11.5" fill="#111827">只認作品，不論交情</text>
+        <text x="480" y="294" text-anchor="middle" font-size="12" fill="#00785A" font-style="italic">保持距離的同行可以當評審</text>
+      </svg>
+      <figcaption><b>圖 5｜</b>「看人」需要一位既懂行、又和你沒有利害關係的評審。在差序格局裡，這樣的人幾乎不存在：熟人懂行卻不能得罪，沒有交情的人又不被信任。</figcaption>
+    </figure>
+    <p>三個前提都很難成立。於是最省事的選項，就是讓沒有人情的東西來當裁判：數字。</p>
+  </section>
+
+  <hr class="div">
+
+  <section id="s44">
+    <h2 class="sec"><span class="no">§4.4</span>數字是一副面具</h2>
+    <p>美國科學史家 Theodore Porter 在 1995 年出版了一本很重要的書，叫《信任數字》（<em>Trust in Numbers</em>）。他研究了一個看似奇怪的現象：為什麼有些國家、有些專業特別喜歡用數字做決策，有些則不需要？</p>
+    <p>他的答案顛覆了一般人的直覺。<strong>量化不是強者的工具，而是弱者的工具。</strong>當一群專家擁有足夠的社會信任，他們可以直接說「根據我們的專業判斷」，大家就會接受；正是那些不被信任、隨時可能被質疑的人，才需要把判斷藏在客觀的數字後面，來保護自己。Porter 把這種用規則與數字取代個人判斷的做法，稱為「機械式的客觀」（mechanical objectivity）。數字是一種距離的技術、一種不信任的技術。</p>
+    <p>用 Porter 的眼光回頭看，台灣與中國那張計分表的真正功能，就清楚了：</p>
+    <div class="keyeq">
+      <div class="cap">計分表真正的用途</div>
+      <p style="font-size:19px;margin:16px 0"><strong>它最重要的功能，往往不是評價被評的人，而是保護評審的人。</strong></p>
+    </div>
+    <p>一個評審要否決某人的升等，最安全的說法不是「我讀了你的論文，認為你還沒有開創性的貢獻」，而是「不是我說你不好，是你的點數不夠」。前一句話是一個人的判斷，會得罪人、會被申訴、會被說成派系打壓；後一句話是一個客觀事實，誰都怪不了。<strong>數字是評審戴的面具。</strong>它讓每個人都可以不必為自己的判斷負責，也讓每個人都保住了面子：被否決的人保住了面子（不是我不好，是規則），否決的人也保住了面子（不是我狠，是規則）。</p>
+    <p>在一個講究面子、害怕衝突的社會，這副面具太好用了。好用到即使大家都知道它不準，也很少有人願意摘下來。</p>
+    <div class="box pitfall">
+      <div class="label">✕ 一個常見的誤解</div>
+      <p style="margin:0">很多人以為，只要把計分公式改得更精細（加入引用次數、h-index、領域校正），問題就會解決。但如果計分表的功能本來就是「保護評審」，那它越精細，保護得越好，大家就越離不開它。改公式，是在加固面具，不是在摘下面具。</p>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <section id="s45">
+    <h2 class="sec"><span class="no">§4.5</span>美國為什麼可以</h2>
+    <p>那美國的評審，為什麼不需要面具？</p>
+    <p>美國社會當然也有人情、也有派系、也有偏見。差別在於，美國學界有幾樣東西，剛好補上了「看人」的三個前提：</p>
+    <ul>
+      <li><strong>信任半徑夠大。</strong>社會學家 Delhey、Newton 與 Welzel 在 2011 年的研究中發現，人們回答「大多數人是否可信」時，心裡想的「大多數人」範圍差很多；在儒家文化的國家，這個範圍明顯較窄，比較接近熟人。美國的外審，靠的正是對「沒有交情的同行」的信任：評審和你沒有師生、合著或私交，可能只在研討會上點過頭，甚至從沒見過面，卻會細讀你的論文、認真寫一封評估信；而系上也相信這封信。</li>
+      <li><strong>學者會流動，圈子不封閉。</strong>美國曾經也很盛行「留校任教」：1930 年代初，約三分之一的學者在自己的母校任職，1960 年代還有約 16%；但到了 1970、80 年代，這種近親繁殖在美國大致消失了。沒有法律禁止，靠的是各系「不聘自己博士」的不成文規範。學者在不同學校之間移動，評審與被評者之間就比較不會是一輩子綁在一起的師門關係。</li>
+      <li><strong>上下之間的距離比較短。</strong>荷蘭學者 Hofstede 用「權力距離」衡量一個社會對上下不平等的接受程度：美國是 40，日本 54，南韓 60，中國 80。一般而言，權力距離越短，晚輩越敢質疑長輩，評審也越敢對資深的人說「這還不夠好」。</li>
+      <li><strong>法院尊重學術判斷。</strong>美國最高法院在 1985 年的 Ewing 案確立，法院應尊重教師真誠的專業判斷；機構不必拿出一張分數表來證明自己（§5.2 結二）。</li>
+    </ul>
+    <p><strong>這四點背後，美國也有它的思想</strong>：西方傳統替陌生人留了一個道德位置（§3.5）。但要注意，美國的學術制度本身是世俗的，終身職與同行評審來自德國研究型大學與 AAUP 的傳統；而同樣是基督教社會，歐洲內部也分成兩種樣子。</p>
+    <div class="box history">
+      <div class="label">◷ 跨國現場：同是基督教，歐洲分南北</div>
+      <p style="margin:0">北邊比較像美國：德國聘教授，通常要附外校教授的比較性鑑定，法律與慣例也都限制聘任本校成員；英國官方委託的《The Metric Tide》（2015）主張，指標應「輔助、而不是取代專家判斷」。南邊比較像我們：法國、西班牙、義大利被歸為依賴內部人才市場的封閉體系，義大利的教授資格改由計量門檻把關（§3.5）。認為「大多數人可以信任」的比例，丹麥 75%、荷蘭 67%，葡萄牙只有 19%（OECD，2016）。<strong>決定評價方式的，不是宗教的標籤，而是普遍信任的高低。</strong></p>
+    </div>
+    <p>把這四點放回第二部看，就會明白為什麼李遠哲那一代帶回來的評價精神會被改了形狀：<strong>他帶回了外審、評鑑、競爭的規則，卻帶不回支撐這些規則運作的信任半徑。</strong>規則是可以抄的，信任半徑抄不了。</p>
+    <div class="box intuition">
+      <div class="label">▸ 第四部的一句話總結</div>
+      <p style="margin:0;font-size:19px"><strong>美國的評審制度，建立在對「沒有交情的同行」的信任上；而在差序格局裡，沒有交情的同行，大家不預期他會用心秉公；有交情的人，又不能得罪。所以沒有人可以當評審，只剩數字可以。</strong></p>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <section id="s4x">
+    <h2 class="sec"><span class="no">§4.6</span>美國沒有學閥嗎？</h2>
+    <p class="lead">讀到這裡，一定有人不服：美國學界難道就沒有學閥、沒有派系、不照顧自己人？</p>
+    <p>當然有，而且有數據。</p>
+    <p>2015 年，Clauset 等人在《Science Advances》分析了北美 461 個系所、近 19,000 位電腦科學、商學與歷史學的教師，發現前 25% 的學校，培養出了 71% 到 86% 的教職人員；只有 9% 到 14% 的人，能到比自己母校更有聲望的學校任教。<strong>名校出身，就是美國最大的「師門」。</strong></p>
+    <p>經費審查也一樣。經濟學家 Danielle Li 分析了 NIH 十萬多件研究計畫申請，發現審查委員會裡，每多一位研究領域和申請者相關的常任委員，申請者拿到經費的機率就高出約 3%。偏私是真的。</p>
+    <p>所以問題從來不是「美國人比較清高」。真正的差別，藏在三個地方。</p>
+
+    <h3>第一，「自己人」指的是誰？</h3>
+    <p>Li 的研究還有後半段：那些和申請者領域相關的委員，雖然比較偏心，但他們分辨計畫好壞的能力，也比別人高出五成以上；整體算下來，專業帶來的好處大於偏私帶來的壞處。換句話說，<strong>美國的「自己人」，多半是「懂你在做什麼的人」</strong>。他偏心，往往是因為他真的看得懂、真的欣賞。偏私和專業綁在一起。</p>
+    <p>差序格局裡的「自己人」，是家人、師門、同鄉、學長學弟、欠過人情的人。他照顧你，是因為關係，不一定是因為看懂了你的研究。偏私和專業是脫鉤的，甚至是衝突的。</p>
+
+    <h3>第二，照顧自己人，是違規還是義務？</h3>
+    <p>這是最底層的邏輯，也是我自己想了最久的地方。</p>
+    <p>回到 §3.5 的普遍主義與特殊主義。科學社會學的奠基者 Robert Merton 在 1942 年，把「普遍主義」列為現代科學的四大規範之一：一個科學主張的真假，要用非個人的標準來判斷，與提出者是誰無關。跨文化研究者 Fons Trompenaars 的調查，也把美國歸為普遍主義社會，把中國、南韓歸為特殊主義社會。而在差序格局裡，連道德本身都是看關係的；黃光國也指出，受了人情就要回報，不回報是道德上的虧欠。</p>
+    <div class="box detective">
+      <div class="label">◆ 同一個行為，兩種道德評價</div>
+      <p style="margin:0">在普遍主義的社會，<strong>照顧自己人是「違規」</strong>：要遮掩、要迴避、被發現會被調查。在差序格局的社會，<strong>不照顧自己人才是「失德」</strong>：忘恩負義、不講義氣。一位評審在會議上秉公否決了恩師的學生，在美國叫盡責；在我們的社會，他可能被說成忘恩負義。</p>
+    </div>
+    <p>打個比方：美國的評審當然也會想照顧自己人，但他做這件事時往往是心虛的；我們的評審不照顧自己人時，反而才心虛。</p>
+
+    <h3>第三，規則切得斷多少關係？</h3>
+    <p>美國用規則把偏私限制在一定範圍內。NIH 的聯邦法規（42 CFR 52h）規定，評審若受雇於申請機構，或本人、近親、專業夥伴與申請案有利益關係，就必須迴避；終身職外審則排除指導教授、合著者與朋友（§2.1）。</p>
+    <p>台灣和中國其實也有迴避條款，差別在於<strong>關係網的密度</strong>。規則能切斷的，是寫得出來的關係：師生、合著、同校。可是差序格局裡的關係，還有同學、同鄉、學長學弟、某次幫過的忙、某個欠下的人情，規則切不完。而在一個小領域裡，把所有有關係的人都迴避掉，剩下的往往已經沒有懂行的人了。Li 的研究提醒，迴避規則訂得太嚴，會把真正的專家一起排除掉；在差序格局裡，這個兩難被放大到極點：<strong>不迴避，就是人情；全迴避，就沒有專家。剩下唯一不必迴避的，只有數字。</strong></p>
+    <p>還有一點要補上：美國的名校階層很穩固，Clauset 的數據說明，名校不會因為偏私就被淘汰。但美國的判斷是分散的：數千個系所各自做決定，一個圈子看走眼的人，另一個系可能搶著要（§4.8 How）。偏私沒有消失，只是被稀釋了；而在資源與評審高度集中的地方，一個圈子的偏私，就可能是整個領域的偏私。</p>
+    <div class="box intuition">
+      <div class="label">▸ 這一節的一句話</div>
+      <p style="margin:0;font-size:19px"><strong>美國不是沒有自己人。差別在於：他們的自己人是懂你作品的人，照顧自己人是要遮掩的違規，而規則切得斷大部分的關係。我們的自己人是欠你人情的人，照顧自己人是一種義務，而關係網密到規則永遠切不完。</strong></p>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <section id="s46">
+    <h2 class="sec"><span class="no">§4.7</span>聰明人的囚徒困境</h2>
+    <p>也許有人會說：那就從我開始，我當評審時就認真看人，不看數字。</p>
+    <p>這很勇敢，但我們來算一算。假設一位評審決定「看人」，否決了一位點數很高、但他認為缺乏原創性的申請者，同時支持了一位點數普通、但他認為很有潛力的年輕人。接下來會發生什麼？點數高的那位會申訴，理由很充分：我的分數明明比較高。其他評審未必會挺他，因為挺他就要一起承擔「不公」的指控。如果那位年輕人後來沒做出成績，這位評審就是看走眼；如果做出成績了，也不會有人記得當初是誰支持他。</p>
+    <div class="tbl-wrap">
+    <table>
+      <caption>表 3｜一位評審的選擇（在其他人都看數字的情況下）</caption>
+      <thead><tr><th>選擇</th><th>判斷正確時</th><th>判斷錯誤時</th><th>被質疑時</th></tr></thead>
+      <tbody>
+        <tr><td class="field">照數字</td><td class="field">沒人記得</td><td class="field">沒人怪你</td><td class="field">「規則就是這樣」</td></tr>
+        <tr><td class="field">看人</td><td class="field">沒人記得</td><td class="field hot">你看走眼</td><td class="field hot">你有私心</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>在其他人都照數字的情況下，「看人」的風險全部落在一個人身上，好處卻沒有人歸給他。這就是賽局理論裡的均衡：<strong>每個人都知道集體看人會更好，但沒有任何一個人單獨看人是划算的。</strong>於是所有人都留在原地。</p>
+    <p>更深一層，這個均衡還會自我複製。我們是怎麼選出「最聰明的人」的？從中學到大學入學，一場接一場標準化考試。這本身無可厚非，日本與美國的入學考試也很嚴酷，八位華人得主年輕時，多半也經歷過嚴格的升學考試。真正的分水嶺在後面：美國與日本在博士與教職階段換了一把尺，改看原創與長期的探索；我們卻把中學的考卷，一路延伸到四十歲的升等與六十歲的帽子。於是站在金字塔頂端的，是<strong>一輩子都在既定規則下把分數最佳化的世界冠軍</strong>，而他們正是下一代制度的設計者。</p>
+    <figure class="figcard">
+      <svg style="font-family:\'Helvetica Neue\',Helvetica,Arial,\'Noto Sans TC\',\'PingFang TC\',\'Microsoft JhengHei\',sans-serif" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="篩選漏斗與自我複製"><defs><filter id="sh7" x="-10%" y="-10%" width="125%" height="140%"><feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#111827" flood-opacity="0.13"/></filter></defs>
+        <g font-size="13" text-anchor="middle">
+          <path filter="url(#sh7)" d="M60,30 L440,30 L410,80 L90,80 Z" fill="#F5D7BF" stroke="#D55E00"/>
+          <text x="250" y="60" fill="#111827">全體學生</text>
+          <path filter="url(#sh7)" d="M90,86 L410,86 L380,136 L120,136 Z" fill="#F5D999" stroke="#D55E00"/>
+          <text x="250" y="116" fill="#111827">大學入學：標準化分數篩選（美日皆然）</text>
+          <path filter="url(#sh7)" d="M120,142 L380,142 L350,192 L150,192 Z" fill="#BFE7DC" stroke="#8CD3C0"/>
+          <text x="250" y="172" fill="#111827">博士與教職：尺沒換，算點數者勝出</text>
+          <path filter="url(#sh7)" d="M150,198 L350,198 L320,248 L180,248 Z" fill="#00785A"/>
+          <text x="250" y="228" fill="#FFFFFF">院長、評審、決策者</text>
+        </g>
+        <path d="M320,262 C420,290 560,270 560,170 C560,70 500,40 450,45" fill="none" stroke="#D55E00" stroke-width="2.5" marker-end="url(#ah)"/>
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#D55E00"/></marker></defs>
+        <text x="575" y="150" font-size="13" fill="#C04A00" font-weight="700">設計下一張</text>
+        <text x="575" y="170" font-size="13" fill="#C04A00" font-weight="700">計分表</text>
+        <text x="250" y="284" text-anchor="middle" font-size="12.5" fill="#0072B2" font-style="italic">勝出者制定規則，規則篩選出下一批勝出者</text>
+      </svg>
+      <figcaption><b>圖 6｜</b>一個自我複製的迴圈。入學考試各國都有；分水嶺在博士與教職階段，我們沒有換尺。系統留下的，永遠是最適應系統的人；而他們最相信的秩序，就是讓自己勝出的那一套。</figcaption>
+    </figure>
+    <p>所以，最聰明的人之所以跳不出框架，不是因為他們笨。恰恰相反：<strong>正因為他們夠聰明，他們準確地算出了「跳出去」對自己不利。</strong></p>
+  </section>
+  <hr class="div">
+
+  <section id="s47">
+    <h2 class="sec"><span class="no">§4.8</span>看走眼的帳，記在誰身上</h2>
+    <p class="lead">上一節的困境，可以濃縮成一個問題：為什麼在台灣與中國，評審扛不起「看錯」的風險，美國卻扛得起？</p>
+    <p>先說清楚一件事：美國的評審一樣會看錯，美國也有落選者告上法院。差別不在<strong>會不會看錯</strong>，而在<strong>看錯之後，這筆帳記在誰身上、記多少</strong>。我試著用 5W1H 把它拆開。</p>
+
+    <h3>What：扛的是哪一種錯？</h3>
+    <p>評審可能犯兩種錯。一種是<strong>看走眼</strong>：判斷錯了，把平庸當成天才，或把天才當成平庸。另一種是<strong>被認為不公</strong>：結果也許沒錯，但別人懷疑你有私心。</p>
+    <p>相對而言，美國對前一種比較寬容，因為它被當成專業判斷本來就有的誤差；後一種則有一套程序來處理：只要你走完了外審、投票、說明的流程，就算有人不服，也很難說你徇私。台灣與中國剛好相反：看走眼很少有人追究，被認為不公卻很容易被追究。於是理性的評審會想盡辦法避開第二種錯，而避開它最有效的方法，就是不做判斷，只照數字。</p>
+
+    <h3>Who：誰來扛？</h3>
+    <p>在美國，一個終身職的決定是多封外審信、系上投票、院長、校方層層疊加出來的，最後以「機構」的名義做出。看錯的責任被切成很多小份，每個人只扛一小塊；外審信原則上保密（有些學校允許候選人申請閱覽）。</p>
+    <p>在台灣與中國，每個領域真正有份量的評審就那麼幾位，誰審了誰、誰投了反對票，在小圈子裡往往不難猜到。責任最後容易落在一個可以被指認的人身上：被否決的人，比較可能把帳記在「某某教授」頭上，而不是「機構」。</p>
+
+    <h3>When、Where：這種差異從什麼時候、在哪裡開始？</h3>
+    <p>台灣與中國這一側的歷史，比大多數人以為的長得多，而且一路都在教同一件事：<strong>替別人做判斷，是危險的。</strong></p>
+    <div class="timeline">
+      <div class="t"><span class="yr">漢代</span>察舉制靠地方官推薦人才。被推薦的人若不稱職，推薦他的「舉主」也要連帶負責。推薦，從一開始就是一件有風險的事。</div>
+      <div class="t"><span class="yr">宋代</span>糊名、謄錄（§4.2）。表面上是防考生作弊，同時也有保護考官的效果：考官看不到名字，就不必為「你是不是在照顧誰」負責。</div>
+      <div class="t"><span class="yr">1859</span>清代戊午科場案。順天鄉試主考官、文淵閣大學士柏葰，因家人收受請託、更動考生名次，被處斬，是清代因科場案被殺的最高層官員。這類重案傳遞的訊號是：寧可死守規則，也不要讓人懷疑你做過任何個人判斷。</div>
+      <div class="t"><span class="yr">1998</span>台灣司法院釋字第 462 號解釋：升等評審是行政處分，教師可以訴願、提起行政訴訟。用意是保障教師權利，副作用是讓每一個否決都可能走上法院（運作細節見 §5.2 結二）。</div>
+    </div>
+    <p>美國那一側，則是一連串把「判斷權」交給同行、並為判斷提供保障的里程碑：</p>
+    <div class="timeline">
+      <div class="t"><span class="yr">1915</span>美國大學教授協會（AAUP）發表《學術自由與終身職原則宣言》，1940 年再發表聲明，確立學術判斷應由同行做出，並以終身職保護做判斷的人。</div>
+      <div class="t"><span class="yr">1945</span>Vannevar Bush 的報告《科學：無盡的前沿》奠定戰後美國科研體制：政府出錢，方向由科學家自己透過同行評審決定。</div>
+      <div class="t"><span class="yr">1985</span>美國最高法院在 Ewing 案中確立，法院應尊重真誠的學術判斷（運作細節見 §5.2 結二）。</div>
+    </div>
+    <p>把兩條時間線並排，差異就很清楚：<strong>台灣與中國的歷史，一路在提高「做判斷」的代價；美國的歷史，一路在降低它。</strong></p>
+
+    <h3>How：美國靠什麼把代價壓低？</h3>
+    <ol class="steps">
+      <li><b>被拒絕，不等於社會性死亡。</b>美國有數千所大專院校，學者跨校流動是常態（§4.5）。被一所學校拒絕，可以去另一所；拒絕你的人，你一輩子可能不會再見面。台灣的學術圈小，中國的學術圈子也高度封閉，同一批人要相處一輩子，一次否決可能成為長久的心結，評審因此更難下手。</li>
+      <li><b>一家看走眼，另一家可以撿到寶。</b>美國的判斷是分散的，A 校錯過的人，B 校可能搶著要，整個系統會互相修正。台灣與中國的資源與評審高度集中，比較容易一起看走眼，錯誤的後果因此被放大，大家也就更加保守。</li>
+      <li><b>失敗是常態，不是丟臉。</b>矽谷講 fail fast；美國的破產法有「重新開始」（fresh start）的原則，讓失敗者可以清掉債務重來。在一個講究面子的社會，失敗是丟臉的事，看錯人的評審也一樣丟臉。</li>
+    </ol>
+
+    <h3>Why：為什麼兩邊會往相反方向走？</h3>
+    <p>回到第三部的原始碼。在儒家的政治傳統裡，「識人」常被視為一種德行。一個官員推薦錯人，叫做「識人不明」，那不是技術失誤，而是品格與能力的污點。在差序格局裡，判斷又總是被懷疑夾帶人情。兩者加起來，<strong>判斷錯誤容易被解讀成人格問題，判斷本身容易被解讀成私心問題</strong>，做判斷的人兩頭都輸。</p>
+    <p>相對而言，美國的傳統比較把判斷當成一種有誤差的專業行為：只要程序正當、出於善意，錯了就是錯了，下次修正。判斷的對錯，和判斷者的人格脫鉤。</p>
+    <div class="tbl-wrap">
+    <table>
+      <caption>表 4｜看走眼的帳：台灣、中國與美國的對照</caption>
+      <thead><tr><th>　</th><th>台灣・中國</th><th>美國</th></tr></thead>
+      <tbody>
+        <tr><td class="field">What：最怕哪種錯</td><td class="field hot">被認為不公</td><td class="field">程序不正當</td></tr>
+        <tr><td class="field">Who：誰扛</td><td class="field hot">可指認的個別評審</td><td class="field">機構，責任分散</td></tr>
+        <tr><td class="field">When：歷史方向</td><td class="field hot">舉主連坐 → 糊名 → 斬考官 → 升等可訴</td><td class="field">AAUP → Bush 報告 → 法院尊重學術判斷</td></tr>
+        <tr><td class="field">Where：在哪裡扛</td><td class="field hot">一輩子見面的小圈子</td><td class="field">數千所學校的大市場</td></tr>
+        <tr><td class="field">How：錯了怎麼辦</td><td class="field hot">容易一起出錯，難以修正</td><td class="field">分散判斷，互相修正</td></tr>
+        <tr><td class="field">Why：錯了代表什麼</td><td class="field hot">識人不明、人格污點</td><td class="field">專業誤差</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="box intuition">
+      <div class="label">▸ 一句話總結</div>
+      <p style="margin:0;font-size:19px"><strong>美國的評審不是比較勇敢。美國把看錯的代價拆碎、分散，再用法律為它提供保障；台灣與中國則把這筆帳集中記在一個人頭上，而在歷史上，有時候真的是人頭。</strong></p>
+    </div>
+  </section>
+
+
+  <!-- ===================== Part 5 ===================== -->
+  <div class="part-divider"><div class="pp">第 五 部</div><div class="pt">魔鬼在細節裡</div></div>
+
+  <section id="d1">
+    <h2 class="sec"><span class="no">§5.1</span>他們都帶回來了</h2>
+    <p class="lead">先說明這一部的角色。前四部是望遠鏡，看的是兩千年、兩個國家的大輪廓；這一部是顯微鏡，看的是會議室裡的評分表、法條與預算。顯微鏡下的每一個細節，最後都會指回同一個思想。</p>
+    <figure class="figcard">
+      <svg style="font-family:\'Helvetica Neue\',Helvetica,Arial,\'Noto Sans TC\',\'PingFang TC\',\'Microsoft JhengHei\',sans-serif" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="冰山：表面的計分表、中層的法規與預算、底層的思想"><defs><filter id="sh8" x="-10%" y="-10%" width="125%" height="140%"><feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#111827" flood-opacity="0.13"/></filter></defs>
+<rect x="0" y="0" width="640" height="92" fill="#FFFFFF"/>
+<rect x="0" y="92" width="640" height="268" fill="#D6ECFA"/>
+<line x1="0" y1="92" x2="640" y2="92" stroke="#00785A" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="628" y="86" text-anchor="end" font-size="11.5" fill="#00785A" font-style="italic">水面</text>
+<path filter="url(#sh8)" d="M270,92 L300,30 L340,24 L372,92 Z" fill="#F5D7BF" stroke="#D55E00"/>
+<path filter="url(#sh8)" d="M210,92 L430,92 L470,190 L170,190 Z" fill="#8CD3C0"/>
+<path filter="url(#sh8)" d="M170,190 L470,190 L540,340 L100,340 Z" fill="#0B3C78"/>
+<text x="321" y="72" text-anchor="middle" font-size="13" fill="#111827" font-weight="700">看得見的</text>
+<text x="40" y="44" font-size="12.5" fill="#111827">計分表、RPI、外審評分欄、</text>
+<text x="40" y="62" font-size="12.5" fill="#111827">期刊分區、帽子</text>
+<text x="320" y="130" text-anchor="middle" font-size="13.5" fill="#0B3C78" font-weight="700">撐住它的：法規與預算</text>
+<text x="320" y="152" text-anchor="middle" font-size="12" fill="#111827">申訴與訴訟、名額比例、抽查巡查、薪資與獎勵</text>
+<text x="320" y="172" text-anchor="middle" font-size="12" fill="#374151" font-style="italic">第五部</text>
+<text x="320" y="240" text-anchor="middle" font-size="14.5" fill="#F0E442" font-weight="700">最底層：思想</text>
+<text x="320" y="266" text-anchor="middle" font-size="12.5" fill="#FFFFFF">公平＝分數（科舉）・學以致用・差序格局</text>
+<text x="320" y="288" text-anchor="middle" font-size="12.5" fill="#FFFFFF">判斷不可信，只有數字可信</text>
+<text x="320" y="316" text-anchor="middle" font-size="12" fill="#00785A" font-style="italic">第三、四部</text>
+</svg>
+      <figcaption><b>圖 7｜</b>冰山：我們每天看到的是水面上的計分表；撐住它的是法規與預算；最底層，是兩千年的思想。第五部從水面往下潛。</figcaption>
+    </figure>
+    <p>回到最讓人想不通的問題：李遠哲這樣的人，比誰都清楚美國制度好在哪裡。台灣與中國有成千上萬在美國受訓、甚至在美國當過教授的頂尖學者回來。為什麼他們帶不回來？</p>
+    <p>仔細看，會發現一個意外的答案：<strong>他們其實都帶回來了。</strong>外審、同行評審、限期升等、競爭型計畫、國際評鑑，這些名詞今天在台灣與中國的大學裡一個都不缺。</p>
+    <p>問題是，每一個零件帶回來之後，都被當地的另一個零件改了形狀。就像一顆從美國原廠拆下來的引擎，裝進另一台車，油路、電路、變速箱都不一樣，引擎還是會轉，只是轉出來的東西完全不同。<strong>魔鬼不在某一條規定裡，而在零件與零件之間的接縫。</strong>下面我把這些結一個一個拆開，並且和美國逐一對照。</p>
+  </section>
+
+  <hr class="div">
+
+  <section id="d2">
+    <h2 class="sec"><span class="no">§5.2</span>四個結：台灣卡在哪、中國卡在哪、美國為什麼不卡</h2>
+    <p class="lead">先把邏輯講清楚：下面四個結，台灣和中國<strong>都有</strong>，只是綁法不同；而同樣的位置，在美國有一把鑰匙把它解開。先看總表，再逐一拆開。</p>
+    <div class="tbl-wrap">
+    <table class="grid">
+      <caption>表 5｜四個結的對照（紅底：卡住的地方；綠底：美國解開它的鑰匙）</caption>
+      <thead><tr><th>結</th><th>台灣卡在哪</th><th>中國卡在哪</th><th>美國為什麼不卡</th></tr></thead>
+      <tbody>
+        <tr><td class="field"><b>一、判斷必須能「比較」</b></td><td class="field knot">外審被換成評分表；三級三審到了院、校層級，委員來自不同領域，分數最容易成為共同語言</td><td class="field knot">教授名額有上限，必須排序；期刊分區成為排序工具</td><td class="field key">外審比較的對象是全國同領域、同階段的同行；問的是「夠不夠格」，不是「為什麼是他不是我」；專業社群反對終身職名額配額</td></tr>
+        <tr><td class="field"><b>二、判斷必須經得起「追究」</b></td><td class="field knot">追究來自申訴與法院：被否決者可申覆、申訴、訴願、訴訟，委員會的決定須附理由</td><td class="field knot">追究來自上級：書面核查、雙隨機抽查、專項巡查</td><td class="field key">法院尊重學術判斷，只在明顯背離學術常規時才介入</td></tr>
+        <tr><td class="field"><b>三、錢跟著什麼走</b></td><td class="field knot">判斷好壞，錢都一樣：薪資按職級一律，看錯人沒有代價</td><td class="field knot">跟著分數：曾以高額獎金獎勵頂尖期刊論文；2020 年官方下令取消後，仍綁在分區與績效上</td><td class="field key">跟著人：教授暑期薪水靠計畫；聘對人，系所多一筆間接經費；聘錯人，這些錢都沒了</td></tr>
+        <tr><td class="field"><b>四、規則靠誰維持</b></td><td class="field knot">升等規則由各校、各院自訂，改革只能一校一系推動</td><td class="field knot">施一公辭去清華副校長，創辦從頭設計規則的西湖大學</td><td class="field key">同行外審、不聘自己博士已是各校共同的規範，不靠個人維持</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>結一：判斷必須能「比較」</h3>
+    <p><strong>台灣卡在哪：</strong>外審被帶回來了，但形狀變了。以國立中山大學某學院的升等辦法為例：論文送五位外審，用百分制評分，代表作占 70%、參考作占 30%；升教授必須至少四位評 80 分以上、平均達 81 分，未達標準「視為升等不通過」。台大的著作審查意見表同樣是分數制，及格底線 70 分。而且許多大學的升等採「三級三審」，依序經過系、院、校三層教評會；到了院、校兩層，委員來自不同系所，往往很難細讀另一個領域的外審信；在這樣的會議裡，分數就成了最容易共通、也最容易拿來投票的語言。</p>
+    <p><strong>中國卡在哪：</strong>2017 年，中國把職稱評審權下放給大學，但只能在「岗位结构比例内」自主評審，教授、副教授的名額有上限。升一個人就少一個位子，誰上誰下必須排出名次；而最方便排序的工具，往往就是期刊分區（§1.1）。</p>
+    <p><strong>美國為什麼不卡：</strong>關鍵在「跟誰比」。普渡大學的外審邀請信，請評審比較候選人與「其他處於相近職涯階段」的人；亞利桑那州立大學的指引，也要求評審拿候選人和同一領域、同一職涯階段的人相比，並判斷他是否符合該系的標準。<strong>比較的對象是全國同行，不是系上同一年的同事</strong>；問題是「這個人夠不夠格」，而不是「為什麼是他、不是我」。既然不必在同事之間排名次，就不需要一個可以排序的分數。</p>
+    <p>美國也不是沒有人想過用名額來管終身職，但美國大學教授協會（AAUP）明文反對「終身職配額」，也就是規定全校最多只能有多少比例的教師擁有終身職。它的理由很直接：因為數字配額而拒絕一位達到標準的人，是不能接受的；終身職應該只看這個人本身夠不夠好。專業社群公開把「名額」定義為一種錯誤，這和中國把名額寫進評審辦法，方向正好相反。</p>
+
+    <h3>結二：判斷必須經得起「追究」</h3>
+    <p><strong>台灣卡在哪：追究來自申訴與法院。</strong>坐在教評會裡的教授，多半不會想到哪一號大法官解釋；他們感受到的是更具體的東西：被否決的人可以提出申覆、申訴，甚至訴願與行政訴訟，而委員會的決定必須附上理由，經得起這些程序的檢驗。</p>
+    <p>這套救濟制度的源頭，是 1998 年的釋字第 462 號解釋。它把升等評審定性為行政處分，並要求教評會若要推翻外審的專業審查，必須提出「具有專業學術依據之具體理由」；教育部隨後也發函，要求各校配合建立申覆與申訴的救濟制度。換句話說，<strong>釋字第 462 號不在評審的腦海裡，而是寫進了各校的升等辦法與流程裡</strong>，再透過這些流程，影響每一位評審的日常判斷。</p>
+    <p>於是在實際運作中，出現一個不對稱：外審分數過了，教評會讀完論文覺得不夠好，想否決，就得寫出一份經得起申訴與訴訟檢驗的學術理由；而在設有外審門檻的學校，例如前面提到的中山大學辦法，分數沒過就「視為升等不通過」，沒有人需要寫理由。整個法律環境也把公立大學當行政機關看待：2012 年的教授假發票案，近五百位教授被指控，檢方一度用貪污罪偵辦，直到 2014 年最高法院刑事庭才決議公立大學教授不屬於刑法上的公務員。報帳和升等在法理上是兩回事，但它們傳遞的是同一個訊號：在這個體系裡，任何裁量都可能被當成弊端來追究。連報帳都可能被當成貪污偵辦，教授坐進教評會時，自然更不敢行使主觀的學術判斷。</p>
+    <p><strong>中國卡在哪：追究來自上級。</strong>2017 年，教育部與人社部在下放職稱評審權的同時，也訂了監管辦法：方式包括書面核查、「雙隨機」定期抽查，以及針對群眾與輿情反映的專項巡查，還專設一章規定懲處。評審結果隨時可能被上級翻出來檢查。同樣地，評審未必讀過這份辦法，但抽查與巡查的壓力，會透過學校的評審流程傳到每個人身上。</p>
+    <p><strong>美國為什麼不卡：</strong>美國的落選者也會告學校，但法院給了學術判斷一層保護。1985 年最高法院在 Ewing 案中表示，法官審查真正的學術決定時，應對教師的專業判斷表示極大的尊重；除非決定明顯背離公認的學術常規，顯示做決定的人根本沒有行使專業判斷，否則法院不會推翻。法院審的是「你有沒有認真判斷、程序是否正當」，而不是「你判斷得對不對」。外審信也受到保護：普渡大學的邀請信寫明評審的身分會保密，候選人可以要求看評估的摘要，但學校會盡力保護評審的身分。</p>
+    <div class="box detective">
+      <div class="label">◆ 雙胞胎又出現了</div>
+      <p style="margin:0">台灣的追究來自申訴與法院，是民主法治的產物；中國的追究來自上級，是黨國監管的產物。兩套來源完全相反的制度，對坐在評審席上的人，效果卻一模一樣：<strong>照分數走，零風險；做判斷，高風險。</strong>美國也有法院，差別在於它的法院選擇尊重判斷，而不是檢驗判斷。</p>
+    </div>
+
+    <h3>結三：錢跟著什麼走？</h3>
+    <p><strong>台灣卡在哪：判斷得好，錢也不會變多。</strong>公立大學教師的薪資依全國一致的待遇規定按職級發放。教育部自己估計，台灣教授的年薪比國外同儕少約 36 萬到 120 萬元；彈性薪資約一萬兩千人受惠，但審計部發現六成以上每月加給不到兩萬元。從這個結構推下去：一個系聘進一位平庸的自己人，系所幾乎不必付出代價；想搶一位明星，又沒有足夠的錢可以開價。</p>
+    <p><strong>中國卡在哪：錢跟著分數走。</strong>在很長一段時間裡，中國的錢動得很大，而且跟著分數走：2017 年的調查發現，2016 年一篇《Nature》或《Science》論文的平均獎金約 43,783 美元，最高 16.5 萬美元（§1.1）。錢獎勵的是「發在哪本期刊」，不是「誰判斷得好」。2020 年，教育部與科技部發文，要求取消直接依據 SCI 論文指標對個人和院系的獎勵；官方需要明令取消，正說明這種做法曾經相當普遍。但取消之後，錢並沒有改跟著「人的判斷」走：2022 年一項發表在《Minerva》的研究檢視各省的配套文件，發現它們多半只重複中央的說法，並沒有提出 SCI 以外的替代方案；期刊分區表也繼續被用在聘任、升等、績效獎金與學位要求上，直到 2026 年停止更新（§1.1）。換了名目，錢多半仍跟著分數走。</p>
+    <p><strong>美國為什麼不卡：錢跟著人走。</strong>先看教授個人：美國研究型大學的教授，很多是「九個月」的學年聘約，暑假的薪水要靠研究計畫支付；以美國國家科學基金會（NSF）為例，一年最多可以從計畫裡支領兩個月的薪水。再看學校：聯邦政府補助一個研究計畫時，除了直接經費，還會依照各校與政府議定的比例，另外撥給學校一筆「間接經費」（indirect cost），支付建築、水電與行政開銷。許多研究型大學的比例在 40% 到 60% 之間，哈佛高達 69%。2025 年 NIH 想一律砍到 15%，立刻被大學與各州告上法院、遭到禁制。這筆錢也不只留在校方：以休士頓大學為例，間接經費的標準分配是 56% 給學院、44% 給系所，有些學院還會分一部分給計畫主持人。</p>
+    <p>把這幾層疊起來：一個系聘到能拿下大型計畫的人，教授自己有暑期薪水，系所與學院也多一筆可以運用的錢；聘到一位拿不到計畫的人，這些錢就都沒有了。<strong>判斷的好壞，直接反映在系所的帳上</strong>，所以系所有動機好好判斷。</p>
+
+    <h3>結四：規則靠誰維持？</h3>
+    <p><strong>台灣卡在哪：</strong>李遠哲 1994 年回台接掌中研院，推動了不少改革。但台灣大學教師的升等規則，是分散在各校、各院、各系的：本文引用的中山大學、台灣大學、虎尾科技大學，每一所都有自己的升等辦法與評分表。即使是中研院院長，能直接改變的也只有中研院；各校的規則，要靠各校的教評會一個一個修改，而第四部的囚徒困境（§4.7）告訴我們，率先偏離的人會付出代價。好的規則，在這裡要靠有心人一處一處去推，有心人一離開，規則就可能回到原樣。</p>
+    <p><strong>中國卡在哪：</strong>施一公的選擇是一個值得注意的例子。2018 年 1 月，他請辭清華大學副校長，全職投入西湖大學，他自己的說法是兩邊兼顧等於「腳踏兩隻船」。無論動機為何，結果是他沒有留在既有的大學裡修改規則，而是去創辦一所可以從頭設計規則的新大學（§6.3）。</p>
+    <p><strong>美國為什麼不卡：</strong>在美國，這些規則不靠個人維持，因為它們早就是各校共同的規範。保持距離的同行外審是各校的標準流程（§2.1）；「不聘自己的博士」是各系的不成文規範，讓學術近親繁殖在 1970、80 年代之後大致消失（§4.5）。一位新教授進到美國的系所，進入的就是這套規範；院長換人，規則也不會跟著換。</p>
+  </section>
+
+  <hr class="div">
+
+  <section id="d3">
+    <h2 class="sec"><span class="no">§5.3</span>結會互相鎖住，鑰匙也會</h2>
+    <p>把表 5 橫著讀，會看到一個關鍵：不只是結會互相鎖住，<strong>鑰匙也會互相扣在一起</strong>。</p>
+    <p>在美國，四把鑰匙彼此支撐：外審比的是全國同行（鑰匙一），所以不必排名次；法院尊重真誠的判斷（鑰匙二），所以做判斷不危險；學校的收入跟著聘對的人走（鑰匙三），所以有動機認真判斷；這一切又是各校共同的規範（鑰匙四），不因院長換人而改變。</p>
+    <p>在台灣與中國，四個結也彼此支撐。想像一位台灣的理想主義院長，想讓教評會真正讀論文、做判斷（解開結一）。被否決的人提起申訴與訴願（結二）；就算他判斷對了，學院也拿不到更多資源（結三）；三年後他卸任，下一任院長上來，悄悄改回了分數，因為規則從來只靠他一個人維持（結四）。</p>
+    <p>換成中國，同樣想像一下，情節不同，結局一樣。一位院長想在有限的名額裡，推一位分數不高、但他認為真正有原創性的人（解開結一）。抽查時，他拿不出可以比較的依據（結二）；對方的論文分數不高，在各種依分數分配的資源裡都吃虧（結三）；他一卸任，學院又回到照分區排序（結四）。</p>
+    <p>這就是為什麼一個李遠哲、甚至一千個李遠哲都不夠。他們每個人都只帶回一把鑰匙：也許是外審，也許是國際評鑑，也許是自己實驗室裡的文化。<strong>但一把鑰匙打不開四個鎖。</strong>要同時換掉四把，需要同時改變大學的法律地位、行政救濟與監管的設計、薪資與獎勵制度、名額制度，而這些大多不在任何一位院士、校長或院長的權限之內。</p>
+    <p>更深一層：這些規定不是憑空出現的。就用意而言，釋字第 462 號是為了防止恣意，報帳與抽查是為了防止舞弊，分數門檻是為了防止人情，名額上限是為了防止浮濫。<strong>每一條規定，都是一次防範人情的化石。</strong>你可以拿掉一塊化石，但只要底下的土壤還是一樣，新的化石會再長出來。這就是 §3.6 說的移植效應：規則可以搬，規則與在地價值之間的接縫搬不過來。</p>
+    <div class="box intuition">
+      <div class="label">▸ 第五部的一句話</div>
+      <p style="margin:0;font-size:19px"><strong>台灣與中國用不同的繩子，綁了同樣的四個結；美國在同樣的位置，各放了一把鑰匙，而且四把鑰匙互相扣在一起。留洋學者帶得回一把鑰匙，帶不回整串鑰匙。而四個結，其實是同一句話的四種寫法：在差序格局裡，人的判斷預設會被懷疑。這句話不是任何一條法規寫的，它寫在冰山的最底層。</strong></p>
+    </div>
+  </section>
+
+  <hr class="div">
+
+  <section id="d4">
+    <h2 class="sec"><span class="no">§5.4</span>那日本呢？另一串鑰匙</h2>
+    <p class="lead">這篇文章從日本起頭，卻一路拿美國對照。讀到這裡，也許有人會問：日本拿了二十八座諾貝爾科學獎，它也有美國那四把鑰匙嗎？</p>
+    <p>答案是：<strong>日本黃金時期用的，是另一串鑰匙。</strong></p>
+    <p>回到 §2.3 的講座制：國家給教授穩定、不問短期回報的經費，<strong>一開始就把信任長期交給了教授本人與他的實驗室</strong>，所以不需要每年判斷一個人「夠不夠好」。它和美國那串鑰匙的差別，可以排成一張表：</p>
+    <div class="tbl-wrap">
+    <table>
+      <caption>表 6｜跳出科舉版的兩條路</caption>
+      <thead><tr><th>　</th><th>美國：市場版</th><th>日本黃金時期：職人版</th><th>台灣與中國：科舉版</th></tr></thead>
+      <tbody>
+        <tr><td class="field">信任的對象</td><td class="field">同行的判斷</td><td class="field">長期的人與實驗室</td><td class="field hot">只放心交給數字</td></tr>
+        <tr><td class="field">錢怎麼給</td><td class="field">競爭，跟著人走</td><td class="field">穩定撥給講座</td><td class="field hot">跟著分數，或一律</td></tr>
+        <tr><td class="field">多久判斷一次</td><td class="field">關鍵時刻（終身職、計畫）</td><td class="field">很少，給了就長期信任</td><td class="field hot">每年、每案都要算分</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>所以 2004 年法人化之後的下滑（§2.3），可以讀成：日本在自己那串鑰匙還能用的時候，換上了美國的鑰匙。原因當然不只一個，但這提醒我們：<strong>一套在美國管用的制度，搬到另一種思想環境，未必管用。</strong></p>
+    <div class="box intuition">
+      <div class="label">▸ 這一節的一句話</div>
+      <p style="margin:0;font-size:19px"><strong>跳出科舉版的路不只一條：美國信任同行的判斷，日本信任長期的人。台灣與中國的困境在於，兩種信任都沒有，最後只剩下數字可以信任。</strong></p>
+    </div>
+  </section>
+
+  <!-- ===================== Part 6 ===================== -->
+  <div class="part-divider"><div class="pp">第 六 部</div><div class="pt">思想漸凍症</div></div>
+
+  <section id="s51">
+    <h2 class="sec"><span class="no">§6.1</span>知道基因，知道病程</h2>
+    <p class="lead">寫到這裡，我腦中一直浮現一個畫面：一位漸凍人。</p>
+    <p>漸凍症（ALS）是醫學上最令人無力的疾病之一。我們知道不少相關的基因，知道它的病理機轉，病程也大致可以預期：肌肉一步步失去力量，最後連呼吸的肌肉也受影響。醫師可以把這一切講得清清楚楚，卻沒有藥可以讓它停下來。</p>
+    <p>台灣與中國學術圈的處境，給我的感覺一模一樣。</p>
+    <div class="tbl-wrap">
+    <table>
+      <caption>表 7｜一份病歷：思想漸凍症</caption>
+      <thead><tr><th>　</th><th>漸凍症</th><th>台灣・中國的學術與評價文化</th></tr></thead>
+      <tbody>
+        <tr><td class="field">易感基因</td><td class="field">已知的相關基因</td><td class="field">科舉的「公平＝分數」、差序格局、學以致用、稻作心智</td></tr>
+        <tr><td class="field">病理機轉</td><td class="field">運動神經元逐步退化</td><td class="field">判斷預設被懷疑 → 不敢看人 → 只能看數字</td></tr>
+        <tr><td class="field">病程</td><td class="field">可預測、不可逆</td><td class="field">許多改革，最後都回到計分表</td></tr>
+        <tr><td class="field">診斷能力</td><td class="field">非常好</td><td class="field">非常好：每個聰明人都說得出問題在哪</td></tr>
+        <tr><td class="field">治療</td><td class="field">只能延緩</td><td class="field">只能延緩</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>最讓人無力的是「病程」。台灣與中國的不少改革，都走過類似的循環：</p>
+    <figure class="figcard">
+      <svg style="font-family:\'Helvetica Neue\',Helvetica,Arial,\'Noto Sans TC\',\'PingFang TC\',\'Microsoft JhengHei\',sans-serif" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="改革的復發循環"><defs><filter id="sh9" x="-10%" y="-10%" width="125%" height="140%"><feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#111827" flood-opacity="0.13"/></filter></defs>
+        <defs><marker id="ahC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#D55E00"/></marker></defs>
+        <g font-size="13" text-anchor="middle">
+          <rect filter="url(#sh9)" x="235" y="14" width="170" height="54" rx="5" fill="#0B3C78"/>
+          <text x="320" y="37" fill="#F0E442" font-weight="700">① 宣布改革</text>
+          <text x="320" y="56" fill="#FFFFFF" font-size="12">不唯論文、看代表作</text>
+          <rect filter="url(#sh9)" x="450" y="110" width="170" height="54" rx="5" fill="#BFE7DC" stroke="#00785A"/>
+          <text x="535" y="133" fill="#0B3C78" font-weight="700">② 開始看人</text>
+          <text x="535" y="152" fill="#111827" font-size="12">審代表作、寫外審意見</text>
+          <rect filter="url(#sh9)" x="340" y="226" width="190" height="54" rx="5" fill="#F4C7D9" stroke="#CC79A7"/>
+          <text x="435" y="249" fill="#B2182B" font-weight="700">③ 質疑不公</text>
+          <text x="435" y="268" fill="#111827" font-size="12">申訴、派系、人情說</text>
+          <rect filter="url(#sh9)" x="110" y="226" width="190" height="54" rx="5" fill="#F5D7BF" stroke="#D55E00"/>
+          <text x="205" y="249" fill="#C04A00" font-weight="700">④ 補上客觀標準</text>
+          <text x="205" y="268" fill="#111827" font-size="12">代表作要列期刊等級</text>
+          <rect filter="url(#sh9)" x="20" y="110" width="170" height="54" rx="5" fill="#F5D999" stroke="#D55E00"/>
+          <text x="105" y="133" fill="#111827" font-weight="700">⑤ 回到計分表</text>
+          <text x="105" y="152" fill="#374151" font-size="12">換了名字的舊制度</text>
+        </g>
+        <g fill="none" stroke="#D55E00" stroke-width="2.2">
+          <path d="M405,48 C460,55 520,80 530,106" marker-end="url(#ahC)"/>
+          <path d="M535,166 C535,200 520,230 534,232" marker-end="url(#ahC)"/>
+          <path d="M338,253 L304,253" marker-end="url(#ahC)"/>
+          <path d="M140,224 C110,200 100,190 102,168" marker-end="url(#ahC)"/>
+          <path d="M110,108 C130,70 180,48 232,44" marker-end="url(#ahC)"/>
+        </g>
+        <text x="320" y="150" text-anchor="middle" font-size="14" fill="#0072B2" font-style="italic">復發</text>
+      </svg>
+      <figcaption><b>圖 8｜</b>改革的病程：每一次「看人」的嘗試，都在「不公」的質疑下，被補上新的客觀標準，最後回到換了名字的計分表。</figcaption>
+    </figure>
+    <p>這個病程，歷史學家早就描述過了。法國年鑑學派的布勞岱爾（Fernand Braudel）把歷史分成三層：最表層是事件，政權更迭、政策頒布，像浪花；最深層是延續幾百上千年的地理與心智結構，像洋流。他說，心智框架本身就可能是一座「長時段的牢籠」。托克維爾（Alexis de Tocqueville）在《舊制度與大革命》（1856）中翻遍檔案後發現，法國大革命推翻了王朝，卻幾乎原封不動地繼承了舊王朝的行政中央集權；革命者以為自己蓋了新房子，用的其實是舊房子拆下來的磚。美國社會學家 DiMaggio 與 Powell 在 1983 年那篇〈The Iron Cage Revisited〉則指出，同一個場域裡的組織會越長越像。</p>
+    <p>學者們把這個病描述得非常精準。可是，描述不是治療。</p>
+  </section>
+
+  <hr class="div">
+
+  <section id="s52">
+    <h2 class="sec"><span class="no">§6.2</span>為什麼到了美國就好了？</h2>
+    <p class="lead">漸凍症的比喻，在這裡需要補上一個角度。</p>
+    <p>漸凍症病人搬到美國，病不會好。可是這個「病」，在儒家文化圈特別明顯；同樣的華人到了美國，八個人拿了八座科學獎。如果它是基因病，搬家怎麼會好？</p>
+    <p>答案要分三層說。</p>
+    <p><strong>第一，它不是百分之百發病，美國也沒有根治。</strong>日本雖然常被劃進儒家文化圈，卻從沒裝過科舉這一版程式，還在明治時期脫亞入歐（§2.3）；在儒家文化圈之外，義大利也有類似的症狀（§3.5）。而美國自己也有量化的毛病：反對用影響因子評人的《舊金山宣言》，就是在美國的舊金山發起的；2012 年，Nicholson 與 Ioannidis 在《Nature》發表分析，指出美國生命科學領域許多最具創新與影響力的論文作者，並沒有拿到 NIH 的經費，暗示經費審查偏向保守、獎勵順從。<strong>想把人變成數字，是所有大型組織的共同傾向；差別在於，美國有一套免疫系統把它壓住，而我們沒有。</strong></p>
+    <p><strong>第二，華人到了美國，並不是病被治好了，而是「做判斷」的責任，改由環境替他承擔。</strong>一位華人學者到了美國，原本的習慣未必就此改變。但評價他的，是一群和他沒有師生、合著或私交，只認識他作品的同行；他自己當評審時，也被保密、分散與法院尊重判斷的制度保護著（§4.8）。「判斷」這件事，被環境接手了。</p>
+    <p><strong>第三，反過來也成立。</strong>一位美國學者來到台灣或中國任教，一樣要填 RPI、一樣要算分區、一樣要追計畫。他同樣得照這套規則升等，很難獨自例外。</p>
+    <p>所以，如果看的是個人與環境的關係，這個病也有點像醫學上的<strong>地方性甲狀腺腫</strong>。在缺碘的山區，整個地區的人脖子都腫，看起來像遺傳；搬到海邊，腫就慢慢消了；外地人搬進來住久了，也會開始腫。病因不在人的基因，而在土壤裡缺了一樣東西。</p>
+    <div class="box detective">
+      <div class="label">◆ 土壤裡缺的那樣東西</div>
+      <p style="margin:0">台灣與中國的土壤裡缺的，是<strong>一種可以交給沒有交情的同行、出錯也不會被當成人格污點的判斷</strong>。華人學者搬到美國，就進入了有這種判斷的環境；美國學者搬來台灣或中國，就進入了缺少這種判斷的環境。這也是為什麼它在儒家文化圈看起來特別普遍：不是因為這裡的人不一樣，而是因為大家生長在同一種土壤裡。</p>
+    </div>
+    <p>但這個比喻也帶來壞消息。缺碘的地方，只要把碘加進鹽巴裡，一個世代內就能讓整個地區的甲狀腺腫大幅減少。<strong>信任卻不能加進鹽巴裡。</strong>這就是為什麼，病因看起來比漸凍症簡單，處境卻一樣無力。</p>
+  </section>
+
+  <hr class="div">
+
+  <section id="s53">
+    <h2 class="sec"><span class="no">§6.3</span>有人有解嗎？</h2>
+    <p>我認真找過。我的結論是：<strong>沒有人找到能治好全身的藥，但有人找到了延緩的藥，也有人找到了只對一小群人有效的標靶療法。</strong>這個區分很重要，因為它反過來告訴我們病在哪裡。</p>
+    <h3>延緩藥：改制度</h3>
+    <p>漸凍症最早的藥 riluzole，大約只能延長幾個月的存活。台灣與中國的制度改革，就是這一類藥：中國的破五唯、代表作制度，台灣的多元升等、國科會淡化量化指標。它們有用，能讓病程慢一點，但沒有一個能讓病停下來。原因在圖 8 裡：只要信任半徑沒有變，「看人」的制度往往會被「不公」的質疑拉回計分表。</p>
+    <h3>標靶療法：建一塊飛地</h3>
+    <p>2023 年，美國 FDA 核准了 tofersen，一種針對特定基因（SOD1）突變的漸凍症藥物。它是真正針對病因的療法，但只適用於帶有這種突變的一小部分病人。</p>
+    <p>學術界也有這樣的標靶療法，其中兩個已經看得到效果，一個還在試驗中：</p>
+    <ul>
+      <li><strong>沖繩科學技術大學院大學（OIST）。</strong>日本政府 2011 年在沖繩設立的研究型大學，全英語運作、教職員大量來自海外、不設傳統系所、由國家穩定撥款。2019 年《Nature Index》首度推出依規模校正的排名，OIST 名列全球第 9，日本第一。</li>
+      <li><strong>香港科技大學。</strong>1991 年創校時，從海外（主要是美國）整批延攬華人學者，直接採用國際外審與終身職制度，短短二、三十年躋身亞洲頂尖。</li>
+      <li><strong>西湖大學。</strong>2018 年由施一公等人在杭州創辦的民辦研究型大學，試圖從頭設計制度，以國際化的研究型大學為目標。但它仍在中國既有的高教與行政體系裡運作，能否長期維持這套運作，本身就是一場正在進行的實驗。</li>
+    </ul>
+    <p>這些飛地有一個共同點：<strong>它們不只改了規則，也換了做判斷的人。</strong>它們大量延聘海外學者（OIST 與港科大更直接以英語運作），最重要的是，<strong>把評審外包給差序格局之外的同行</strong>：國際外審的評審，和被審的人沒有人情、不會同桌吃飯、也不在乎彼此的面子。看人的三個前提，就這樣被「進口」了。</p>
+    <p>但標靶療法有它的限制。tofersen 只對少數基因型有效；飛地也只對小規模的菁英機構有效。一旦想把它推廣到中國上千所大學、幾十萬名教師，國際外審的人力根本不夠；台灣的規模雖然小得多，升等外審也大多仰賴國內同行。最後，評審還是會回到本地的熟人網絡裡，病就復發了。</p>
+    <div class="box detective">
+      <div class="label">◆ 飛地告訴我們的事</div>
+      <p style="margin:0">飛地有效，但要小心解讀。飛地同時換了規則，也換了做判斷的人：它們把評審交給差序格局之外的同行。所以它證明的不是「思想決定一切」，而是 §3.6 的推論：只換規則不夠，要連行使裁量的人一起換，規則才會照原樣運作。同樣是日本人、同樣是華人，放進這樣的環境，就能做出世界級的研究。這說明病不在人身上，也不在基因上，而在「圈」上。好消息是：既然病在圈，理論上就可以治。壞消息是：要治的不是一所大學，而是整個社會的信任半徑。</p>
+    </div>
+    <h3>那根治呢？</h3>
+    <p>老實說，我找不到任何人提出了可以全身適用的根治方法。我讀到的分析，多半停在診斷：Porter 描述數字為何取代判斷，福山描述信任半徑，Gelfand 描述緊密文化，費孝通描述差序格局。描述得都很精準，但我找不到一份可以全身適用的處方。</p>
+    <p>如果真的有根治的路，我猜它只有一條，而且非常慢：<strong>讓信任半徑一點一點擴大。</strong>讓更多年輕人在國際環境中受訓並留下來工作，讓學者跨校流動、不再一輩子待在同一個師門，讓研討會裡的當面質疑變成常態而不是冒犯，讓「看走眼」成為一位評審名聲的一部分。每一項都很小，每一項都要一個世代以上。Henrich 說西方人的心理花了一千年才演化出來；我們不需要一千年，但恐怕也不是一兩任主委、一兩個五年計畫可以完成的事。</p>
+  </section>
+
+  <hr class="div">
+
+  <section id="s54">
+    <h2 class="sec"><span class="no">§6.4</span>這個框架的禮物</h2>
+    <p>寫到這裡，好像在控訴什麼。但我不想把結論寫成「儒家害了我們」。</p>
+    <p>1980 年代，當日本、台灣、南韓、香港、新加坡相繼崛起，西方學界出現了「儒家資本主義」的說法：重視教育、延遲享樂、服從群體紀律、以家庭為單位犧牲奉獻。這些在西方眼中「缺乏個人原創性」的特質，放進現代大型製造業裡，卻成了無可匹敵的競爭優勢。</p>
+    <p>西方擅長點燃普羅米修斯的火種，發明電晶體、發明網路、發明光刻機的原理；而東亞把這團火鑄成了照亮整個物質文明的精密熔爐。你手上的手機、桌上的電腦、車子裡的晶片，幾乎都經過這座熔爐。沒有「1 到 100」，「0 到 1」只會是實驗室裡的一篇論文。</p>
+    <p>這份禮物和前面談的計分表，出自同一套作業系統的不同幾行。差序格局讓評價不敢看人，只敢算分；學以致用與緊密文化（§3.2、§3.4），則讓這套心智一旦拿到一個清楚的目標，就能把它推到極致。目標是良率，就有世界第一的晶圓廠；目標是點數，就有快速膨脹的論文數。差別在於：晶圓的良率是物理世界真實的尺，把數字推到極致，就是把品質推到極致；論文點數卻只是人造的代理指標，把它推到極致，往往只是把「合乎規則的套利」推到極致。經濟學家 Goodhart 的說法常被概括成一句話：當一個指標變成目標，它就不再是好的指標。義大利引進計量門檻之後，有研究發現，學者引用本國論文的比例上升得明顯加快（§3.5 的計量門檻），作者認為這強烈暗示策略性的互相引用。這是我的推想，但它說明了為什麼同一個框架，既是我們的強項，也是我們的天花板。</p>
+    <div class="keyeq">
+      <div class="cap">同一個框架，兩種結果</div>
+      <p style="font-size:19px;margin:16px 0"><strong>它讓我們成為世界上最好的執行者，也讓我們很難成為世界上第一個想到的人。</strong></p>
+    </div>
+  </section>
+
+  <!-- ===================== Part 7 ===================== -->
+  <div class="part-divider"><div class="pp">第 七 部</div><div class="pt">App 與作業系統</div></div>
+
+  <section id="s61">
+    <h2 class="sec"><span class="no">§7.1</span>算力的巨人</h2>
+    <p class="lead">寫這篇文章的過程中，我發現自己被打臉了。</p>
+    <p>我們這一代從小被教育：讀理工醫才是聰明，讀歷史、哲學、社會學是浪費生命。工程師、醫師、會計師、律師，各種「師」站在智商鄙視鏈的頂端。</p>
+    <p>可是當我把視角拉到最高往下看：我們這些自然科學家、工程師、醫師，每天焦慮的來源、評價自己的標準、人生追求的目標，仍然在兩千年前寫好的框架裡運行，而且常常不自覺。我們能調校最先進的機台、設計最精密的實驗，但「什麼叫成功、什麼值得做」這個問題，我們多半直接載入了社會的出廠設定：比排名、算點數、光宗耀祖。<strong>在解題的算力上，我們確實頂尖；但在「看見自己正運行在什麼作業系統裡」這件事上，理工醫的訓練並沒有給我們任何優勢。</strong></p>
+    <p>用電腦來比喻：自然科學與工程，是手機裡的 App 和晶片的算力；人文社會科學，則是手機的作業系統，以及檢查作業系統原始碼的人。</p>
+    <figure class="figcard">
+      <svg style="font-family:\'Helvetica Neue\',Helvetica,Arial,\'Noto Sans TC\',\'PingFang TC\',\'Microsoft JhengHei\',sans-serif" viewBox="0 0 640 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="App、CPU、作業系統分層"><defs><filter id="sh10" x="-10%" y="-10%" width="125%" height="140%"><feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#111827" flood-opacity="0.13"/></filter></defs>
+        <rect filter="url(#sh10)" x="40" y="20" width="440" height="66" rx="5" fill="#F5D7BF" stroke="#D55E00"/>
+        <text x="60" y="47" font-size="15" fill="#C04A00" font-weight="700">App　自然科學與工程</text>
+        <text x="60" y="70" font-size="12.5" fill="#374151">晶片製程、基因編輯、蛋白質結構、AI 模型</text>
+        <rect filter="url(#sh10)" x="40" y="98" width="440" height="66" rx="5" fill="#BFE7DC" stroke="#8CD3C0"/>
+        <text x="60" y="125" font-size="15" fill="#00785A" font-weight="700">CPU　工具理性</text>
+        <text x="60" y="148" font-size="12.5" fill="#374151">在既定目標下，算得最快、做得最準</text>
+        <rect filter="url(#sh10)" x="40" y="176" width="440" height="90" rx="5" fill="#0B3C78"/>
+        <text x="60" y="204" font-size="15" fill="#F0E442" font-weight="700">作業系統　價值理性</text>
+        <text x="60" y="228" font-size="12.5" fill="#FFFFFF">什麼值得做？什麼叫成功？誰說了算？</text>
+        <text x="60" y="250" font-size="12.5" fill="#FFFFFF">（預設安裝：科舉、學以致用、差序格局）</text>
+        <path d="M600,226 L494,226" stroke="#D55E00" stroke-width="2.5" marker-end="url(#ah2)"/>
+        <defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#D55E00"/></marker></defs>
+        <text x="500" y="178" font-size="13" fill="#C04A00" font-weight="700">人文科學</text>
+        <text x="500" y="198" font-size="12.5" fill="#111827">讀原始碼、</text>
+        <text x="500" y="214" font-size="12.5" fill="#111827">做 code review</text>
+      </svg>
+      <figcaption><b>圖 9｜</b>CPU 再快，跑的也是別人寫好的作業系統。人文科學的工作，是把作業系統的原始碼打開來讀。</figcaption>
+    </figure>
+    <p>韋伯有一組區分正好說中這件事。<em class="term">工具理性</em>（Zweckrationalität）是在既定目標下找出最有效率的手段；<em class="term">價值理性</em>（Wertrationalität）是追問目標本身值不值得。我們的理工醫教育，把前者練到極致，卻很少碰後者。於是我們培養出一大群工具理性的巨人：能把別人定義好的框架算到小數點後第十位，卻很少退後一步問：「這個框架本身，是誰定的？」</p>
+  </section>
+
+  <hr class="div">
+
+  <section id="s62">
+    <h2 class="sec"><span class="no">§7.2</span>半個哲學家</h2>
+    <p>回頭翻西方科學史，會看到一件理工界不太願意承認的事：真正做出「從 0 到 1」的人，往往骨子裡是半個哲學家。</p>
+    <div class="box history">
+      <div class="label">◷ 歷史現場：三個哲學家科學家</div>
+      <p style="margin:0 0 10px"><span class="who">愛因斯坦致石里克，1915 年 12 月 14 日</span>　愛因斯坦在信中說，馬赫，尤其是休謨，對他影響很大；在發現狹義相對論前不久，他曾滿懷熱情地研讀休謨的《人性論》，若沒有那些哲學研究，他很可能找不到答案。是哲學的懷疑精神，幫他拆掉了「時間與空間是絕對的」這個全人類預設的框架。</p>
+      <p style="margin:0 0 10px"><span class="who">波耳的紋章，1947</span>　量子力學奠基者波耳獲頒丹麥最高的大象勳章時，自己設計的紋章中央放的是太極圖，下方的拉丁文寫著 <em>Contraria sunt complementa</em>，對立即互補。</p>
+      <p style="margin:0"><span class="who">PhD，Doctor of Philosophy</span>　直到今天，英語世界的物理、化學、生物博士，學位名稱仍然是「哲學博士」。當科學走到最前沿的無人區，比拚的不再是算力，而是懷疑與拆解既有框架的能力，那正是哲學的本行。</p>
+    </div>
+    <p>經濟學家凱因斯在 1936 年的《就業、利息和貨幣通論》最後一章寫過一段很有名的話：</p>
+    <div class="box intuition">
+      <div class="label">▸ John Maynard Keynes，1936</div>
+      <p style="margin:0"><em>"Practical men, who believe themselves to be quite exempt from any intellectual influences, are usually the slaves of some defunct economist."</em></p>
+      <p style="margin:8px 0 0">那些自認完全不受任何思想影響的實幹家，通常是某位已故經濟學家的奴隸。</p>
+    </div>
+    <p>凱因斯說的是經濟學家。把「已故經濟學家」換成「兩千多年前的思想家」，用在今天台灣與中國的大學與晶圓廠，一樣準確。</p>
+  </section>
+
+  <!-- ===================== 終章 ===================== -->
+  <div class="part-divider"><div class="pp">終 章</div><div class="pt">看見牢籠</div></div>
+
+  <section id="finale">
+    <h2 class="sec"><span class="no"></span>無法治癒，但仍然可以寫作</h2>
+    <p class="lead">讓我們回到那對分開長大的雙胞胎。</p>
+    <p>台灣與中國分開七十多年，一個走向民主，一個維持黨國；兩邊都花了巨大的力氣改革大學、追趕國際、建立產業。最後，他們長出了同一張計分表、同一頂帽子、同一種強項、同一個缺口。就像那兩個叫 Jim 的男人，各自長大，卻都養了一隻叫 Toy 的狗。</p>
+    <p>雙胞胎研究告訴我們，環境不同而習慣相同時，答案在身體裡。台灣與中國的故事告訴我們，制度不同而模式相同時，答案至少有一部分在腦袋裡：在那些抄不過來、改變得很慢的價值裡。</p>
+    <p>計分表的出現，有很多原因。但它為什麼改不掉、為什麼每次改革最後都回到原點，我認為主因在思想：在一個陌生人沒有道德位置的倫理裡，人的判斷預設會被懷疑，數字就成了唯一大家都能接受的裁判。</p>
+    <div class="tbl-wrap">
+    <table>
+      <caption>表 8｜學習總結：這篇文章的八個論點</caption>
+      <thead><tr><th>#</th><th>論點</th><th>證據</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="field">台灣與中國制度不同，卻收斂到相同模式</td><td class="field">計分表、帽子、1 到 100 的強項、本土諾獎缺口</td></tr>
+        <tr><td>2</td><td class="field">同樣的制度外殼，不同思想跑出不同結果</td><td class="field">美國也算論文、找經費，最後卻是人來拍板</td></tr>
+        <tr><td>3</td><td class="field">換的不是制度，而是思想圈</td><td class="field">八位華人得主全在歐美；帶回來的評價精神被改了形狀</td></tr>
+        <tr><td>4</td><td class="field">原始碼寫了一千三百年</td><td class="field">科舉、學以致用、差序格局、稻作心智</td></tr>
+        <tr><td>5</td><td class="field">判斷缺席，是因為在特殊主義的倫理下，人的判斷預設被懷疑</td><td class="field">唐行卷 → 宋糊名；數字是評審的面具；美國也有學閥，但偏私被視為違規</td></tr>
+        <tr><td>6</td><td class="field">看錯的代價記在誰身上，決定敢不敢判斷</td><td class="field">台灣・中國：舉主連坐、斬考官、升等可訴；美國：AAUP、法院尊重學術判斷</td></tr>
+        <tr><td>7</td><td class="field">制度帶回來了，卻被接縫改了形狀</td><td class="field">四個結（比較、追究、金錢、規則的維持）台灣與中國都有，綁法不同；美國在同樣位置各有一把鑰匙；日本黃金時期則用另一串鑰匙：長期信任與穩定經費</td></tr>
+        <tr><td>8</td><td class="field">病在土壤，不在人；知道病因，卻只能延緩</td><td class="field">華人到美國就好、美國人來台灣、中國就犯；只有飛地有效，且無法推廣</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>那我們能做什麼？</p>
+    <p>老實說，框架卸載不了。我們明年大概還是會填表、算點數、追頭銜。牢籠不會因為你看見它就消失。</p>
+    <p>但我想起另一位漸凍人。1963 年，一位二十一歲的劍橋研究生被診斷出漸凍症，醫師說他大概只剩兩年。他的病沒有被治好，一天比一天更不能動，最後只能靠臉頰一條肌肉操作電腦說話。可是他活了五十多年，寫出了《時間簡史》，改變了人類對黑洞的理解。他叫霍金。</p>
+    <p>霍金沒有治好他的病。他只是比任何人都清楚自己的病，然後在病的限制裡，做了一件從 0 到 1 的事。</p>
+    <p>看見牢籠和看不見牢籠，是兩種完全不同的人生。看得見的人至少知道，那張表格不是衡量真理與生命的唯一尺度；也知道下一次有年輕人問「做什麼題目才能升等」時，可以多說一句：「先想想，什麼題目讓你十年不升等也甘願。」硤合憲三磨了三十年，才等到那通來自斯德哥爾摩的電話。如果你剛好坐在評審席上，也許可以在某一次、某一個值得的人身上，摘下面具一次。</p>
+    <p>以前我以為人文科學是浪費生命。現在我才明白，它是讀懂自己腦袋原始碼最好的工具。<strong>自然科學讓我們看見世界；人文科學讓我們看見，是誰在替我們看世界。</strong></p>
+    <p class="theend" style="text-align:center">—— 完 ——</p>
+  </section>
+
+  <hr class="div">
+
+  <section id="reading">
+    <span class="part-tag">延伸閱讀</span>
+    <h2 class="sec">讀原始碼的工具書</h2>
+    <p class="lead">這篇文章引用的想法，都來自比我深刻得多的人。想繼續挖下去，可以從這裡開始。</p>
+    <ul class="reading">
+      <li><span class="bk">Theodore M. Porter，《Trust in Numbers: The Pursuit of Objectivity in Science and Public Life》</span>（Princeton, 1995）。為什麼不被信任的人，最需要數字。第四部的理論核心。</li>
+      <li><span class="bk">Francis Fukuyama，《Trust: The Social Virtues and the Creation of Prosperity》</span>（1995）。高信任與低信任社會。</li>
+      <li><span class="bk">Delhey, Newton &amp; Welzel，〈How General Is Trust in "Most People"? Solving the Radius of Trust Problem〉</span>，American Sociological Review，2011。</li>
+      <li><span class="bk">反思會議工作小組編，《全球化與知識生產：反思台灣學術評鑑》</span>（台灣社會研究雜誌社，2005）。收錄葉啟政〈缺乏社會現實感的指標性評鑑迷思〉、陳世敏〈SSCI 症候群〉等文，是台灣學界對計分評鑑最早、最完整的集體反省。</li>
+      <li><span class="bk">費孝通，《鄉土中國》</span>（1947）。「差序格局」的出處。</li>
+      <li><span class="bk">黃光國，《人情與面子》</span>。華人社會的人情法則。</li>
+      <li><span class="bk">王定保，《唐摭言》</span>。唐代科舉的行卷、溫卷與杜牧第五名的故事。</li>
+      <li><span class="bk">余英時，《中國近世宗教倫理與商人精神》</span>（1987）；<span class="bk">Max Weber，《儒教與道教》</span>（1915）。</li>
+      <li><span class="bk">Joseph Henrich，《The WEIRDest People in the World》</span>（2020）。</li>
+      <li><span class="bk">Talhelm 等，〈Large-Scale Psychological Differences Within China Explained by Rice Versus Wheat Agriculture〉</span>，Science，2014。</li>
+      <li><span class="bk">Gelfand 等，〈Differences Between Tight and Loose Cultures〉</span>，Science，2011；<span class="bk">Chua, Huang, Jin 等，〈Mapping Cultural Tightness and Its Links to Innovation, Urbanization, and Happiness Across 31 Provinces in China〉</span>，PNAS，2019。</li>
+      <li><span class="bk">Fernand Braudel，〈歷史與社會科學：長時段〉</span>（1958）；<span class="bk">托克維爾，《舊制度與大革命》</span>（1856）。</li>
+      <li><span class="bk">DiMaggio &amp; Powell，〈The Iron Cage Revisited〉</span>，American Sociological Review，1983。</li>
+      <li><span class="bk">Acemoglu &amp; Robinson，《國家為什麼會失敗》</span>（2012）。制度派最有力的論證，值得對照著讀。</li>
+      <li><span class="bk">施一公、饒毅，〈China's Research Culture〉</span>，Science，2010。</li>
+      <li><span class="bk">Jerry Z. Muller，《The Tyranny of Metrics》</span>（2018）。指標如何反過來綁架組織。</li>
+    </ul>
+  </section>
+
+  <hr class="div">
+
+  <section id="sources">
+    <span class="part-tag">資料來源</span>
+    <h2 class="sec">本文主要依據</h2>
+    <p class="lead">文中的數據與史實，主要依據以下資料。延伸閱讀中的書籍與論文不再重複列出。</p>
+    <h3>序章</h3>
+    <ul class="reading">
+      <li><a href="https://mctfr.psych.umn.edu/other-twin-research/other-twin-research-umn" target="_blank" rel="noopener" style="color:var(--teal)">明尼蘇達大學雙胞胎與家庭研究中心：分開撫養雙胞胎研究與 Jim 雙胞胎</a></li>
+      <li><a href="https://aeon.co/essays/what-do-twin-studies-really-say-about-identity-and-genetics" target="_blank" rel="noopener" style="color:var(--teal)">Aeon：What do twin studies really say about identity and genetics（對 Jim 雙胞胎巧合的保留意見）</a></li>
+    </ul>
+    <h3>第一部</h3>
+    <ul class="reading">
+      <li><a href="https://www.yzwb.net/news/jy/202603/t20260331_337383.html" target="_blank" rel="noopener" style="color:var(--teal)">揚子晚報：中科院文獻情報中心 2026 年 3 月 27 日宣布不再更新期刊分區表</a></li>
+      <li><a href="https://casrai.org/guides/china-five-onlys-cas-journal-classification-table" target="_blank" rel="noopener" style="color:var(--teal)">CASRAI：「破五唯」與中科院期刊分區表</a></li>
+      <li><a href="https://me.seu.edu.cn/_upload/article/bd/5b/3dd92b044b2a9227fdf1006cd672/fd018921-3634-47d1-a430-5ba696f46f5f.pdf" target="_blank" rel="noopener" style="color:var(--teal)">東南大學〈教師崗位考核積分辦法（修訂）〉，2009（校通知〔2009〕88 號）</a></li>
+      <li><a href="https://www.nju.edu.cn/info/3191/234751.htm" target="_blank" rel="noopener" style="color:var(--teal)">南京大學：從引入到改革，SCI 指標如何影響中國科研評價</a></li>
+      <li><a href="https://physicsworld.com/a/study-reveals-cash-for-papers-rewards-in-china/" target="_blank" rel="noopener" style="color:var(--teal)">Physics World：中國大學論文現金獎勵研究（Quan, Chen & Shu, 2017）</a></li>
+      <li><a href="https://www.sinoss.net/c/2018-10-25/495293.shtml" target="_blank" rel="noopener" style="color:var(--teal)">中國社會科學網：科技部、教育部等部門清理「唯論文、唯職稱、唯學歷、唯獎項」（2018）</a></li>
+      <li><a href="https://www.science.org/doi/pdf/10.1126/science.1196916" target="_blank" rel="noopener" style="color:var(--teal)">Shi & Rao, China’s Research Culture, Science, 2010</a></li>
+      <li><a href="https://papers.ssrn.com/abstract=3392893" target="_blank" rel="noopener" style="color:var(--teal)">Chua, Huang & Jin, PNAS 2019：中國 31 省文化緊密度與創新</a></li>
+      <li><a href="https://www.nippon.com/en/japan-data/h02923/" target="_blank" rel="noopener" style="color:var(--teal)">Nippon.com：日本諾貝爾獎得主一覽（含 2026 年硤合憲三）</a></li>
+    </ul>
+    <h3>第二部</h3>
+    <ul class="reading">
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3997396" target="_blank" rel="noopener" style="color:var(--teal)">Ward, Mamerow &amp; Meyer, Interpersonal Trust across Six Asia-Pacific Countries, PLoS ONE, 2014（對福山高／低信任理論的檢驗）</a></li>
+      <li><a href="https://hhmi.org/investigators" target="_blank" rel="noopener" style="color:var(--teal)">HHMI Investigator Program（people, not projects；七年一期）</a></li>
+      <li><a href="https://www.claremontmckenna.edu/dean-of-faculty/faculty-forms-and-resources/external-evaluators" target="_blank" rel="noopener" style="color:var(--teal)">Claremont McKenna College：Arm’s-Length 外部評審的選任原則</a></li>
+      <li><a href="https://medicine.uky.edu/sites/faculty/external-reviewer-guidelines" target="_blank" rel="noopener" style="color:var(--teal)">University of Kentucky：升等與終身職外部評審指引</a></li>
+      <li><a href="https://minneapolisfed.org/article/1995/trust-the-social-virtues-and-the-creation-of-prosperity" target="_blank" rel="noopener" style="color:var(--teal)">Minneapolis Fed：Fukuyama《Trust》書評（高信任與低信任社會）</a></li>
+      <li><a href="https://eastasiaforum.org/2023/12/29/japans-university-fund-is-ill-equipped-to-stem-decline-in-research-performance/" target="_blank" rel="noopener" style="color:var(--teal)">East Asia Forum：日本研究表現下滑</a></li>
+    </ul>
+    <h3>第三部</h3>
+    <ul class="reading">
+      <li><a href="https://ericdata.com/tw/detail.aspx?no=48784" target="_blank" rel="noopener" style="color:var(--teal)">郭為藩〈「公共道德」概念試析〉，《教育研究集刊》第 27 期，1985（記述李國鼎 1981 年提出「第六倫」）</a></li>
+      <li><a href="https://www.aisixiang.com/data/29032.html" target="_blank" rel="noopener" style="color:var(--teal)">費孝通〈維繫著私人的道德〉（《鄉土中國》；團體格局與「神前平等」）</a></li>
+      <li><a href="https://repec.cepr.org/repec/cpr/ceprdp/DP9072.pdf" target="_blank" rel="noopener" style="color:var(--teal)">Greif &amp; Tabellini, The Clan and the City: Sustaining Cooperation in China and Europe（有限道德與普遍道德）</a></li>
+      <li><a href="https://www.nber.org/papers/w17572" target="_blank" rel="noopener" style="color:var(--teal)">Durante, Labartino &amp; Perotti, Academic Dynasties: Decentralization and Familism in the Italian Academia（NBER w17572）</a></li>
+      <li><a href="https://arxiv.org/pdf/1904.04708" target="_blank" rel="noopener" style="color:var(--teal)">Baccini, De Nicolao &amp; Petrovich, Citation gaming induced by bibliometric evaluation（義大利 ASN 計量門檻）</a></li>
+      <li><a href="https://ifo.de/DocDL/dicereport204-forum3.pdf" target="_blank" rel="noopener" style="color:var(--teal)">Roland, Institutions and Economic Performance: Fast-moving and Slow-moving Institutions, CESifo DICE Report, 2004</a></li>
+      <li><a href="https://ideas.repec.org/a/tpr/jeurec/v6y2008i2-3p255-294.html" target="_blank" rel="noopener" style="color:var(--teal)">Tabellini, Institutions and Culture, Journal of the European Economic Association, 2008</a></li>
+      <li><a href="https://scholarship.law.columbia.edu/faculty_scholarship/2449" target="_blank" rel="noopener" style="color:var(--teal)">Pistor, Berkowitz &amp; Richard, Economic Development, Legality, and the Transplant Effect</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/The_Religion_of_China" target="_blank" rel="noopener" style="color:var(--teal)">Weber《儒教與道教》及其批評</a></li>
+      <li><a href="https://zh.wikisource.org/wiki/%E6%BC%A2%E6%9B%B8/%E5%8D%B7006" target="_blank" rel="noopener" style="color:var(--teal)">《漢書・武帝紀》贊：「孝武初立，卓然罷黜百家，表章六經」</a></li>
+      <li><a href="https://www.rujiazg.com/article/16382" target="_blank" rel="noopener" style="color:var(--teal)">丁四新〈近四十年「罷黜百家，獨尊儒術」問題研究的三個階段〉，《衡水學院學報》2019 年第 3 期（口號出處與史學爭論）</a></li>
+    </ul>
+    <h3>第四部</h3>
+    <ul class="reading">
+      <li><a href="https://scholarlykitchen.sspnet.org/2018/09/26/the-rise-of-peer-review-melinda-baldwin-on-the-history-of-refereeing-at-scientific-journals-and-funding-bodies/" target="_blank" rel="noopener" style="color:var(--teal)">The Scholarly Kitchen：Melinda Baldwin 談同行審查的歷史（Nature 1973 年才系統性外審）</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Teng_Ssu-y%C3%BC" target="_blank" rel="noopener" style="color:var(--teal)">鄧嗣禹〈Chinese Influence on the Western Examination System〉，Harvard Journal of Asiatic Studies 7（1942–43）</a></li>
+      <li><a href="https://lexmea.de/de/gesetz/hg-nrw/38" target="_blank" rel="noopener" style="color:var(--teal)">北萊茵－西發利亞邦高等教育法 § 38（遴選委員會與兩份外校比較性鑑定）</a></li>
+      <li><a href="https://www.uni-marburg.de/de/universitaet/administration/recht/satzung/merkblatt-hausberufungen_2020-1.pdf" target="_blank" rel="noopener" style="color:var(--teal)">馬堡大學〈內部聘任須知〉（黑森邦高教法 § 63 第 4 項：本校成員僅在有理由的例外情形下聘任）</a></li>
+      <li><a href="https://blogs.lse.ac.uk/impactofsocialsciences/2015/07/09/metric-tide-is-rising-hefcemetrics-report/" target="_blank" rel="noopener" style="color:var(--teal)">Wilsdon：The Metric Tide（2015）摘要，LSE Impact Blog</a></li>
+      <li><a href="https://uia.brage.unit.no/uia-xmlui/bitstream/handle/11250/2732205/Seeber.pdf?sequence=7" target="_blank" rel="noopener" style="color:var(--teal)">Seeber &amp; Mampaey, How do university systems’ features affect academic inbreeding?, Higher Education Quarterly, 2021</a></li>
+      <li><a href="https://www.weforum.org/agenda/2016/12/if-you-live-in-a-nordic-country-then-you-probably-trust-others-a-mediterranean-country-forget-it" target="_blank" rel="noopener" style="color:var(--teal)">World Economic Forum：OECD Society at a Glance 2016 的人際信任數據</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/The_Protestant_Sects_and_the_Spirit_of_Capitalism" target="_blank" rel="noopener" style="color:var(--teal)">Weber〈新教教派與資本主義精神〉</a></li>
+      <li><a href="https://news.harvard.edu/gazette/story/2019/11/roman-catholic-church-ban-in-the-middle-ages-loosened-family-ties" target="_blank" rel="noopener" style="color:var(--teal)">Harvard Gazette：Schulz, Bahrami-Rad, Beauchamp &amp; Henrich, The Church, intensive kinship, and global psychological variation, Science, 2019</a></li>
+      <li><a href="https://www.aisixiang.com/data/112894.html" target="_blank" rel="noopener" style="color:var(--teal)">張國剛〈論「唐宋變革」的時代特征〉（內藤湖南唐宋變革論：貴族政治衰落、君主獨裁興起）</a></li>
+      <li><a href="https://journals.sagepub.com/doi/10.1177/0003122411420817" target="_blank" rel="noopener" style="color:var(--teal)">Delhey, Newton & Welzel, How General Is Trust in “Most People”?, American Sociological Review, 2011</a></li>
+      <li><a href="https://booksandideas.net/Academic-inbreeding-new-estimates" target="_blank" rel="noopener" style="color:var(--teal)">Books & Ideas：Academic inbreeding: new estimates（2026）</a></li>
+      <li><a href="https://bmcmededuc.biomedcentral.com/articles/10.1186/s12909-021-02744-2/tables/1" target="_blank" rel="noopener" style="color:var(--teal)">BMC Medical Education：Hofstede 權力距離分數表</a></li>
+      <li><a href="https://www.law.cornell.edu/supremecourt/text/474/214" target="_blank" rel="noopener" style="color:var(--teal)">Regents of the University of Michigan v. Ewing, 474 U.S. 214 (1985)</a></li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4644075" target="_blank" rel="noopener" style="color:var(--teal)">Clauset, Arbesman & Larremore, Systematic inequality and hierarchy in faculty hiring networks, Science Advances, 2015</a></li>
+      <li><a href="https://insight.kellogg.northwestern.edu/article/when_the_experts_are_biased" target="_blank" rel="noopener" style="color:var(--teal)">Kellogg Insight：Danielle Li 的 NIH 審查研究（Expertise versus Bias in Evaluation）</a></li>
+      <li><a href="https://www.govinfo.gov/link/cfr/42/52h.3" target="_blank" rel="noopener" style="color:var(--teal)">42 CFR 52h.3：NIH 研究計畫審查的利益衝突與迴避規定</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Mertonian_norms" target="_blank" rel="noopener" style="color:var(--teal)">Mertonian norms（Merton 1942，科學的普遍主義規範）</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Trompenaars%27s_model_of_national_culture_differences" target="_blank" rel="noopener" style="color:var(--teal)">Trompenaars 文化維度模型（普遍主義與特殊主義）</a></li>
+      <li><a href="https://laws.gov.taipei/law/Interpretation/Content/FE266717" target="_blank" rel="noopener" style="color:var(--teal)">教育部 2001 年令（提及 1999 年函請各校配合釋字第 462 號建立申覆及申訴救濟制度）</a></li>
+      <li><a href="https://lawyer.get.com.tw/Justices/detail.aspx?no=25547" target="_blank" rel="noopener" style="color:var(--teal)">司法院釋字第 462 號解釋（1998）</a></li>
+      <li><a href="https://journal.hep.com.cn/fhc/EN/1159637352136106596" target="_blank" rel="noopener" style="color:var(--teal)">漢代官員不稱職與舉主連帶責任（Frontiers of History in China 摘要）</a></li>
+    </ul>
+    <h3>第五部</h3>
+    <ul class="reading">
+      <li><a href="https://www.timeshighereducation.com/node/721809" target="_blank" rel="noopener" style="color:var(--teal)">Times Higher Education：China’s promised research reform “little more than PR exercise”（2022，引 Shu 等，Minerva）</a></li>
+      <li><a href="https://regs.nsysu.edu.tw/rule/file/202401051414530024.pdf" target="_blank" rel="noopener" style="color:var(--teal)">國立中山大學某學院教師升等審查辦法（外審五人、百分制、門檻與「視為升等不通過」）</a></li>
+      <li><a href="https://www.personnel.ntu.edu.tw/001/Upload/2/relfile/10036/5155/b7ef502b-42ac-4c62-aacf-879553f86785.pdf" target="_blank" rel="noopener" style="color:var(--teal)">國立台灣大學教師著作審查意見表（分數制，及格底線 70 分）</a></li>
+      <li><a href="https://www.storm.mg/article/32792" target="_blank" rel="noopener" style="color:var(--teal)">風傳媒：假發票案解套，公立大學教授不適用貪污罪（2014）</a></li>
+      <li><a href="https://ber.ed.ntnu.edu.tw/issues_article/489" target="_blank" rel="noopener" style="color:var(--teal)">曾建元、陳錫鋒：從政府改造論大學行政法人化之問題（教育研究集刊）</a></li>
+      <li><a href="https://www.cla.purdue.edu/facultyStaff/head-handbook/documents/sample_letter_to_outside_reviewers_of_candidates_under_consi.pdf" target="_blank" rel="noopener" style="color:var(--teal)">Purdue University：致外部評審的升等邀請信範本（比較相近職涯階段者、評審身分保密）</a></li>
+      <li><a href="https://academicpersonnel.asu.edu/sites/default/files/guide-preparing-external-letters.pdf" target="_blank" rel="noopener" style="color:var(--teal)">Arizona State University：外部評審信撰寫指引（與同領域同階段者比較）</a></li>
+      <li><a href="https://www.aaup.org/report/imposition-tenure-quotas" target="_blank" rel="noopener" style="color:var(--teal)">AAUP：The Imposition of Tenure Quotas（反對終身職配額）</a></li>
+      <li><a href="https://www.sjf.edu/services/sponsored-programs/policies/guidance-on-nsf-salary-policy/" target="_blank" rel="noopener" style="color:var(--teal)">NSF 薪資政策說明（每年最多兩個月薪資、九個月聘約）</a></li>
+      <li><a href="https://www.uh.edu/research/sponsored-projects/proc-pol-guide/indirect-costs/idc-returns/" target="_blank" rel="noopener" style="color:var(--teal)">University of Houston：間接經費分配（學院 56%、系所 44%）</a></li>
+      <li><a href="https://hznews.hangzhou.com.cn/chengshi/content/2018-01/10/content_6769130.htm" target="_blank" rel="noopener" style="color:var(--teal)">杭州網：施一公請辭清華大學副校長，全職執掌西湖大學（2018）</a></li>
+      <li><a href="https://per.nfu.edu.tw/uploads/ezfiles/2432562.pdf" target="_blank" rel="noopener" style="color:var(--teal)">國立虎尾科技大學教師升等審查辦法（系、院、校三級評審制）</a></li>
+      <li><a href="https://www.thecrimson.com/article/2025/4/2/harvard-indirect-cost-rate-explained/" target="_blank" rel="noopener" style="color:var(--teal)">The Harvard Crimson：Harvard’s Indirect Cost Rate, Explained（2025）</a></li>
+      <li><a href="https://casrai.org/guides/nih-indirect-cost-policy" target="_blank" rel="noopener" style="color:var(--teal)">CASRAI：NIH indirect cost policy 與 15% 上限遭法院禁制</a></li>
+      <li><a href="https://www.cna.com.tw/news/ahel/202311060092.aspx" target="_blank" rel="noopener" style="color:var(--teal)">中央社：擴大教授彈性薪資（2023，含教育部估計薪資差距與審計部數據）</a></li>
+      <li><a href="https://www.sinoss.net/c/2017-11-14/495194.shtml" target="_blank" rel="noopener" style="color:var(--teal)">中國社會科學網：《高等學校教師職稱評審監管暫行辦法》（2017，岗位结构比例內自主評審）</a></li>
+    </ul>
+    <h3>第六部</h3>
+    <ul class="reading">
+      <li><a href="https://ideas.repec.org/a/nat/nature/v492y2012i7427d10.1038_492034a.html" target="_blank" rel="noopener" style="color:var(--teal)">Nicholson & Ioannidis, Conform and be funded, Nature, 2012</a></li>
+      <li><a href="https://www.oist.jp/news-center/news/2019/6/20/oist-world-leader-according-new-nature-index" target="_blank" rel="noopener" style="color:var(--teal)">OIST：Nature Index 2019 規模校正排名全球第 9</a></li>
+      <li><a href="https://alsnetwork.org/fda-grants-accelerated-approval-for-qalsody-tofersen-for-sod1-als-a-major-scientific-advancement-as-the-first-treatment-to-target-a-genetic-cause-of-als/" target="_blank" rel="noopener" style="color:var(--teal)">ALS Network：FDA 核准 tofersen（2023）</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Westlake_University" target="_blank" rel="noopener" style="color:var(--teal)">Westlake University（西湖大學）</a></li>
+    </ul>
+  </section>
+
+<footer>
+  <p><strong>何恭之</strong>　Kung-Chu Ho, MD, PhD</p>
+  <p>另見：<a href="https://kungchuho.github.io/e-and-i/zh.html" style="color:var(--teal)">《自然界的 e，生活中的 i》</a></p>
+  <p>本文採用 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="noopener" style="color:var(--teal)">CC BY 4.0</a> 授權，歡迎轉載，請標注出處。</p>
+</footer>
+</div>
+
+</body>
+</html>
